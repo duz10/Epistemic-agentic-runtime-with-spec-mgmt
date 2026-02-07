@@ -27,6 +27,8 @@
 - 🎫 **Token Coordination** — Clear tracking of what needs to be done
 - ↩️ **Rollback Procedures** — Every change can be undone
 - 📓 **Journal Checkpoints** — Never lose context
+- 🔗 **Artifact Coupling** — Every action traces back to the spec
+- 🚨 **Drift Detection** — Automatic checks prevent goal drift
 
 ---
 
@@ -126,6 +128,16 @@ Before a goal becomes actionable, it must pass:
 5. ✅ **Lens Agreement** — Multiple perspectives approve?
 6. ✅ **Evidence Grounding** — Based on actual data, not assumptions?
 
+### Automatic Behaviors
+
+Agents following ELCS automatically:
+
+- **Update state** when decisions are made or evidence gathered
+- **Create WorkTokens** when questions arise or work is blocked
+- **Write checkpoints** at milestones and before risky actions
+- **Check for drift** when scope grows or confusion arises
+- **Scale rigor to risk** — quick questions get light process, architecture changes get full ceremony
+
 ### The 7 Lenses (Multiple Perspectives)
 
 | Lens | What It Checks |
@@ -194,6 +206,7 @@ ELCS grows with your needs:
 | **C** | Coalitions with contracts | Complex multi-domain work |
 | **D** | Metric-driven emergence | Large-scale coordination |
 | **E** | Formal spaces + topology | Research, framework development |
+| **Anti-Drift** | Built-in invariants | All stages — prevents "cone shrinkage" |
 
 **Rule:** Only escalate when simple fails.
 
@@ -215,6 +228,7 @@ ELCS is inspired by:
 4. **Lenses provide perspectives** — No single point of authority
 5. **Tokens coordinate work** — Stigmergic, not hierarchical
 6. **Proportional rigor** — Scale ceremony to risk
+7. **Explainable progress** — "We did X because it reduced Y"
 
 ---
 

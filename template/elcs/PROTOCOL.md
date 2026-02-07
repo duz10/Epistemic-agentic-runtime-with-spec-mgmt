@@ -433,6 +433,88 @@ Write a journal checkpoint when:
 
 ---
 
+## 🔗 Scaling Readiness (Anti-Drift Invariants)
+
+As projects grow, these invariants prevent "cone shrinkage" — where agents optimize locally while drifting from the shared objective.
+
+### Invariant A: Artifact Coupling
+
+**Every significant action must be traceable to the spec.**
+
+When you:
+- Make a decision → Document which spec objective it serves
+- Create a file → Note which success criterion it addresses
+- Complete a task → Reference the spec phase/task ID
+
+Example in checkpoint:
+```markdown
+## Decisions Made
+- Chose SQLite over PostgreSQL
+  - Serves: Objective "simple learning project"
+  - Spec ref: Phase 1, Constraint C2 (no external deps)
+```
+
+**Why:** If you can't explain how work connects to the spec, you may be drifting.
+
+### Invariant B: Explainable Progress
+
+**You must be able to say: "We did X because it reduced Y."**
+
+At any point, the system should be able to explain:
+- What distance was reduced (criteria remaining, risks, gaps)
+- What evidence supports the decision
+- What constraints were respected
+
+If you can't explain progress, STOP and:
+1. Re-read the spec
+2. Check if you're still on track
+3. Create a checkpoint documenting confusion
+
+### Identity Check (Drift Detection)
+
+**Periodically ask: "Are we still pursuing the original objective?"**
+
+Create an identity check WorkToken when:
+- 🔴 Scope has grown significantly beyond original spec
+- 🔴 Success criteria have changed without explicit approval
+- 🔴 You're spending time on things not in any spec phase
+- 🔴 The user seems confused about what we're building
+
+Identity check token:
+```json
+{
+  "type": "question",
+  "summary": "Identity check: Are we still aligned with original objective?",
+  "priority": 0.9
+}
+```
+
+### Coalition Readiness (Multi-Agent)
+
+When multiple agents will work on this project:
+
+1. **Each agent documents its cone** — What spaces/files it works in
+2. **Handoffs are explicit** — Create WorkToken, don't assume
+3. **Validators can block** — Security/test agents have veto power
+4. **Shared constraints are binding** — All agents respect spec constraints
+
+For full coalition protocol, see `docs/scaling-stages.md`.
+
+### Scaling Signals
+
+**Escalate complexity only when you see repeated failures:**
+
+| Signal | Action |
+|--------|--------|
+| High token duplication | Add named spaces (L2) |
+| Frequent drift incidents | Add distance vector (L1) |
+| Topology lens unclear | Add formal transforms (L3) |
+| Cross-project patterns | Extract reusable spaces (L4) |
+
+**Default:** Stay at the simplest level that works.
+
+---
+
 ## 🔍 Self-Check Protocol
 
 Periodically verify ELCS is being followed correctly.

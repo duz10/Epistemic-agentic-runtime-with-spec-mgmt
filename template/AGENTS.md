@@ -30,6 +30,7 @@ Read `elcs/PROTOCOL.md` for complete instructions including:
 - WorkToken coordination
 - Rollback procedures
 - Self-check protocol
+- Scaling invariants (artifact coupling, explainable progress)
 
 ## Quick Reference
 
