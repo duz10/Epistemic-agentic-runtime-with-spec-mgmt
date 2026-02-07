@@ -68,13 +68,14 @@ cursor .          # or: code . / windsurf . / claude
 #### Option 2: Use the Generator CLI
 
 ```bash
-# Using uvx (no installation needed)
-uvx create-elcs my-new-project
+# Install from GitHub (until PyPI release)
+pip install git+https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git#subdirectory=generator
 
-# Or install globally
-pip install create-elcs
+# Create a new project
 create-elcs my-new-project
 ```
+
+*Note: `uvx create-elcs` will work once published to PyPI.*
 
 #### Option 3: Manual Setup
 
@@ -82,6 +83,41 @@ create-elcs my-new-project
 2. Copy `PROTOCOL.md` and `QUICKSTART.md` from this repo's template
 3. Add the appropriate bootstrap file (`CLAUDE.md`, `AGENTS.md`, etc.)
 4. Start your AI agent — it will read the bootstrap and follow ELCS
+
+#### Option 4: Adopt into Existing Project
+
+Already have a project? Use the install script:
+
+**Mac/Linux:**
+```bash
+# Clone ELCS (one time)
+git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
+
+# Install into your existing project
+./Epistemic-agentic-runtime-with-spec-mgmt/install.sh ~/path/to/my-project
+```
+
+**Windows:**
+```powershell
+# Clone ELCS (one time)
+git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
+
+# Install into your existing project
+.\Epistemic-agentic-runtime-with-spec-mgmt\install.ps1 -TargetDir C:\path\to\my-project
+```
+
+**What the script does:**
+- Copies bootstrap files (CLAUDE.md, AGENTS.md, .cursorrules, etc.)
+- Adds protocol reference files to `.elcs-ref/`
+- Does NOT create `elcs/` folder yet (the agent does that)
+
+**What happens next:**
+1. Open your project in your AI agent
+2. The agent reads the bootstrap file
+3. It scans your codebase and creates `elcs/` with inferred state
+4. You review and confirm, then continue working!
+
+**No restructuring required** — ELCS lives in its own folder and doesn't touch your existing code.
 
 ### Your First Session
 

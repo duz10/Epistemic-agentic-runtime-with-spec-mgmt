@@ -68,3 +68,6 @@ node_modules/
 # ELCS-specific (don't commit actual project state from dev)
 # But DO commit template files
 test-*/
+
+# Reference folder created by install script
+.elcs-ref/
