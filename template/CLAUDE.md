@@ -4,17 +4,105 @@
 
 ## Step 1: Check for ELCS
 
-First, check if this project uses ELCS:
+First, check the ELCS status of this project:
 
 ```
-Does elcs/ folder exist?
-├── YES → This is an ELCS project. Go to Step 2.
-└── NO  → This is NOT an ELCS project. Go to Step 3.
+Check for elcs/ folder and state:
+
+1. Does elcs/ folder exist?
+   ├── NO  → Go to Step 3 (Non-ELCS Project)
+   └── YES → Check elcs/state/current.json
+
+2. Read elcs/state/current.json - what is the status?
+   ├── "status": "awaiting_agent_scan" → Go to Step 2A (Needs Population)
+   └── Any other status               → Go to Step 2B (Active ELCS Project)
 ```
 
 ---
 
-## Step 2: ELCS Project (elcs/ exists)
+## Step 2A: ELCS Installed but Needs Population
+
+The ELCS structure was created by the install script, but state hasn't been populated yet.
+
+**Your job: Scan the project and populate the state files.**
+
+### Scan the Project
+
+Look for and read:
+- `README.md` — Project description, goals
+- `package.json` / `pyproject.toml` / `Cargo.toml` — Project metadata
+- `src/` or main code directories — What's already built
+- Any existing documentation
+
+### Populate State Files
+
+Update `elcs/state/current.json`:
+```json
+{
+  "project_name": "[from package.json or folder name]",
+  "project_type": "[web app, CLI, library, API, etc.]",
+  "tech_stack": ["language", "framework", "etc."],
+  "adopted_at": "[keep existing timestamp]",
+  "stage": 1,
+  "status": "active",
+  "assumptions": [
+    {"id": "A1", "text": "[inferred from README]", "status": "needs_review"},
+    {"id": "A2", "text": "[inferred from code]", "status": "needs_review"}
+  ],
+  "hypotheses": [],
+  "evidence": [
+    {"id": "E1", "type": "observation", "summary": "[what you found scanning]"}
+  ],
+  "constraints": [
+    {"id": "C1", "text": "[inferred from project setup]", "status": "needs_review"}
+  ],
+  "notes": "State populated by agent scan on [date]"
+}
+```
+
+Update `elcs/state/assumptions.md` with your findings.
+
+### Create Population Checkpoint
+
+Write `elcs/journal/checkpoint-001-populated.md`:
+```markdown
+# Checkpoint 001: State Populated
+
+**Date**: [today]
+**Stage**: 1 (Initial State)
+
+## Project Summary
+- Name: [project name]
+- Type: [type]
+- Stack: [technologies]
+
+## What I Found
+- [Key observations from scanning]
+
+## Inferred Assumptions (Need Review)
+- A1: [assumption]
+- A2: [assumption]
+
+## Next Steps
+- Review assumptions with user
+- Define explicit goals and success criteria
+```
+
+### Confirm with User
+
+After populating, say:
+> "I've scanned the project and populated the ELCS state. Here's what I found:
+> - [summary]
+> 
+> Please review `elcs/state/current.json`. Any corrections needed?
+> 
+> Ready to continue working with ELCS!"
+
+Then proceed to Step 2B.
+
+---
+
+## Step 2B: Active ELCS Project
 
 You are in an **Epistemic Light-Cone Swarm (ELCS)** project.
 
