@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/coalition-contract.v1.json",
+  "title": "ELCS Coalition Contract",
+  "description": "Formal agreement for multi-agent collaboration - couples cognitive cones",
+  "type": "object",
+  "required": ["coalition_id", "purpose", "members", "scope", "exit_conditions"],
+  "properties": {
+    "coalition_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable coalition name"
+    },
+    "purpose": {
+      "type": "object",
+      "required": ["objective"],
+      "properties": {
+        "spec_id": { "type": "string" },
+        "objective_id": { "type": "string" },
+        "objective": { "type": "string", "description": "What this coalition aims to achieve" }
+      }
+    },
+    "members": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 2,
+      "description": "Agent IDs participating in this coalition"
+    },
+    "formed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "shared_cone": {
+      "type": "object",
+      "description": "The combined/expanded cognitive cone for this coalition",
+      "properties": {
+        "spaces": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "horizon": {
+          "type": "object",
+          "properties": {
+            "depth": { "type": "integer" },
+            "time_scale": { "type": "string" }
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "description": "What the coalition is allowed to touch",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Glob patterns for allowed file access"
+        },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tools coalition members can use"
+        },
+        "writes_allowed": {
+          "type": "boolean",
+          "default": false
+        },
+        "irreversible_allowed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Can this coalition make irreversible changes?"
+        }
+      }
+    },
+    "exit_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "objective_complete",
+          "budget_exhausted", 
+          "timeout",
+          "risk_flag_critical",
+          "member_exit",
+          "human_override",
+          "deadlock_detected"
+        ]
+      },
+      "description": "Conditions that trigger coalition dissolution"
+    },
+    "rollback_plan": {
+      "type": "object",
+      "properties": {
+        "strategy": { 
+          "type": "string", 
+          "enum": ["git_revert", "checkpoint_restore", "manual", "none"]
+        },
+        "checkpoint_ref": { "type": "string" },
+        "instructions": { "type": "string" }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "properties": {
+        "tool_calls": { "type": "integer" },
+        "tokens": { "type": "integer" },
+        "time_seconds": { "type": "integer" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["forming", "active", "paused", "completed", "dissolved"],
+      "default": "forming"
+    },
+    "dissolved_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "dissolution_reason": {
+      "type": ["string", "null"]
+    }
+  }
+}

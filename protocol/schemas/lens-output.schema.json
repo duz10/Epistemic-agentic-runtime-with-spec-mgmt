@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/lens-output.v1.json",
+  "title": "ELCS Lens Output",
+  "description": "Structured output from lens evaluation - becomes coordination substrate",
+  "type": "object",
+  "required": ["lens_id", "evaluated_at"],
+  "properties": {
+    "output_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "lens_id": {
+      "type": "string",
+      "enum": ["philosophy", "data_science", "safety_risk", "topology", "theoretical_math", "systems_engineering", "product_ux"],
+      "description": "Which lens produced this output"
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["spec", "proposal", "state", "artifact"] },
+        "id": { "type": "string" }
+      },
+      "description": "What was being evaluated"
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "text"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+          "text": { "type": "string" },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Open questions raised by this lens"
+    },
+    "tests_requested": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": { "type": "string" },
+          "priority": { "type": "string", "enum": ["low", "medium", "high"] }
+        }
+      }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Missing evidence identified"
+    },
+    "constraints_delta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["op", "constraint"],
+        "properties": {
+          "op": { "type": "string", "enum": ["add", "remove", "modify"] },
+          "constraint": {
+            "type": "object",
+            "properties": {
+              "severity": { "type": "string", "enum": ["hard", "soft"] },
+              "text": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "confidence_update": {
+      "type": "object",
+      "properties": {
+        "direction": { "type": "string", "enum": ["increase", "decrease", "unchanged"] },
+        "magnitude": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale": { "type": "string" }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "approved": { "type": "boolean" },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "rationale": { "type": "string" }
+      }
+    }
+  }
+}

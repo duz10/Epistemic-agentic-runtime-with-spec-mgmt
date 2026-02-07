@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/codec.v1.json",
+  "title": "ELCS Codec (Decompression Key)",
+  "description": "Metadata for correctly interpreting compressed state - prevents 'noise summaries'",
+  "type": "object",
+  "required": ["codec_id", "schema_version", "created_at"],
+  "properties": {
+    "codec_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "description": "Version of ELCS schemas this codec is compatible with"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checkpoint_ref": {
+      "type": "string",
+      "description": "Which checkpoint this codec accompanies"
+    },
+    "decompression_hints": {
+      "type": "object",
+      "properties": {
+        "glossary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "term": { "type": "string" },
+              "definition": { "type": "string" }
+            }
+          },
+          "description": "Project-specific terminology"
+        },
+        "retrieval_queries": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Semantic search queries to find related content"
+        },
+        "artifact_index": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": { "type": "string" },
+              "description": { "type": "string" },
+              "importance": { "type": "string", "enum": ["critical", "important", "context", "reference"] }
+            }
+          }
+        },
+        "assumption_context": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assumption_id": { "type": "string" },
+              "context": { "type": "string" },
+              "why_it_matters": { "type": "string" }
+            }
+          }
+        },
+        "decision_rationale": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "decision": { "type": "string" },
+              "alternatives_considered": { "type": "array", "items": { "type": "string" } },
+              "why_chosen": { "type": "string" }
+            }
+          },
+          "description": "Key decisions and their reasoning"
+        }
+      }
+    },
+    "space_context": {
+      "type": "object",
+      "description": "Problem space context (for L2+ ELCS)",
+      "properties": {
+        "problem_spaces": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Active problem spaces (e.g., 'spec_space.v1', 'evidence_space.v1')"
+        },
+        "active_lenses": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "metric_snapshot": {
+          "type": "object",
+          "properties": {
+            "distance_vector_components": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "values": {
+              "type": "object",
+              "additionalProperties": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "resumption_instructions": {
+      "type": "string",
+      "description": "Instructions for an agent resuming work from this point"
+    }
+  }
+}

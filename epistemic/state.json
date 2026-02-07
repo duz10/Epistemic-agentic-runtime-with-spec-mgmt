@@ -1,0 +1,145 @@
+{
+  "project": "ELCS Framework",
+  "version": "0.1.0-dev",
+  "state_version": 1,
+  "created": "2026-02-07T13:14:41Z",
+  "last_updated": "2026-02-07T13:14:41Z",
+  
+  "assumptions": [
+    {
+      "id": "A1",
+      "text": "AI agents (Claude Code, Cursor, Code-puppy, etc.) will respect bootstrap files like CLAUDE.md and .cursorrules",
+      "confidence": 0.85,
+      "status": "active",
+      "evidence_for": ["E1"],
+      "evidence_against": []
+    },
+    {
+      "id": "A2", 
+      "text": "File-based artifacts are more durable than agent memory for long-running projects",
+      "confidence": 0.95,
+      "status": "active",
+      "evidence_for": ["E2"],
+      "evidence_against": []
+    },
+    {
+      "id": "A3",
+      "text": "ELCS can be implemented progressively (Level 0 → Level 4) without breaking earlier levels",
+      "confidence": 0.75,
+      "status": "active",
+      "evidence_for": [],
+      "evidence_against": []
+    },
+    {
+      "id": "A4",
+      "text": "Unique terminology (WorkToken, CognitiveCone, etc.) will prevent confusion with other methodologies",
+      "confidence": 0.70,
+      "status": "active",
+      "evidence_for": [],
+      "evidence_against": []
+    },
+    {
+      "id": "A5",
+      "text": "The EAR methodology (used to build ELCS) is sufficient to complete this project",
+      "confidence": 0.90,
+      "status": "active",
+      "evidence_for": ["E3"],
+      "evidence_against": []
+    }
+  ],
+  
+  "hypotheses": [
+    {
+      "id": "H1",
+      "claim": "Multi-entry bootstrap (CLAUDE.md + .cursorrules + .windsurfrules) will work across 3+ agent environments",
+      "confidence": 0.70,
+      "falsification": "If any major agent environment ignores all bootstrap files, this hypothesis is falsified",
+      "status": "untested"
+    },
+    {
+      "id": "H2",
+      "claim": "ELCS protocol can be followed by agents without custom tooling (pure file-based)",
+      "confidence": 0.80,
+      "falsification": "If agents require custom tools/APIs to follow ELCS, this hypothesis is falsified",
+      "status": "untested"
+    },
+    {
+      "id": "H3",
+      "claim": "WorkToken-based coordination will enable emergent multi-agent collaboration",
+      "confidence": 0.60,
+      "falsification": "If token claiming leads to deadlocks or no coordination improvement, this hypothesis is falsified",
+      "status": "untested"
+    }
+  ],
+  
+  "evidence": [
+    {
+      "id": "E1",
+      "type": "observation",
+      "summary": "Code-puppy and Claude Code both read claude.md/CLAUDE.md files at session start",
+      "source": "direct observation during this project"
+    },
+    {
+      "id": "E2",
+      "type": "observation", 
+      "summary": "EAR template (epistemic-agentic-runtime-main) successfully persists state across sessions via files",
+      "source": "current project usage"
+    },
+    {
+      "id": "E3",
+      "type": "observation",
+      "summary": "EAR 12-stage pipeline has guided this project from idea through scaffolding successfully",
+      "source": "current session"
+    }
+  ],
+  
+  "constraints": {
+    "hard": [
+      {
+        "id": "C1",
+        "text": "ELCS must work with any agent that can read/write files",
+        "rationale": "Tool-agnostic is a core design goal"
+      },
+      {
+        "id": "C2",
+        "text": "All ELCS artifacts must be human-readable (no binary formats)",
+        "rationale": "Transparency and debuggability"
+      },
+      {
+        "id": "C3",
+        "text": "Template must not require installation or dependencies to use",
+        "rationale": "Zero-friction adoption"
+      }
+    ],
+    "soft": [
+      {
+        "id": "C4",
+        "text": "Prefer JSON for structured data, Markdown for prose",
+        "rationale": "Universal compatibility"
+      },
+      {
+        "id": "C5",
+        "text": "Keep bootstrap files under 500 lines",
+        "rationale": "Agents more likely to read short files completely"
+      }
+    ]
+  },
+  
+  "preferences": [
+    {
+      "id": "P1",
+      "text": "Clarity over cleverness",
+      "weight": 0.9
+    },
+    {
+      "id": "P2", 
+      "text": "Progressive disclosure (simple by default, depth on demand)",
+      "weight": 0.8
+    },
+    {
+      "id": "P3",
+      "text": "Self-documenting artifacts",
+      "weight": 0.7
+    }
+  ]
+}

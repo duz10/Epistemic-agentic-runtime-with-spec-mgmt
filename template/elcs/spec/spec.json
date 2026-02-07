@@ -1,0 +1,18 @@
+{
+  "$schema": "https://elcs.dev/schemas/spec.v1.json",
+  "spec_id": "00000000-0000-0000-0000-000000000001",
+  "title": "{{PROJECT_NAME}}",
+  "objective": "{{PROJECT_OBJECTIVE}}",
+  "version": 1,
+  "parent_version": null,
+  "created": "{{CREATED_DATE}}",
+  "last_updated": "{{CREATED_DATE}}",
+  
+  "success_criteria": [],
+  "phases": [],
+  "constraints": [],
+  "open_questions": [],
+  "hypotheses": [],
+  
+  "_comment": "Populate this spec during Stage 5 (Spec & MVP Planning)"
+}

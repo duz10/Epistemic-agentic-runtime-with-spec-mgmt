@@ -1,0 +1,11 @@
+Stage 0: Project Setup
+Completed: {{CREATED_DATE}}
+
+Artifacts Created:
+- elcs/ directory structure
+- elcs/PROTOCOL.md
+- elcs/QUICKSTART.md
+- elcs/state/current.json (initial)
+
+This project was scaffolded from the ELCS template.
+Ready for Stage 1: Epistemic State Creation.

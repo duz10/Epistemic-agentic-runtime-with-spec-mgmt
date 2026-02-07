@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "create-elcs"
+version = "1.0.0"
+description = "CLI generator for ELCS (Epistemic Light-Cone Swarm) projects"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "Duz10 Multimedia", email = "info@duz10.com" }
+]
+keywords = ["elcs", "epistemic", "ai", "agents", "coordination"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Code Generators",
+]
+
+dependencies = [
+    "click>=8.0.0",
+    "rich>=10.0.0",
+]
+
+[project.scripts]
+create-elcs = "create_elcs:main"
+
+[project.urls]
+Homepage = "https://github.com/duz10/elcs-framework"
+Documentation = "https://github.com/duz10/elcs-framework#readme"
+Repository = "https://github.com/duz10/elcs-framework"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/create_elcs"]

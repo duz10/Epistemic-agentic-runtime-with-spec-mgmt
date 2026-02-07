@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/epistemic-state.v1.json",
+  "title": "ELCS Epistemic State",
+  "description": "The central belief ledger containing assumptions, hypotheses, evidence, constraints, and preferences",
+  "type": "object",
+  "required": ["state_id", "version", "assumptions", "hypotheses", "evidence", "constraints"],
+  "properties": {
+    "state_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this state snapshot"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Monotonically increasing version number"
+    },
+    "parent_version": {
+      "type": ["integer", "null"],
+      "description": "Previous version this was derived from (null for initial state)"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of creation"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of last modification"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Assumption"
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Hypothesis"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Evidence"
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "hard": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Constraint" }
+        },
+        "soft": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Constraint" }
+        }
+      }
+    },
+    "preferences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Preference"
+      }
+    }
+  },
+  "definitions": {
+    "Assumption": {
+      "type": "object",
+      "required": ["id", "text", "confidence", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^A[0-9]+$" },
+        "text": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "status": { "type": "string", "enum": ["active", "revised", "retired"] },
+        "evidence_for": { "type": "array", "items": { "type": "string" } },
+        "evidence_against": { "type": "array", "items": { "type": "string" } },
+        "revised_from": { "type": ["string", "null"] },
+        "rationale": { "type": "string" }
+      }
+    },
+    "Hypothesis": {
+      "type": "object",
+      "required": ["id", "claim", "confidence", "falsification", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^H[0-9]+$" },
+        "claim": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "falsification": { "type": "string", "description": "What would prove this wrong" },
+        "status": { "type": "string", "enum": ["untested", "testing", "confirmed", "rejected"] },
+        "evidence_for": { "type": "array", "items": { "type": "string" } },
+        "evidence_against": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "Evidence": {
+      "type": "object",
+      "required": ["id", "type", "summary"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^E[0-9]+$" },
+        "type": { "type": "string", "enum": ["observation", "measurement", "experiment", "user_input", "log"] },
+        "summary": { "type": "string" },
+        "source": { "type": "string" },
+        "provenance": { "type": "array", "items": { "type": "string" }, "description": "Links to telemetry event IDs" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Constraint": {
+      "type": "object",
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^C[0-9]+$" },
+        "text": { "type": "string" },
+        "rationale": { "type": "string" },
+        "scope": { "type": "string" },
+        "added_by": { "type": "string" },
+        "added_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Preference": {
+      "type": "object",
+      "required": ["id", "text", "weight"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^P[0-9]+$" },
+        "text": { "type": "string" },
+        "weight": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

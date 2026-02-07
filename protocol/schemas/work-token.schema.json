@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/work-token.v1.json",
+  "title": "ELCS Work Token",
+  "description": "The fundamental unit of coordination - represents work to be done",
+  "type": "object",
+  "required": ["token_id", "type", "summary", "status", "created_at"],
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this token"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["question", "test", "evidence_gap", "subtask", "conflict"],
+      "description": "The kind of work this token represents"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Human-readable description of the work"
+    },
+    "created_by": {
+      "type": "object",
+      "properties": {
+        "lens": { "type": "string" },
+        "gate": { "type": "string" },
+        "agent": { "type": "string" }
+      },
+      "description": "What created this token"
+    },
+    "spec_ref": {
+      "type": "object",
+      "properties": {
+        "spec_id": { "type": "string" },
+        "objective_id": { "type": "string" },
+        "task_id": { "type": "string" }
+      },
+      "description": "Link to the spec this token relates to"
+    },
+    "required_outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": { "type": "string", "enum": ["artifact", "measurement", "decision", "evidence"] },
+          "schema": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "priority": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0.5
+    },
+    "deadline": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "tool_calls": { "type": "integer" },
+        "tokens": { "type": "integer" },
+        "time_seconds": { "type": "integer" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "claimed", "in_progress", "blocked", "done", "cancelled"]
+    },
+    "claimed_by": {
+      "type": ["string", "null"],
+      "description": "Agent or coalition ID that claimed this token"
+    },
+    "claimed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolution": {
+      "type": ["object", "null"],
+      "properties": {
+        "outcome": { "type": "string" },
+        "artifacts_produced": { "type": "array", "items": { "type": "string" } },
+        "evidence_added": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Token IDs this depends on"
+    },
+    "blocks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Token IDs blocked by this"
+    }
+  }
+}

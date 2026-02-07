@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/spec.v1.json",
+  "title": "ELCS Spec",
+  "description": "The spec attractor - the stable target the system navigates toward",
+  "type": "object",
+  "required": ["spec_id", "title", "objective", "version"],
+  "properties": {
+    "spec_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable project title"
+    },
+    "objective": {
+      "type": "string",
+      "description": "Primary objective statement"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "parent_version": {
+      "type": ["integer", "null"]
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "success_criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "observable", "target"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^SC[0-9]+$" },
+          "observable": { "type": "string", "description": "What we measure" },
+          "target": { "type": "string", "description": "What value indicates success" },
+          "method": { "type": "string", "description": "How to measure" },
+          "status": { "type": "string", "enum": ["pending", "met", "failed"] }
+        }
+      }
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^PH[0-9]+$" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "status": { "type": "string", "enum": ["pending", "active", "complete", "blocked"] },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "text"],
+              "properties": {
+                "id": { "type": "string" },
+                "text": { "type": "string" },
+                "status": { "type": "string", "enum": ["pending", "in_progress", "complete", "blocked"] },
+                "token_ref": { "type": "string", "description": "Link to WorkToken if exists" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["hard", "soft"] },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^Q[0-9]+$" },
+          "text": { "type": "string" },
+          "status": { "type": "string", "enum": ["open", "answered", "deferred"] },
+          "answer": { "type": "string" },
+          "token_ref": { "type": "string" }
+        }
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "claim": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "falsification": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+# ELCS Framework — Gap Analysis
+
+*Identifying what's missing before we can build*
+
+> Based on lens evaluation findings and ELCS v3 spec requirements
+
+---
+
+## Gap Categories
+
+- 🔴 **CRITICAL** — Must resolve before template is usable
+- 🟠 **HIGH** — Should resolve in Phase 2-3
+- 🟡 **MEDIUM** — Important but can iterate
+- 🟢 **LOW** — Nice to have, can defer
+
+---
+
+## 🔴 CRITICAL Gaps
+
+### GAP-C1: No Rollback Procedures Defined
+**Source**: Safety/Risk Lens, Lens Evaluation
+**Description**: ELCS emphasizes reversibility but no actual rollback procedures are documented.
+**Impact**: Users won't know how to recover from mistakes.
+**Resolution**:
+- [ ] Add rollback procedures section to PROTOCOL.md
+- [ ] Define checkpoint-based recovery process
+- [ ] Recommend git integration for versioning
+**Owner**: Phase 3 (Protocol Documentation)
+**Status**: 🔴 Open
+
+### GAP-C2: Bootstrap Compliance Not Guaranteed
+**Source**: Philosophy Lens
+**Description**: We assume agents read bootstrap files, but have no verification or fallback.
+**Impact**: Agents might ignore ELCS entirely.
+**Resolution**:
+- [ ] Test bootstrap compliance across target agents (Claude Code, Cursor, Code-puppy)
+- [ ] Add explicit "confirm you've read this" instruction
+- [ ] Document fallback for non-compliant agents
+**Owner**: Phase 5 (Agent Compatibility Testing)
+**Status**: 🔴 Open
+
+### GAP-C3: User Adoption Friction Unknown
+**Source**: Product/UX Lens (0.4 confidence)
+**Description**: We don't know if ELCS is worth the overhead for users.
+**Impact**: Framework might be technically correct but unused.
+**Resolution**:
+- [ ] Create minimal QUICKSTART.md (< 5 min to productive use)
+- [ ] Measure overhead in Phase 5 testing
+- [ ] Consider "ELCS Lite" for small projects
+**Owner**: Phase 4 (Template Construction) + Phase 5
+**Status**: 🔴 Open
+
+### GAP-C4: No Self-Check Mechanism
+**Source**: Philosophy Lens
+**Description**: No way to detect when ELCS protocol is being violated or ignored.
+**Impact**: Silent failures, drift without detection.
+**Resolution**:
+- [ ] Add periodic self-check prompts to PROTOCOL.md
+- [ ] Define artifact validation rules
+- [ ] Consider optional validation script
+**Owner**: Phase 3 (Protocol Documentation)
+**Status**: 🔴 Open
+
+---
+
+## 🟠 HIGH Gaps
+
+### GAP-H1: Lens Conflict Resolution Undefined
+**Source**: Theoretical Math Lens
+**Description**: What happens when lenses disagree strongly?
+**Impact**: Deadlock or arbitrary resolution.
+**Resolution**:
+- [ ] Define conflict resolution protocol (voting? human arbitration? priority?)
+- [ ] Add to PROTOCOL.md
+**Owner**: Phase 3
+**Status**: 🟠 Open
+
+### GAP-H2: Concurrent Access Not Addressed
+**Source**: Safety/Risk Lens
+**Description**: Multiple agents writing to same files could corrupt state.
+**Impact**: Data loss, inconsistent state.
+**Resolution**:
+- [ ] Document single-writer recommendation
+- [ ] Or: define file-locking convention
+- [ ] Or: require git for merge conflict detection
+**Owner**: Phase 3
+**Status**: 🟠 Open
+
+### GAP-H3: No JSON Schemas for Artifacts
+**Source**: Systems Engineering Lens
+**Description**: Structured artifacts (state.json, tokens, etc.) have no formal schemas.
+**Impact**: Invalid data could be written, hard to validate.
+**Resolution**:
+- [ ] Create JSON Schema for EpistemicState
+- [ ] Create JSON Schema for WorkToken
+- [ ] Create JSON Schema for Spec
+- [ ] Create JSON Schema for LensOutput
+- [ ] Create JSON Schema for CoalitionContract
+- [ ] Create JSON Schema for Journal checkpoint
+- [ ] Create JSON Schema for Codec
+**Owner**: Phase 2 (this phase!)
+**Status**: 🟠 In Progress
+
+### GAP-H4: Phase Transition Criteria Unclear
+**Source**: Topology Lens
+**Description**: When should a project move from L0 to L1, or Stage A to Stage B?
+**Impact**: Users won't know when to adopt more advanced features.
+**Resolution**:
+- [ ] Define explicit escalation criteria for each level
+- [ ] Add decision tree to documentation
+**Owner**: Phase 3
+**Status**: 🟠 Open
+
+### GAP-H5: No Minimal ELCS Definition
+**Source**: Math Lens, Product/UX Lens
+**Description**: What's the absolute minimum that still provides value?
+**Impact**: Barrier to adoption if everything feels required.
+**Resolution**:
+- [ ] Define "ELCS Core" vs "ELCS Full"
+- [ ] Make advanced features explicitly optional
+**Owner**: Phase 3
+**Status**: 🟠 Open
+
+---
+
+## 🟡 MEDIUM Gaps
+
+### GAP-M1: No Telemetry Infrastructure
+**Source**: ELCS v3 Spec §5.1
+**Description**: TelemetryLog is specified but not designed.
+**Impact**: Replay/recovery capabilities limited.
+**Resolution**:
+- [ ] Define telemetry event schema
+- [ ] Decide: required or optional?
+**Owner**: Phase 2 or defer to later version
+**Status**: 🟡 Deferred (optional in v1)
+
+### GAP-M2: Coalition Coordination Not Detailed
+**Source**: ELCS v3 Spec §5.8
+**Description**: CoalitionContract is specified but formation/dissolution process unclear.
+**Impact**: Multi-agent coordination won't work smoothly.
+**Resolution**:
+- [ ] Define coalition formation protocol
+- [ ] Define dissolution triggers
+**Owner**: Defer to v1.1 (scaling feature)
+**Status**: 🟡 Deferred
+
+### GAP-M3: No Overhead Measurements
+**Source**: Product/UX Lens, Safety Lens
+**Description**: We don't know how much time ELCS adds to workflows.
+**Impact**: Can't prove value proposition.
+**Resolution**:
+- [ ] Time ELCS vs raw agent use in Phase 5
+- [ ] Document results
+**Owner**: Phase 5
+**Status**: 🟡 Open
+
+### GAP-M4: Schema Versioning Strategy Missing
+**Source**: Systems Engineering Lens
+**Description**: How do we handle schema evolution (v1 → v2)?
+**Impact**: Breaking changes could strand existing projects.
+**Resolution**:
+- [ ] Define versioning policy
+- [ ] Add version field to all schemas
+**Owner**: Phase 2
+**Status**: 🟡 Open
+
+### GAP-M5: Distance Vector Not Designed
+**Source**: ELCS v3 Spec §10.2
+**Description**: L1 feature (distance vector for coordination) not specified.
+**Impact**: L1 scaling won't be ready.
+**Resolution**:
+- [ ] Define DistanceVector components
+- [ ] Add to schemas
+**Owner**: Defer to L1 implementation
+**Status**: 🟡 Deferred
+
+---
+
+## 🟢 LOW Gaps
+
+### GAP-L1: No Visual Diagrams
+**Source**: General documentation
+**Description**: Architecture could use visual representation.
+**Resolution**: Add ASCII or image diagrams in Phase 7.
+**Status**: 🟢 Deferred
+
+### GAP-L2: No Example Project
+**Source**: Product/UX
+**Description**: Users might want to see ELCS in action.
+**Resolution**: Consider creating example project after template is stable.
+**Status**: 🟢 Deferred
+
+### GAP-L3: Recovery Procedures Not Automated
+**Source**: Systems Engineering Lens
+**Description**: Recovery is documented but manual.
+**Resolution**: Optional validation/recovery scripts in future version.
+**Status**: 🟢 Deferred
+
+---
+
+## Coverage Checklist
+
+From EAR Stage 3 requirements:
+
+| Area | Complete? | Notes |
+|------|-----------|-------|
+| Problem definition complete? | ✅ | ELCS v3 spec defines the problem |
+| User personas defined? | 🟡 Partial | Implicit: developers using AI agents |
+| Critical flows mapped? | ✅ | User journey in Product/UX lens |
+| Success metrics identified? | 🟡 Partial | Need to formalize in specs |
+| Trust & safety addressed? | ✅ | Safety lens applied |
+| Tech constraints documented? | ✅ | In constraints.md |
+| Data model sketched? | 🟡 In Progress | Schemas being created now |
+
+---
+
+## Gap Resolution Priority
+
+### Must Do in Phase 2 (Now)
+1. GAP-H3: Create JSON Schemas
+2. GAP-M4: Schema versioning
+
+### Must Do in Phase 3 (Protocol Docs)
+1. GAP-C1: Rollback procedures
+2. GAP-C4: Self-check mechanism
+3. GAP-H1: Lens conflict resolution
+4. GAP-H2: Concurrent access
+5. GAP-H4: Phase transition criteria
+6. GAP-H5: Minimal ELCS definition
+
+### Must Do in Phase 4 (Template)
+1. GAP-C3: QUICKSTART.md (5-min adoption)
+
+### Must Do in Phase 5 (Testing)
+1. GAP-C2: Bootstrap compliance testing
+2. GAP-M3: Overhead measurements
+
+### Defer to v1.1+
+1. GAP-M1: Telemetry infrastructure
+2. GAP-M2: Coalition coordination
+3. GAP-M5: Distance vector
+4. GAP-L1, L2, L3: Polish items
+
+---
+
+*Gap analysis complete. 4 critical, 5 high, 5 medium, 3 low gaps identified.*
+*Ready for schema design.*

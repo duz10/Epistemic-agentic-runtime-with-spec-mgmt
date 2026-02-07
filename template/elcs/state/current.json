@@ -1,0 +1,17 @@
+{
+  "$schema": "https://elcs.dev/schemas/epistemic-state.v1.json",
+  "state_id": "00000000-0000-0000-0000-000000000001",
+  "version": 1,
+  "parent_version": null,
+  "created": "{{CREATED_DATE}}",
+  "last_updated": "{{CREATED_DATE}}",
+  
+  "assumptions": [],
+  "hypotheses": [],
+  "evidence": [],
+  "constraints": {
+    "hard": [],
+    "soft": []
+  },
+  "preferences": []
+}

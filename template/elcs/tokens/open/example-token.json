@@ -1,0 +1,34 @@
+{
+  "$schema": "https://elcs.dev/schemas/work-token.v1.json",
+  "token_id": "example-token-001",
+  "type": "question",
+  "summary": "Define the primary user persona for this project",
+  "created_by": {
+    "lens": "product_ux",
+    "agent": "initialization"
+  },
+  "spec_ref": null,
+  "required_outputs": [
+    {
+      "kind": "artifact",
+      "description": "User persona document in elcs/spec/personas.md"
+    }
+  ],
+  "priority": 0.7,
+  "deadline": null,
+  "budget": {
+    "tool_calls": 10,
+    "tokens": 2000,
+    "time_seconds": 600
+  },
+  "status": "open",
+  "claimed_by": null,
+  "claimed_at": null,
+  "completed_at": null,
+  "created_at": "{{CREATED_DATE}}",
+  "resolution": null,
+  "dependencies": [],
+  "blocks": [],
+  
+  "_comment": "This is an example token. Delete or modify as needed. Real tokens should have unique UUIDs."
+}

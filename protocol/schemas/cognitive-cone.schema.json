@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/cognitive-cone.v1.json",
+  "title": "ELCS Cognitive Cone",
+  "description": "Defines an agent's capability scope - the largest goal it can pursue",
+  "type": "object",
+  "required": ["agent_id", "capabilities", "cone"],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "description": "Unique identifier for this agent"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What this agent can do (e.g., 'code_search', 'file_write', 'test_execution')"
+    },
+    "tools_allowed": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tool names this agent is permitted to use"
+    },
+    "cone": {
+      "type": "object",
+      "required": ["spaces", "horizon"],
+      "properties": {
+        "spaces": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Problem domains this agent operates in (e.g., 'code', 'documentation', 'testing')"
+        },
+        "horizon": {
+          "type": "object",
+          "properties": {
+            "depth": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "How many levels deep in task decomposition"
+            },
+            "time_scale": {
+              "type": "string",
+              "enum": ["immediate", "short", "medium", "long"],
+              "description": "Time horizon for planning"
+            }
+          }
+        },
+        "budgets": {
+          "type": "object",
+          "properties": {
+            "tokens": { "type": "integer" },
+            "tool_calls": { "type": "integer" },
+            "time_seconds": { "type": "integer" }
+          }
+        },
+        "commitments": {
+          "type": "object",
+          "properties": {
+            "risk_tolerance": { 
+              "type": "string", 
+              "enum": ["very_low", "low", "medium", "high"],
+              "default": "medium"
+            },
+            "evidence_required": { 
+              "type": "string", 
+              "enum": ["minimal", "moderate", "strong", "rigorous"],
+              "default": "moderate"
+            },
+            "reversibility_required": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        }
+      }
+    },
+    "advocacies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What this agent tends to amplify/support"
+    },
+    "aversions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What this agent tends to avoid"
+    },
+    "interaction_threshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Minimum value for engaging with other agents (0 = always engage, 1 = never engage)"
+    }
+  }
+}

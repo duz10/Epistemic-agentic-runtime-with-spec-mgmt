@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/journal-checkpoint.v1.json",
+  "title": "ELCS Journal Checkpoint",
+  "description": "Compressed narrative checkpoint of project state at a point in time",
+  "type": "object",
+  "required": ["checkpoint_id", "title", "created_at", "state_version"],
+  "properties": {
+    "checkpoint_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable checkpoint title (e.g., 'Auth system complete')"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "state_version": {
+      "type": "integer",
+      "description": "EpistemicState version at this checkpoint"
+    },
+    "spec_version": {
+      "type": "integer",
+      "description": "Spec version at this checkpoint"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief narrative of what happened since last checkpoint"
+    },
+    "key_learnings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Important insights gained"
+    },
+    "assumptions_changed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "change": { "type": "string", "enum": ["added", "revised", "retired"] },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "hypotheses_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "outcome": { "type": "string", "enum": ["confirmed", "rejected", "refined", "deferred"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "constraints_discovered": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "New constraints learned"
+    },
+    "tokens_resolved": {
+      "type": "integer",
+      "description": "Number of WorkTokens closed"
+    },
+    "tokens_created": {
+      "type": "integer",
+      "description": "Number of new WorkTokens opened"
+    },
+    "artifact_links": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Paths to key artifacts created/modified"
+    },
+    "archive_ref": {
+      "type": ["string", "null"],
+      "description": "Path to full archive bundle if created"
+    },
+    "next_priorities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What to focus on next"
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Current blocking issues"
+    },
+    "codec_ref": {
+      "type": ["string", "null"],
+      "description": "Reference to decompression key if needed"
+    }
+  }
+}

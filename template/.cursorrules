@@ -1,0 +1,26 @@
+# ELCS Project — Cursor Rules
+
+You are in an **Epistemic Light-Cone Swarm (ELCS)** project.
+
+## Prime Directive
+Your context is volatile. ELCS artifacts in `elcs/` are the source of truth.
+
+## Before ANY Action
+1. Read `elcs/PROTOCOL.md` for full instructions
+2. Read `elcs/state/current.json` for current beliefs
+3. Check `elcs/tokens/open/` for pending work
+4. Read latest `elcs/journal/checkpoint-*.md` for context
+
+## Quick Rules
+- Write artifacts to `elcs/`, not just chat
+- Follow Ralph Loop: Observe → Orient → Decide → Act → Observe
+- Goals must pass 6 gates before becoming actionable
+- Create WorkTokens in `elcs/tokens/open/` for open questions
+- Write journal checkpoints for significant progress
+- Ensure rollback plan before changes
+
+## If User Skips Setup
+Say: "This is an ELCS project. Let me check the state first."
+Then read the files before responding.
+
+See `elcs/PROTOCOL.md` for complete instructions.
