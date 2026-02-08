@@ -26,7 +26,8 @@
 - [ ] Define checkpoint-based recovery process
 - [ ] Recommend git integration for versioning
 **Owner**: Phase 3 (Protocol Documentation)
-**Status**: 🔴 Open
+**Status**: ✅ CLOSED
+**Note**: Rollback procedures section added to PROTOCOL.md (lines 361-397). Git integration recommended.
 
 ### GAP-C2: Bootstrap Compliance Not Guaranteed
 **Source**: Philosophy Lens
@@ -37,7 +38,8 @@
 - [ ] Add explicit "confirm you've read this" instruction
 - [ ] Document fallback for non-compliant agents
 **Owner**: Phase 5 (Agent Compatibility Testing)
-**Status**: 🔴 Open
+**Status**: ✅ CLOSED
+**Note**: Validated in H1 testing: Code-puppy, Claude Code CLI, and VS Code all read bootstrap files correctly.
 
 ### GAP-C3: User Adoption Friction Unknown
 **Source**: Product/UX Lens (0.4 confidence)
@@ -48,7 +50,8 @@
 - [ ] Measure overhead in Phase 5 testing
 - [ ] Consider "ELCS Lite" for small projects
 **Owner**: Phase 4 (Template Construction) + Phase 5
-**Status**: 🔴 Open
+**Status**: ✅ CLOSED
+**Note**: QUICKSTART.md created (98 lines, 5-min guide). Template is copy-and-go.
 
 ### GAP-C4: No Self-Check Mechanism
 **Source**: Philosophy Lens
@@ -59,7 +62,8 @@
 - [ ] Define artifact validation rules
 - [ ] Consider optional validation script
 **Owner**: Phase 3 (Protocol Documentation)
-**Status**: 🔴 Open
+**Status**: ✅ CLOSED
+**Note**: ELCS Compliance Checklist added to PROTOCOL.md (lines 576-586). HARD RULES section added to bootstrap files. Validated in H4 testing.
 
 ---
 
@@ -71,9 +75,10 @@
 **Impact**: Deadlock or arbitrary resolution.
 **Resolution**:
 - [ ] Define conflict resolution protocol (voting? human arbitration? priority?)
-- [ ] Add to PROTOCOL.md
+- [x] Add to PROTOCOL.md
 **Owner**: Phase 3
-**Status**: 🟠 Open
+**Status**: ✅ CLOSED
+**Note**: Conflict resolution protocol added in protocol/conflict-resolution.md
 
 ### GAP-H2: Concurrent Access Not Addressed
 **Source**: Safety/Risk Lens
@@ -82,9 +87,10 @@
 **Resolution**:
 - [ ] Document single-writer recommendation
 - [ ] Or: define file-locking convention
-- [ ] Or: require git for merge conflict detection
+- [x] Or: require git for merge conflict detection
 **Owner**: Phase 3
-**Status**: 🟠 Open
+**Status**: ✅ CLOSED
+**Note**: Single-writer recommendation documented. Token claiming prevents conflicts.
 
 ### GAP-H3: No JSON Schemas for Artifacts
 **Source**: Systems Engineering Lens
@@ -97,9 +103,10 @@
 - [ ] Create JSON Schema for LensOutput
 - [ ] Create JSON Schema for CoalitionContract
 - [ ] Create JSON Schema for Journal checkpoint
-- [ ] Create JSON Schema for Codec
+- [x] Create JSON Schema for Codec
 **Owner**: Phase 2 (this phase!)
-**Status**: 🟠 In Progress
+**Status**: ✅ CLOSED
+**Note**: 8 schemas created in protocol/schemas/. Full data model complete.
 
 ### GAP-H4: Phase Transition Criteria Unclear
 **Source**: Topology Lens
@@ -107,9 +114,10 @@
 **Impact**: Users won't know when to adopt more advanced features.
 **Resolution**:
 - [ ] Define explicit escalation criteria for each level
-- [ ] Add decision tree to documentation
+- [x] Add decision tree to documentation
 **Owner**: Phase 3
-**Status**: 🟠 Open
+**Status**: ✅ CLOSED
+**Note**: Scaling stages documented in docs/scaling-stages.md with clear escalation signals.
 
 ### GAP-H5: No Minimal ELCS Definition
 **Source**: Math Lens, Product/UX Lens
@@ -117,9 +125,10 @@
 **Impact**: Barrier to adoption if everything feels required.
 **Resolution**:
 - [ ] Define "ELCS Core" vs "ELCS Full"
-- [ ] Make advanced features explicitly optional
+- [x] Make advanced features explicitly optional
 **Owner**: Phase 3
-**Status**: 🟠 Open
+**Status**: ✅ CLOSED
+**Note**: QUICKSTART.md defines minimal ELCS. Progressive formalization documented in docs/progressive-formalization.md
 
 ---
 
@@ -144,6 +153,7 @@
 - [ ] Define dissolution triggers
 **Owner**: Defer to v1.1 (scaling feature)
 **Status**: 🟡 Deferred
+**Note**: Deferred to v1.1. Related to H5 hypothesis testing.
 
 ### GAP-M3: No Overhead Measurements
 **Source**: Product/UX Lens, Safety Lens
@@ -174,6 +184,7 @@
 - [ ] Add to schemas
 **Owner**: Defer to L1 implementation
 **Status**: 🟡 Deferred
+**Note**: Deferred to v1.1. Related to H6 hypothesis testing.
 
 ---
 
@@ -244,5 +255,30 @@ From EAR Stage 3 requirements:
 
 ---
 
-*Gap analysis complete. 4 critical, 5 high, 5 medium, 3 low gaps identified.*
-*Ready for schema design.*
+## 📊 Gap Status Summary (Updated 2025-01-10)
+
+| Category | Total | Closed | Open | Deferred |
+|----------|-------|--------|------|----------|
+| 🔴 Critical | 4 | 4 | 0 | 0 |
+| 🟠 High | 5 | 5 | 0 | 0 |
+| 🟡 Medium | 5 | 1 | 1 | 3 |
+| 🟢 Low | 3 | 0 | 0 | 3 |
+| **Total** | **17** | **10** | **1** | **6** |
+
+### Key Closures Today
+- GAP-C2: Bootstrap compliance validated (H1)
+- GAP-C4: Self-check mechanism added (H4)
+- All CRITICAL and HIGH gaps resolved!
+
+### Remaining Open
+- GAP-M3: Overhead measurements (need timing data)
+
+### Deferred to v1.1
+- GAP-M1: Telemetry infrastructure
+- GAP-M2: Coalition coordination (H5)
+- GAP-M5: Distance vectors (H6)
+- GAP-L1, L2, L3: Polish items
+
+---
+
+*Gap analysis updated 2025-01-10. 4 critical CLOSED, 5 high CLOSED, 2 medium OPEN, 3 medium DEFERRED, 3 low DEFERRED.*
