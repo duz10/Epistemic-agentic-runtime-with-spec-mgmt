@@ -129,6 +129,36 @@ You are in an **Epistemic Light-Cone Swarm (ELCS)** project.
 
 ---
 
+### 🚨 HARD RULE: Protocol First
+
+**Before proposing ANY solution or execution plan:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  STOP! BEFORE YOU PROPOSE ANY SOLUTION:                 │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. READ `elcs/PROTOCOL.md` thoroughly                  │
+│     → Understand stages (A-D), rigor levels, gates     │
+│                                                         │
+│  2. IDENTIFY which stage and approach applies           │
+│     → Solo work? Coalition? Self-selection?            │
+│     → What rigor level for this risk?                  │
+│                                                         │
+│  3. FOLLOW the protocol's guidance                      │
+│     → Distance vectors for prioritization?             │
+│     → Validators needed?                               │
+│     → What checkpoints required?                       │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+**The protocol is your source of truth.** If you're unsure how to proceed, re-read PROTOCOL.md.
+
+**Periodically re-check:** If you've been working for a while, check back with PROTOCOL.md to ensure you haven't drifted from best practices.
+
+---
+
 ### 🚨 HARD RULES: No Code Without a Token
 
 **Before editing ANY file in src/, tests/, docs/, or config:**
