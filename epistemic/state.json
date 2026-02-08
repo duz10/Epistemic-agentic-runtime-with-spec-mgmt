@@ -1,9 +1,9 @@
 {
   "project": "ELCS Framework",
   "version": "0.1.0-dev",
-  "state_version": 5,
+  "state_version": 6,
   "created": "2026-02-07T13:14:41Z",
-  "last_updated": "2025-01-10T18:00:00Z",
+  "last_updated": "2025-01-10T20:00:00Z",
   
   "assumptions": [
     {
@@ -97,9 +97,12 @@
     {
       "id": "H6",
       "claim": "Distance vectors (Stage D) enable self-selection without central dispatcher",
-      "confidence": 0.50,
+      "confidence": 0.60,
       "falsification": "If agents cannot meaningfully compute/use distance vectors, or coordination degrades without dispatcher, this hypothesis is falsified",
-      "status": "untested"
+      "status": "partial",
+      "tested_at": "2025-01-10",
+      "evidence": ["E10", "E11", "E12"],
+      "notes": "Needs complex scenario with ambiguous priorities to fully validate"
     },
     {
       "id": "H7",
@@ -166,6 +169,24 @@
       "type": "experiment",
       "summary": "Coalition CC-001-web-calculator coordinated 6 agents (planning-agent, python-programmer, code-puppy, qa-kitten, python-reviewer, javascript-reviewer) across 4 tokens with 6 explicit handoffs. Validators had blocking power. Scope boundaries respected. Coalition dissolved cleanly. Delivered: Flask backend, HTML/JS frontend, 41 unit tests, 14 E2E tests.",
       "source": "H5 coalition contract test 2025-01-10"
+    },
+    {
+      "id": "E10",
+      "type": "observation",
+      "summary": "Agent discovered distance vector protocol in PROTOCOL.md but determined it wasn't needed for simple prioritization with obvious severity differences",
+      "source": "H6 testing 2025-01-10"
+    },
+    {
+      "id": "E11",
+      "type": "observation",
+      "summary": "Agent successfully self-selected using intuition: security (CRITICAL) → test (HIGH) → docs (MEDIUM). Formal distance vectors unnecessary for obvious priorities.",
+      "source": "H6 testing 2025-01-10"
+    },
+    {
+      "id": "E12",
+      "type": "observation",
+      "summary": "Protocol First HARD RULE added to bootstrap files. Agent read protocol when prompted but satisficed with simpler approach when priorities were clear.",
+      "source": "H6 testing 2025-01-10"
     }
   ],
   
