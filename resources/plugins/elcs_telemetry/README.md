@@ -2,32 +2,48 @@
 
 A Code-Puppy plugin that captures observational telemetry for ELCS framework validation and debugging.
 
-## Quick Start
+## Installation
 
-### Option 1: Symlink (Recommended for Development)
+### Which Option Should I Choose?
+
+| Situation | Recommendation |
+|-----------|----------------|
+| ELCS repo is in a normal folder | **Symlink** — updates auto-propagate |
+| ELCS repo is in OneDrive/Dropbox | **Copy** — avoids potential sync issues |
+| You want the latest plugin changes automatically | **Symlink** |
+| You want a stable, isolated copy | **Copy** |
+
+> **Note:** The `~/.code_puppy/plugins/` directory is in your user profile (e.g., `C:\Users\you\.code_puppy\`), which is typically NOT in cloud sync. The installation method only matters if your ELCS repo source is in a synced folder.
+
+### Option 1: Symlink (Recommended for Non-Cloud Folders)
+
+Creates a link so plugin updates in the ELCS repo automatically apply.
 
 **Windows (PowerShell as Admin):**
 ```powershell
-New-Item -ItemType SymbolicLink -Path "$HOME\.code_puppy\plugins\elcs_telemetry" -Target "<path-to-elcs-repo>\resources\plugins\elcs_telemetry"
+New-Item -ItemType SymbolicLink -Path "$HOME\.code_puppy\plugins\elcs_telemetry" -Target "C:\path\to\elcs-framework\resources\plugins\elcs_telemetry"
 ```
 
 **Linux/Mac:**
 ```bash
-ln -s /path/to/elcs-repo/resources/plugins/elcs_telemetry ~/.code_puppy/plugins/elcs_telemetry
+ln -s /path/to/elcs-framework/resources/plugins/elcs_telemetry ~/.code_puppy/plugins/elcs_telemetry
 ```
 
-### Option 2: Copy
+### Option 2: Copy (Recommended for OneDrive/Dropbox)
 
-Copy the entire `elcs_telemetry` folder to `~/.code_puppy/plugins/`:
+Copies files directly — no dependency on the source location.
 
+**Windows:**
+```powershell
+Copy-Item -Recurse "C:\path\to\elcs-framework\resources\plugins\elcs_telemetry" "$HOME\.code_puppy\plugins\elcs_telemetry"
 ```
-~/.code_puppy/plugins/
-└── elcs_telemetry/
-    ├── __init__.py
-    ├── register_callbacks.py
-    ├── telemetry_writer.py
-    └── README.md
+
+**Linux/Mac:**
+```bash
+cp -r /path/to/elcs-framework/resources/plugins/elcs_telemetry ~/.code_puppy/plugins/
 ```
+
+> **OneDrive Users:** If you run `$env:UV_LINK_MODE = "copy"; uvx code-puppy` because your project is in OneDrive, using the **Copy** option for the plugin ensures everything stays outside of cloud sync.
 
 ## Verify Installation
 

@@ -15,6 +15,8 @@ Telemetry is valuable when the user or agent NEEDS to dig into the details. For 
 
 See [resources/plugins/elcs_telemetry/README.md](../resources/plugins/elcs_telemetry/README.md) for installation instructions.
 
+> **OneDrive/Dropbox Users:** If your ELCS repo is stored in a cloud-synced folder, use the **Copy** installation method instead of symlink to avoid potential sync conflicts. The `~/.code_puppy/plugins/` destination is in your user profile and typically NOT cloud-synced, so copying ensures no dependencies on cloud storage.
+
 ## When to Use Telemetry
 
 ✅ **Good use cases:**
