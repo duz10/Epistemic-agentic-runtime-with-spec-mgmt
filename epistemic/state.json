@@ -1,9 +1,9 @@
 {
   "project": "ELCS Framework",
   "version": "0.1.0-dev",
-  "state_version": 4,
+  "state_version": 5,
   "created": "2026-02-07T13:14:41Z",
-  "last_updated": "2025-01-10T17:00:00Z",
+  "last_updated": "2025-01-10T18:00:00Z",
   
   "assumptions": [
     {
@@ -88,9 +88,11 @@
     {
       "id": "H5",
       "claim": "Coalition contracts (Stage C) enable tighter agent coupling without conflict",
-      "confidence": 0.55,
+      "confidence": 0.90,
       "falsification": "If coalitions produce more conflicts than solo agents, or exit conditions fail to trigger, this hypothesis is falsified",
-      "status": "untested"
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E9"]
     },
     {
       "id": "H6",
@@ -158,6 +160,12 @@
       "type": "experiment",
       "summary": "After adding HARD RULES section to CLAUDE.md/AGENTS.md with visual checklist, agent followed full token lifecycle for WT-012: created token BEFORE work, ran pre-edit checklist, ran compliance checklist, wrote checkpoint. Key insight: prominent rules get followed, buried rules get skipped.",
       "source": "H4 compliance enforcement test 2025-01-10"
+    },
+    {
+      "id": "E9",
+      "type": "experiment",
+      "summary": "Coalition CC-001-web-calculator coordinated 6 agents (planning-agent, python-programmer, code-puppy, qa-kitten, python-reviewer, javascript-reviewer) across 4 tokens with 6 explicit handoffs. Validators had blocking power. Scope boundaries respected. Coalition dissolved cleanly. Delivered: Flask backend, HTML/JS frontend, 41 unit tests, 14 E2E tests.",
+      "source": "H5 coalition contract test 2025-01-10"
     }
   ],
   
