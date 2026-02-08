@@ -217,12 +217,40 @@ my-project/
 
 ---
 
+## Telemetry (Optional)
+
+ELCS includes an optional telemetry plugin for Code-Puppy that captures observational data for debugging and analysis.
+
+### Installation
+
+1. Copy or symlink `resources/plugins/elcs_telemetry/` to `~/.code_puppy/plugins/`
+2. Run `uvx code-puppy` as normal
+3. Telemetry writes to `elcs/telemetry/events-YYYY-MM-DD.jsonl`
+
+See [docs/TELEMETRY.md](docs/TELEMETRY.md) for full documentation.
+
+### What's Captured
+
+- Session lifecycle and timing
+- Tool calls with arguments and duration
+- File operations
+- Shell commands (redacted for security)
+- Agent delegation
+- Confusion/uncertainty signals
+
+### When to Use
+
+Telemetry is the microscope, not the map. Use it when you need to dig into HOW something happened, not WHAT happened (that's what ELCS state is for).
+
+---
+
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
 | [QUICKSTART](template/elcs/QUICKSTART.md) | 5-minute adoption guide |
 | [PROTOCOL](template/elcs/PROTOCOL.md) | Full agent operating instructions |
+| [TELEMETRY](docs/TELEMETRY.md) | Telemetry plugin setup & usage |
 | [Glossary](docs/glossary.md) | 41 ELCS terms defined |
 | [Lens Guide](protocol/lenses/README.md) | How to apply the 7 lenses |
 | [6-Gate Protocol](protocol/gates.md) | Goal validation process |

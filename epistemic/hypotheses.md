@@ -92,6 +92,53 @@
 
 ---
 
+### H8: Infrastructure-Based Telemetry Is Sufficient
+- **Claim**: Infrastructure-based telemetry (via code-puppy callback hooks) provides sufficient observability for framework validation without requiring agent compliance
+- **Confidence**: 0.90 (was 0.75)
+- **Falsification**: If the callback hooks fail to capture meaningful events, or if we need agent-initiated logging to understand behavior
+- **Status**: ✅ VALIDATED (2025-01-11)
+- **Evidence**: E13, E14, E17
+
+#### Validation Results
+Built and tested `~/.code_puppy/plugins/elcs_telemetry/` plugin. Successfully captures:
+- Session start/end with agent, model, session_id
+- Tool calls with args, duration_ms, session_id
+- File operations (edit, create, delete) with file_path
+- Shell commands with command, cwd, timeout
+- Agent delegation via invoke_agent
+- Confusion signals (uncertainty, clarification_needed, etc.)
+- Thinking/response length metrics
+
+#### Design Decisions
+1. **Observational, not participatory**: Telemetry captures events via infrastructure hooks, not by asking agents to log
+2. **Code-puppy only (for now)**: Other platforms (Claude Code CLI, Cursor, Windsurf) lack hook infrastructure
+3. **Tier 1+ approach**: Core events (tool calls, session lifecycle) plus selective Tier 2/3 (delegation, confusion signals)
+4. **User plugin model**: Telemetry plugin lives at `~/.code_puppy/plugins/elcs_telemetry/`
+
+#### Key Insight (from lens evaluation)
+Artifact-based telemetry is redundant — ELCS artifacts ARE the record. Useful telemetry captures what ISN'T in artifacts: tool calls, timing, errors, agent confusion.
+
+#### Technical Discoveries During Implementation
+1. **stream_event for tool calls**: `pre_tool_call`/`post_tool_call` exist but aren't wired to built-in tools. Used `stream_event` with `ToolCallPart` detection.
+2. **Pydantic payloads**: `edit_file` callback receives Pydantic models, not dicts. Required attribute access.
+3. **Confusion detection works**: Pattern matching on response text successfully detects uncertainty signals.
+
+---
+
+### H9: Complex Organic Prompts Stress-Test Agent Behavior
+- **Claim**: Complex, organic test prompts (70-80% defined with mixed requirements/questions/gaps) effectively stress-test agent parsing, prioritization, and ELCS compliance
+- **Confidence**: 0.70
+- **Falsification**: If agents handle complex prompts identically to simple ones, or if complexity doesn't reveal new behaviors
+- **Status**: 📋 PROPOSED
+
+#### Test Prompt Characteristics
+- 70-80% defined (clear enough to start, fuzzy enough to require decisions)
+- Mixed content: hard requirements, soft preferences, open questions, known gaps, rough phases
+- Realistic scope (not trivial, not massive)
+- Should trigger: parsing, prioritization, token creation, clarifying questions, potential delegation
+
+---
+
 ## Hypothesis Testing Summary
 
 | ID | Claim | Stage | Status | Confidence |
@@ -103,7 +150,9 @@
 | H4 | Validator/compliance enforcement | B | ✅ Validated | 0.85 |
 | H5 | Coalition contracts | C | ✅ Validated | 0.90 |
 | H6 | Distance vector self-selection | D | 🟡 Partial | 0.60 |
+| H8 | Infrastructure-based telemetry sufficient | - | ✅ Validated | 0.90 |
+| H9 | Complex organic prompts stress-test behavior | - | 📋 Proposed | 0.70 |
 
 ---
 
-*Last updated: 2025-01-10 after H6 distance vector partial testing*
+*Last updated: 2025-01-11 after H8 validation (telemetry plugin complete)*

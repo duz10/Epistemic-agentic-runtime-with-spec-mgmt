@@ -1,0 +1,33 @@
+{
+  "token_id": "WT-TELEM-001",
+  "type": "subtask",
+  "summary": "Create elcs_telemetry plugin for ~/.code_puppy/plugins/",
+  "description": "Build a code-puppy plugin that captures telemetry events via callback hooks and writes them to elcs/telemetry/ as JSONL. This enables observational telemetry without requiring agent compliance.",
+  "priority": 0.85,
+  "status": "completed",
+  "created_at": "2025-01-11T00:00:00Z",
+  "created_by": "planning-agent-11242f",
+  "claimed_by": "code-puppy",
+  "claimed_at": "2025-01-11T00:00:00Z",
+  "closed_at": "2025-01-11T00:00:00Z",
+  "resolution": "Successfully built telemetry plugin capturing all key events via infrastructure hooks. Validated with live testing.",
+  "outcome": "success",
+  "blocks": [],
+  "blocked_by": [],
+  "acceptance_criteria": [
+    "Plugin loads successfully with uvx code-puppy",
+    "Captures pre_tool_call and post_tool_call events",
+    "Captures agent_run_start and agent_run_end events",
+    "Writes JSONL to elcs/telemetry/events-YYYY-MM-DD.jsonl",
+    "Redacts sensitive data (no secrets, credentials, full file contents)",
+    "Includes confusion signal detection from response text"
+  ],
+  "deliverables": [
+    "~/.code_puppy/plugins/elcs_telemetry/__init__.py",
+    "~/.code_puppy/plugins/elcs_telemetry/register_callbacks.py",
+    "~/.code_puppy/plugins/elcs_telemetry/telemetry_writer.py",
+    "Documentation in elcs_telemetry/README.md"
+  ],
+  "related_hypotheses": ["H8", "H9"],
+  "notes": "This is infrastructure for validating H6 (distance vectors) and H8 (infrastructure telemetry). Will be tested with complex organic prompt (H9)."
+}

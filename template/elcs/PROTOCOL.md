@@ -107,7 +107,7 @@ elcs/
 │
 ├── archives/            ← Full state bundles (on demand)
 │
-├── telemetry/           ← Micro-state logs (optional)
+├── telemetry/           ← Micro-state logs (optional, see Telemetry section)
 │
 └── .gates/              ← Stage completion records
     ├── stage-0.complete

@@ -9,6 +9,7 @@
 | C1 | Must work with any agent that can read/write files | Tool-agnostic is a core design goal |
 | C2 | All artifacts must be human-readable (no binary formats) | Transparency and debuggability |
 | C3 | Template must not require installation/dependencies | Zero-friction adoption |
+| C6 | Telemetry must never log secrets, credentials, or full file contents | Security - high-impact risk identified by Safety lens |
 
 ## Soft Constraints (Preferences)
 

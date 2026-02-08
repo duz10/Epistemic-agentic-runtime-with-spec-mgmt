@@ -1,9 +1,9 @@
 {
   "project": "ELCS Framework",
   "version": "0.1.0-dev",
-  "state_version": 6,
+  "state_version": 10,
   "created": "2026-02-07T13:14:41Z",
-  "last_updated": "2025-01-10T20:00:00Z",
+  "last_updated": "2025-01-11T12:00:00Z",
   
   "assumptions": [
     {
@@ -44,6 +44,30 @@
       "confidence": 0.90,
       "status": "active",
       "evidence_for": ["E3"],
+      "evidence_against": []
+    },
+    {
+      "id": "A6",
+      "text": "JSONL append is safe for concurrent agent writes to telemetry files",
+      "confidence": 0.85,
+      "status": "active",
+      "evidence_for": [],
+      "evidence_against": []
+    },
+    {
+      "id": "A7",
+      "text": "Confusion signals can be detected by parsing agent response text for uncertainty markers",
+      "confidence": 0.65,
+      "status": "needs_validation",
+      "evidence_for": [],
+      "evidence_against": []
+    },
+    {
+      "id": "A8",
+      "text": "Code-puppy user plugins at ~/.code_puppy/plugins/ load correctly with uvx code-puppy",
+      "confidence": 0.95,
+      "status": "verified",
+      "evidence_for": ["E14", "E16"],
       "evidence_against": []
     }
   ],
@@ -112,6 +136,23 @@
       "status": "validated",
       "validated_at": "2025-01-10",
       "evidence": ["E6"]
+    },
+    {
+      "id": "H8",
+      "claim": "Infrastructure-based telemetry (via code-puppy callback hooks) provides sufficient observability for framework validation without requiring agent compliance",
+      "confidence": 0.90,
+      "falsification": "If the callback hooks fail to capture meaningful events, or if we need agent-initiated logging to understand behavior",
+      "status": "validated",
+      "validated_at": "2025-01-11",
+      "evidence": ["E13", "E14", "E17"]
+    },
+    {
+      "id": "H9",
+      "claim": "Complex, organic test prompts (70-80% defined with mixed requirements/questions/gaps) effectively stress-test agent parsing, prioritization, and ELCS compliance",
+      "confidence": 0.70,
+      "falsification": "If agents handle complex prompts identically to simple ones, or if complexity doesn't reveal new behaviors",
+      "status": "proposed",
+      "evidence": []
     }
   ],
   
@@ -187,6 +228,42 @@
       "type": "observation",
       "summary": "Protocol First HARD RULE added to bootstrap files. Agent read protocol when prompted but satisficed with simpler approach when priorities were clear.",
       "source": "H6 testing 2025-01-10"
+    },
+    {
+      "id": "E13",
+      "type": "observation",
+      "summary": "Code-puppy has callback hooks (pre_tool_call, post_tool_call, agent_run_start/end, edit_file, stream_event) that fire automatically without agent compliance",
+      "source": "Code inspection of code_puppy/callbacks.py 2025-01-11"
+    },
+    {
+      "id": "E14",
+      "type": "observation",
+      "summary": "Code-puppy loads user plugins from ~/.code_puppy/plugins/ directory, enabling custom telemetry plugins to work with uvx code-puppy",
+      "source": "Code inspection of code_puppy/plugins/__init__.py 2025-01-11"
+    },
+    {
+      "id": "E15",
+      "type": "analysis",
+      "summary": "Artifact-based telemetry (watching ELCS file changes) is redundant - the artifacts themselves ARE the record. Useful telemetry must capture what ISN'T in artifacts: tool calls, timing, errors, confusion signals",
+      "source": "Lens evaluation and discussion 2025-01-11"
+    },
+    {
+      "id": "E16",
+      "type": "verification",
+      "summary": "Confirmed: plugins.load_plugin_callbacks() runs at module import time in cli_runner.py (line 52), meaning ~/.code_puppy/plugins/ is scanned regardless of how code-puppy is launched (uvx or local). User plugins WILL work with uvx code-puppy.",
+      "source": "Code inspection of cli_runner.py 2025-01-11"
+    },
+    {
+      "id": "E17",
+      "type": "validation",
+      "summary": "Telemetry plugin successfully captures: session lifecycle, tool calls with args/duration, file operations, shell commands, agent delegation, and confusion signals. All via infrastructure hooks without agent compliance.",
+      "source": "Live testing with uvx code-puppy 2025-01-11"
+    },
+    {
+      "id": "E18",
+      "type": "gap",
+      "summary": "Actual API token usage not available in agent_run_end callback. Code-puppy passes only model name in metadata, not pydantic-ai's result.usage(). Estimated tokens can be calculated from response/thinking length (~4 chars = 1 token).",
+      "source": "Code inspection of base_agent.py 2025-01-11"
     }
   ],
   
@@ -206,6 +283,11 @@
         "id": "C3",
         "text": "Template must not require installation or dependencies to use",
         "rationale": "Zero-friction adoption"
+      },
+      {
+        "id": "C6",
+        "text": "Telemetry must never log secrets, credentials, API keys, or full file contents",
+        "rationale": "Safety lens identified this as high-impact security risk"
       }
     ],
     "soft": [

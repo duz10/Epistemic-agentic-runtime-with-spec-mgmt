@@ -11,12 +11,16 @@
 | A3 | ELCS can be implemented progressively (L0→L4) without breaking | 0.75 | Active |
 | A4 | Unique terminology prevents confusion with other methodologies | 0.70 | Active |
 | A5 | EAR methodology is sufficient to complete this project | 0.90 | Active |
+| A6 | JSONL append is safe for concurrent agent writes | 0.85 | Active |
+| A7 | Confusion signals detectable from response text parsing | 0.65 | Needs Validation |
+| A8 | Code-puppy user plugins load with uvx code-puppy | 0.95 | Verified |
 
 ## Evidence Links
 
 - **A1** ← E1 (observed behavior in Code-puppy, Claude Code)
 - **A2** ← E2 (EAR template persistence works)
 - **A5** ← E3 (EAR has guided us to scaffolding)
+- **A8** ← E14, E16 (code inspection confirmed user plugin loading runs at import time)
 
 ## Retired/Revised Assumptions
 
