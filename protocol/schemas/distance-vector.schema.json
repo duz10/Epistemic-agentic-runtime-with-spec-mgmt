@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://elcs.dev/schemas/distance-vector.v1.json",
+  "title": "ELCS Distance Vector",
+  "description": "Quantifies distance to project completion. Enables metric-driven self-selection without central dispatcher.",
+  "type": "object",
+  "required": ["vector_id", "computed_at", "components", "total_distance"],
+  "properties": {
+    "vector_id": {
+      "type": "string",
+      "description": "Unique identifier for this distance computation"
+    },
+    "computed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this vector was computed"
+    },
+    "spec_id": {
+      "type": ["string", "null"],
+      "description": "Reference to the spec this measures distance for"
+    },
+    "components": {
+      "type": "object",
+      "description": "Individual distance components - each represents work remaining",
+      "properties": {
+        "success_criteria_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of success criteria not yet met"
+        },
+        "critical_risks": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of unmitigated critical risks"
+        },
+        "high_risks": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of unmitigated high risks"
+        },
+        "evidence_gaps": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of claims lacking supporting evidence"
+        },
+        "blocked_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of tokens blocked by dependencies"
+        },
+        "open_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of unclaimed open tokens"
+        },
+        "failing_tests": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of failing tests"
+        },
+        "unreviewed_changes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of changes awaiting review"
+        },
+        "documentation_gaps": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of undocumented public interfaces"
+        }
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Custom distance components"
+      }
+    },
+    "total_distance": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Weighted sum of components (0 = complete)"
+    },
+    "weights": {
+      "type": "object",
+      "description": "Weights for each component in total_distance calculation",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "trend": {
+      "type": "string",
+      "enum": ["decreasing", "stable", "increasing", "unknown"],
+      "description": "Direction of distance change since last computation"
+    },
+    "previous_total": {
+      "type": ["number", "null"],
+      "description": "Total distance from previous computation (for trend)"
+    },
+    "hotspots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component": { "type": "string" },
+          "reason": { "type": "string" },
+          "suggested_action": { "type": "string" }
+        }
+      },
+      "description": "Components with highest impact potential"
+    },
+    "computed_by": {
+      "type": ["string", "null"],
+      "description": "Agent or system that computed this vector"
+    }
+  }
+}

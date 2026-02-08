@@ -550,6 +550,146 @@ When multiple agents will work on this project:
 
 For full coalition protocol, see `docs/scaling-stages.md`.
 
+---
+
+## 📏 Distance Vectors (Stage D)
+
+Distance vectors enable **metric-driven self-selection** — agents coordinate without a central dispatcher by asking: "Can I reduce any distance component?"
+
+### What is a Distance Vector?
+
+A distance vector quantifies "how far are we from completion?" across multiple dimensions:
+
+```json
+{
+  "vector_id": "DV-2025-01-10-001",
+  "computed_at": "2025-01-10T18:00:00Z",
+  "components": {
+    "success_criteria_remaining": 3,
+    "critical_risks": 1,
+    "evidence_gaps": 2,
+    "failing_tests": 1,
+    "open_tokens": 4,
+    "blocked_tokens": 0
+  },
+  "total_distance": 11,
+  "trend": "decreasing",
+  "hotspots": [
+    {"component": "critical_risks", "reason": "Security validation pending", "suggested_action": "Invoke security-auditor"}
+  ]
+}
+```
+
+**Total distance = 0** means the project objective is complete.
+
+### Computing Distance Vectors
+
+Distance vectors are computed from ELCS artifacts:
+
+| Component | Source |
+|-----------|--------|
+| `success_criteria_remaining` | `spec/success-criteria.md` — count unchecked items |
+| `critical_risks` | `state/current.json` — count risks with severity "critical" |
+| `evidence_gaps` | `state/hypotheses.md` — count hypotheses lacking evidence |
+| `failing_tests` | Test runner output |
+| `open_tokens` | `tokens/open/` — count files |
+| `blocked_tokens` | `tokens/open/` — count tokens with unmet dependencies |
+
+**Compute frequency:** After every checkpoint, or when an agent needs coordination signals.
+
+### Self-Selection Protocol
+
+When multiple open tokens exist and no dispatcher is assigning work:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│              SELF-SELECTION PROTOCOL                    │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. READ current DistanceVector                        │
+│     → elcs/state/distance-vector.json                  │
+│                                                         │
+│  2. LIST open tokens                                   │
+│     → elcs/tokens/open/*.json                          │
+│                                                         │
+│  3. EVALUATE each token:                               │
+│     "If I complete this, which components decrease?"   │
+│     "By how much?"                                      │
+│     "Am I qualified to do this work?"                  │
+│                                                         │
+│  4. COMPUTE impact score:                              │
+│     impact = Σ (component_reduction × weight)          │
+│                                                         │
+│  5. SELECT token with highest impact I can deliver     │
+│                                                         │
+│  6. CLAIM the token (standard token protocol)          │
+│                                                         │
+│  7. COMPLETE work, CLOSE token                         │
+│                                                         │
+│  8. RECOMPUTE DistanceVector                           │
+│     → Verify: Did total_distance decrease?             │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Self-Selection Prompt
+
+When operating in self-selection mode, agents receive:
+
+```
+SELF-SELECTION MODE (Stage D)
+
+You are operating without a dispatcher. Your job:
+1. Read the current DistanceVector
+2. Review open tokens
+3. Select the token where YOU can make the highest impact
+4. Claim it and complete the work
+5. Recompute DistanceVector when done
+
+Selection criteria:
+- Which component can you reduce most?
+- Are you qualified for this work?
+- What's the expected impact?
+
+DO NOT wait for instructions. Self-select and execute.
+```
+
+### Drift Detection
+
+After completing work, check for drift:
+
+```
+IF:   Your work improved a local metric
+BUT:  Global total_distance increased or stayed same
+THEN: "Drift detected" — your work may have caused regression
+
+Action:
+1. Review what changed
+2. Check if other components increased
+3. Consider rollback if net negative
+4. Document in checkpoint
+```
+
+### Distance Vector Storage
+
+Store in: `elcs/state/distance-vector.json`
+
+Update the vector:
+- After every token closure
+- After every checkpoint
+- When agents request coordination signals
+
+### When to Use Distance Vectors
+
+| Signal | Action |
+|--------|--------|
+| Multiple open tokens, no clear priority | Compute distance vector |
+| Agents asking "what should I work on?" | Enable self-selection mode |
+| Progress feels stalled despite activity | Check for drift |
+| Coordination overhead is bottleneck | Remove dispatcher, use self-selection |
+
+**Default:** Most projects don't need distance vectors. Use them at Stage D when emergent coordination is desired.
+
 ### Scaling Signals
 
 **Escalate complexity only when you see repeated failures:**

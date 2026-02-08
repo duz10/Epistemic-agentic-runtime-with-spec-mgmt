@@ -14,6 +14,7 @@
 | [coalition-contract.schema.json](./coalition-contract.schema.json) | v1 | Multi-agent agreement |
 | [journal-checkpoint.schema.json](./journal-checkpoint.schema.json) | v1 | Compressed narrative state |
 | [codec.schema.json](./codec.schema.json) | v1 | Decompression metadata |
+| [distance-vector.schema.json](./distance-vector.schema.json) | v1 | Distance to completion metrics for self-selection |
 
 ## Schema Versioning
 
