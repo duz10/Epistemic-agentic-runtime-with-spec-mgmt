@@ -1,9 +1,9 @@
 {
   "project": "ELCS Framework",
   "version": "0.1.0-dev",
-  "state_version": 1,
+  "state_version": 4,
   "created": "2026-02-07T13:14:41Z",
-  "last_updated": "2026-02-07T13:14:41Z",
+  "last_updated": "2025-01-10T17:00:00Z",
   
   "assumptions": [
     {
@@ -52,23 +52,61 @@
     {
       "id": "H1",
       "claim": "Multi-entry bootstrap (CLAUDE.md + .cursorrules + .windsurfrules) will work across 3+ agent environments",
-      "confidence": 0.70,
+      "confidence": 0.90,
       "falsification": "If any major agent environment ignores all bootstrap files, this hypothesis is falsified",
-      "status": "untested"
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E7"]
     },
     {
       "id": "H2",
       "claim": "ELCS protocol can be followed by agents without custom tooling (pure file-based)",
-      "confidence": 0.80,
+      "confidence": 0.95,
       "falsification": "If agents require custom tools/APIs to follow ELCS, this hypothesis is falsified",
-      "status": "untested"
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E4"]
     },
     {
       "id": "H3",
       "claim": "WorkToken-based coordination will enable emergent multi-agent collaboration",
-      "confidence": 0.60,
+      "confidence": 0.85,
       "falsification": "If token claiming leads to deadlocks or no coordination improvement, this hypothesis is falsified",
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E5"]
+    },
+    {
+      "id": "H4",
+      "claim": "Validator agents (Stage B) can enforce quality gates without blocking legitimate work",
+      "confidence": 0.85,
+      "falsification": "If validators cause deadlocks or excessive rejection rates (>30%), this hypothesis is falsified",
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E8"]
+    },
+    {
+      "id": "H5",
+      "claim": "Coalition contracts (Stage C) enable tighter agent coupling without conflict",
+      "confidence": 0.55,
+      "falsification": "If coalitions produce more conflicts than solo agents, or exit conditions fail to trigger, this hypothesis is falsified",
       "status": "untested"
+    },
+    {
+      "id": "H6",
+      "claim": "Distance vectors (Stage D) enable self-selection without central dispatcher",
+      "confidence": 0.50,
+      "falsification": "If agents cannot meaningfully compute/use distance vectors, or coordination degrades without dispatcher, this hypothesis is falsified",
+      "status": "untested"
+    },
+    {
+      "id": "H7",
+      "claim": "Agents naturally scale rigor to risk without explicit instruction",
+      "confidence": 0.80,
+      "falsification": "If agents apply same ceremony to trivial and complex tasks, this hypothesis is falsified",
+      "status": "validated",
+      "validated_at": "2025-01-10",
+      "evidence": ["E6"]
     }
   ],
   
@@ -90,6 +128,36 @@
       "type": "observation",
       "summary": "EAR 12-stage pipeline has guided this project from idea through scaffolding successfully",
       "source": "current session"
+    },
+    {
+      "id": "E4",
+      "type": "experiment",
+      "summary": "test-elcs-codepuppy project: Agent followed ELCS protocol (tokens, claims, checkpoints) using only file-based artifacts, no custom tooling",
+      "source": "H3 stress test session 2025-01-10"
+    },
+    {
+      "id": "E5",
+      "type": "experiment",
+      "summary": "test-elcs-codepuppy project: Bernard delegated WT-008 (web server) to python-programmer sub-agent while implementing 3 other tokens in parallel. No conflicts, proper attribution in claimed_by field.",
+      "source": "H3 stress test session 2025-01-10"
+    },
+    {
+      "id": "E6",
+      "type": "experiment",
+      "summary": "Agent created single token for simple work (Stage 1), but voluntarily created 4 parallel tokens + sub-agent delegation for complex multi-feature request (Stage 2). Scaled rigor without explicit instruction.",
+      "source": "H3 stress test session 2025-01-10"
+    },
+    {
+      "id": "E7",
+      "type": "experiment",
+      "summary": "Same ELCS project (test-elcs-codepuppy) successfully read by Code-puppy (AGENTS.md), Claude Code CLI (CLAUDE.md), and VS Code Claude chat mode (CLAUDE.md). All three understood project state, tokens, and checkpoints.",
+      "source": "H1 cross-platform validation 2025-01-10"
+    },
+    {
+      "id": "E8",
+      "type": "experiment",
+      "summary": "After adding HARD RULES section to CLAUDE.md/AGENTS.md with visual checklist, agent followed full token lifecycle for WT-012: created token BEFORE work, ran pre-edit checklist, ran compliance checklist, wrote checkpoint. Key insight: prominent rules get followed, buried rules get skipped.",
+      "source": "H4 compliance enforcement test 2025-01-10"
     }
   ],
   

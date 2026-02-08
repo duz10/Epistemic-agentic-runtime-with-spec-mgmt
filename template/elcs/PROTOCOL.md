@@ -269,6 +269,44 @@ EMIT → CLAIM → EXECUTE → COMMIT → CLOSE
 
 **You MUST create a WorkToken automatically when:**
 
+### 🚨 MANDATORY: Tokens for Project File Modifications
+
+**Any PROJECT file modification requires a WorkToken. No exceptions.**
+
+**Project files** = code, tests, documentation, configuration, assets — anything OUTSIDE `elcs/`
+
+**ELCS files** (`elcs/**/*`) = state, tokens, checkpoints, specs — these ARE the audit trail and do NOT require their own tokens.
+
+| File Location | WorkToken Required? | Examples |
+|---------------|---------------------|----------|
+| `src/**/*` | ✅ YES | Code, modules, scripts |
+| `tests/**/*` | ✅ YES | Test files |
+| `docs/**/*` | ✅ YES | Documentation |
+| `*.json`, `*.yaml` (root) | ✅ YES | Config files |
+| `elcs/**/*` | ❌ NO | State, tokens, checkpoints |
+
+**Why this distinction?** ELCS artifacts ARE the audit trail. Requiring tokens to update the audit trail would create infinite recursion:
+- Edit code → close token → write checkpoint → need token for checkpoint? → 💀
+
+ELCS state updates happen AS PART OF the token lifecycle, not as separate tracked work.
+
+Before editing ANY file in the project:
+1. Create a WorkToken describing the work
+2. Claim the token (set `claimed_by` to your agent ID)
+3. Perform the work
+4. Close the token with resolution
+5. Write a checkpoint
+
+**Why?** Without tokens:
+- No audit trail (who did what, when)
+- No traceability (why was this change made)
+- No rollback capability (what to undo)
+- No multi-agent coordination (who's working on what)
+
+**The test:** If someone asks "why was this file changed?", there should be a closed WorkToken with the answer.
+
+---
+
 1. **Question Arises** — You encounter something you can't answer without external input
    - Type: `question`
    - Example: "What authentication provider should we use?"
@@ -390,6 +428,18 @@ Write a journal checkpoint when:
 6. **Context getting long** — Compress before you forget
 
 **A checkpoint takes 2 minutes. Losing context costs hours.**
+
+### 🚨 MANDATORY: Checkpoint After Token Resolution
+
+**Every closed WorkToken MUST be followed by a checkpoint update.**
+
+When you close a token:
+1. Move token to `elcs/tokens/closed/`
+2. Set `resolution` with outcome and summary
+3. Update `elcs/state/current.json` (bump version)
+4. Write or update journal checkpoint
+
+**Why?** Tokens without checkpoints are orphaned work. Future sessions won't know the context of what was done.
 
 ### Drift Detection Signals
 
@@ -515,6 +565,85 @@ For full coalition protocol, see `docs/scaling-stages.md`.
 
 ---
 
+## ✅ Validation Protocol (Two Layers)
+
+Before closing any WorkToken, validation must occur at two layers:
+
+### Layer 1: ELCS Compliance (Required — Self-Check)
+
+**Before closing ANY token, verify:**
+
+```
+ELCS COMPLIANCE CHECKLIST:
+□ Token was created BEFORE work began
+□ Token was claimed with agent ID and timestamp
+□ All file edits are traceable to this token
+□ Tests pass (if applicable)
+□ Token has resolution with outcome and summary
+□ Checkpoint will be written after closure
+□ state/current.json version will be incremented
+```
+
+**This is a self-check.** The implementing agent verifies their own compliance. Failure to complete this checklist = token cannot be closed.
+
+### Layer 2: Code Quality Review (Stage-Dependent)
+
+Code quality review requirements scale with project stage:
+
+| Stage | Review Requirement |
+|-------|-------------------|
+| **A** (solo agent) | Self-review acceptable. Human provides oversight. |
+| **B** (validators) | Separate reviewer agent required. Reviewer has blocking power. |
+| **C+** (coalitions) | Domain-specific reviewer required. |
+
+**Additionally, invoke a separate reviewer when:**
+- Touching core logic (parsers, algorithms, data models)
+- Adding new public APIs or interfaces
+- Modifying more than 100 lines of code
+- Working in a domain outside your expertise
+- User explicitly requests quality review
+- Risk assessment is "High" or above
+
+### Reviewer Invocation Protocol
+
+When a separate reviewer is required:
+
+1. Complete your implementation
+2. Run tests to verify basic functionality
+3. Invoke the appropriate reviewer agent:
+   - `python-reviewer` for Python code
+   - `typescript-reviewer` for TypeScript
+   - `security-auditor` for security-sensitive changes
+   - `code-reviewer` for general review
+4. Provide the reviewer with:
+   - Token ID being reviewed
+   - Files modified
+   - Summary of changes
+   - Test results
+5. **Reviewer has blocking power** — if they reject, you must fix issues before closing token
+6. Document review outcome in token resolution
+
+### Review Outcome Tracking
+
+In the token resolution, document the review:
+
+```json
+{
+  "resolution": {
+    "outcome": "success",
+    "summary": "Implemented feature X",
+    "review": {
+      "layer1_compliance": true,
+      "layer2_reviewer": "python-reviewer",
+      "layer2_outcome": "approved",
+      "layer2_notes": "Clean implementation, good test coverage"
+    }
+  }
+}
+```
+
+---
+
 ## 🔍 Self-Check Protocol
 
 Periodically verify ELCS is being followed correctly.
@@ -618,18 +747,19 @@ If you don't know how to proceed:
 │    4. Check .gates/                                             │
 │    5. Read latest journal checkpoint                            │
 │                                                                 │
-│  DURING WORK:                                                   │
+│  DURING WORK:                                              │
 │    • Follow Ralph Loop (Observe→Orient→Decide→Act→Observe)     │
+│    • Create WorkToken BEFORE any file modification             │
 │    • Write artifacts to elcs/ (not just chat)                  │
-│    • Create WorkTokens for questions/gaps                       │
 │    • Ensure rollback plan before changes                        │
 │    • Self-check every 30 minutes                                │
 │                                                                 │
 │  END OF SESSION:                                                │
-│    1. Update state/current.json                                 │
-│    2. Close/update relevant WorkTokens                          │
-│    3. Write journal checkpoint if significant progress          │
-│    4. Mark stage complete if gate criteria met                  │
+│    1. Complete ELCS Compliance Checklist for open tokens        │
+│    2. Close WorkTokens with resolution                          │
+│    3. Write journal checkpoint (MANDATORY after token close)    │
+│    4. Update state/current.json (bump version)                  │
+│    5. Mark stage complete if gate criteria met                  │
 │                                                                 │
 │  THE 6 GATES (for goals):                                       │
 │    □ Observables    □ Testability    □ Reversibility           │

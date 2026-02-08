@@ -123,6 +123,63 @@ You are in an **Epistemic Light-Cone Swarm (ELCS)** project.
 > "This is an ELCS project. Let me check the project state first."
 > Then read the files above before proceeding.
 
+---
+
+### 🚨 HARD RULES: No Code Without a Token
+
+**Before editing ANY file in src/, tests/, docs/, or config:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  STOP! BEFORE YOU EDIT ANY PROJECT FILE:                │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. CREATE token in elcs/tokens/open/                   │
+│     → Describe what you're about to do                  │
+│                                                         │
+│  2. CLAIM token (move to claimed/ or set claimed_by)    │
+│     → Add your agent ID and timestamp                   │
+│                                                         │
+│  3. NOW edit files                                      │
+│     → Only after steps 1-2 are complete                 │
+│                                                         │
+│  4. CLOSE token with resolution                         │
+│     → Document what was done, test results              │
+│                                                         │
+│  5. WRITE checkpoint                                    │
+│     → Update journal with progress summary              │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+**NEVER:**
+- ❌ Create tokens AFTER work is done (retroactive tokens)
+- ❌ Edit project files without a claimed token
+- ❌ Close tokens without writing a checkpoint
+- ❌ Skip the compliance checklist
+
+**The token IS the authorization to modify files — not a receipt.**
+
+If you catch yourself about to edit a file without a token:
+> STOP → Create token → Claim it → THEN proceed
+
+---
+
+### Pre-Edit Checklist
+
+Before EVERY file modification, verify:
+
+```
+□ Token created in elcs/tokens/open/?
+□ Token claimed with my agent ID?
+□ Token summary describes this specific work?
+□ Rollback plan exists (git branch, backup)?
+```
+
+If any box is unchecked, STOP and fix it first.
+
+---
+
 ### Full Protocol
 
 Read `elcs/PROTOCOL.md` for complete instructions.
