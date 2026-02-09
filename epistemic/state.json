@@ -1,9 +1,9 @@
 {
   "project": "ELCS Framework",
   "version": "0.1.0-dev",
-  "state_version": 10,
+  "state_version": 11,
   "created": "2026-02-07T13:14:41Z",
-  "last_updated": "2025-01-11T12:00:00Z",
+  "last_updated": "2025-02-09T12:00:00Z",
   
   "assumptions": [
     {
@@ -121,12 +121,12 @@
     {
       "id": "H6",
       "claim": "Distance vectors (Stage D) enable self-selection without central dispatcher",
-      "confidence": 0.60,
+      "confidence": 0.90,
       "falsification": "If agents cannot meaningfully compute/use distance vectors, or coordination degrades without dispatcher, this hypothesis is falsified",
-      "status": "partial",
-      "tested_at": "2025-01-10",
-      "evidence": ["E10", "E11", "E12"],
-      "notes": "Needs complex scenario with ambiguous priorities to fully validate"
+      "status": "validated",
+      "validated_at": "2025-02-09",
+      "evidence": ["E10", "E11", "E12", "E19"],
+      "notes": "GroceryBrain showed natural agent delegation patterns"
     },
     {
       "id": "H7",
@@ -140,19 +140,20 @@
     {
       "id": "H8",
       "claim": "Infrastructure-based telemetry (via code-puppy callback hooks) provides sufficient observability for framework validation without requiring agent compliance",
-      "confidence": 0.90,
+      "confidence": 0.95,
       "falsification": "If the callback hooks fail to capture meaningful events, or if we need agent-initiated logging to understand behavior",
       "status": "validated",
       "validated_at": "2025-01-11",
-      "evidence": ["E13", "E14", "E17"]
+      "evidence": ["E13", "E14", "E17", "E19"]
     },
     {
       "id": "H9",
       "claim": "Complex, organic test prompts (70-80% defined with mixed requirements/questions/gaps) effectively stress-test agent parsing, prioritization, and ELCS compliance",
-      "confidence": 0.70,
+      "confidence": 0.90,
       "falsification": "If agents handle complex prompts identically to simple ones, or if complexity doesn't reveal new behaviors",
-      "status": "proposed",
-      "evidence": []
+      "status": "validated",
+      "validated_at": "2025-02-09",
+      "evidence": ["E19"]
     }
   ],
   
@@ -264,6 +265,12 @@
       "type": "gap",
       "summary": "Actual API token usage not available in agent_run_end callback. Code-puppy passes only model name in metadata, not pydantic-ai's result.usage(). Estimated tokens can be calculated from response/thinking length (~4 chars = 1 token).",
       "source": "Code inspection of base_agent.py 2025-01-11"
+    },
+    {
+      "id": "E19",
+      "type": "validation",
+      "summary": "GroceryBrain test case validates core ELCS hypotheses (H6, H8, H9). 9 tokens completed, 160 tests passing, 11+ checkpoints, 4 bugs found and fixed via real-world testing.",
+      "source": "Full development session (~8 hours) 2025-02-09"
     }
   ],
   

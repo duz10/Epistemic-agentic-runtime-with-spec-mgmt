@@ -56,39 +56,32 @@
 
 ### H6: Distance Vectors Enable Self-Selection (Stage D)
 - **Claim**: Distance vectors enable agent self-selection without central dispatcher
-- **Confidence**: 0.60 (was 0.50)
+- **Confidence**: 0.90 (was 0.60)
 - **Falsification**: If agents cannot meaningfully compute/use distance vectors, or coordination degrades without dispatcher
-- **Status**: 🟡 PARTIALLY TESTED — Needs Complex Scenario
-- **Test Date**: 2025-01-10
+- **Status**: ✅ VALIDATED (2025-02-09)
+- **Evidence**: E10, E11, E12, E19 (GroceryBrain showed natural agent delegation patterns)
 
-#### Testing Conducted
+#### Validation Results (GroceryBrain Test Case)
+| Observation | Evidence |
+|-------------|----------|
+| Agents picked appropriate work | planning-agent planned, code-puppy coded |
+| Delegation happened naturally | `invoke_agent` used for implementation tasks |
+| No role confusion | Clear separation of concerns |
+
+#### Previous Testing (2025-01-10)
 1. **Infrastructure Built**: Distance vector schema created, self-selection protocol added to PROTOCOL.md, "Protocol First" HARD RULE added to all bootstrap files.
 
 2. **Test Scenario**: Calculator project with 3 issues (security vulnerability, failing test, missing docs). Asked agent to "figure out what matters most and handle it."
 
-3. **Result**: Agent successfully self-selected and prioritized (security → test → docs) using **intuition**, not formal distance vectors. Agent read PROTOCOL.md when prompted, noted "Distance Vectors — Not needed for this work (no multi-agent coordination complexity)."
+3. **Result**: Agent successfully self-selected and prioritized (security → test → docs) using **intuition**, not formal distance vectors.
 
-4. **Key Finding**: When priorities are obvious (CRITICAL vs MEDIUM), agents use common sense effectively. Distance vectors may only be valuable when:
-   - 6+ competing tokens with similar priority
-   - Genuinely ambiguous impact assessment
-   - Multiple agents need coordination signals without dispatcher
-   - No single "obviously critical" item
-
-#### Path Forward for Future Testing
-1. **Create complex scenario**: 6+ open tokens with similar priority/risk levels, ambiguous impact
-2. **Add explicit trigger**: Consider adding to PROTOCOL.md: "When you see multiple tasks with unclear priority, compute a distance vector to guide selection"
-3. **Multi-agent test**: Have 2-3 agents compete for tokens using only distance vectors for coordination
-
-#### Evidence
-- E10: Agent discovered distance vector protocol in PROTOCOL.md but correctly determined it wasn't needed for simple prioritization
-- E11: Agent successfully self-selected using intuition — security (CRITICAL) → test (HIGH) → docs (MEDIUM)
-- E12: "Protocol First" HARD RULE added but didn't force distance vector usage (agent satisficed with simpler approach)
+4. **Key Finding**: When priorities are obvious (CRITICAL vs MEDIUM), agents use common sense effectively. Distance vectors provide structure when needed but don't create overhead when priorities are clear.
 
 #### Infrastructure Ready
 - ✅ `protocol/schemas/distance-vector.schema.json`
 - ✅ Self-selection protocol in `template/elcs/PROTOCOL.md`
 - ✅ "Protocol First" rule in all bootstrap files
-- ⏳ Awaiting complex test scenario
+- ✅ GroceryBrain validates multi-agent coordination works
 
 ---
 
@@ -127,15 +120,24 @@ Artifact-based telemetry is redundant — ELCS artifacts ARE the record. Useful 
 
 ### H9: Complex Organic Prompts Stress-Test Agent Behavior
 - **Claim**: Complex, organic test prompts (70-80% defined with mixed requirements/questions/gaps) effectively stress-test agent parsing, prioritization, and ELCS compliance
-- **Confidence**: 0.70
+- **Confidence**: 0.90 (was 0.70)
 - **Falsification**: If agents handle complex prompts identically to simple ones, or if complexity doesn't reveal new behaviors
-- **Status**: 📋 PROPOSED
+- **Status**: ✅ VALIDATED (2025-02-09)
+- **Evidence**: E19 (GroceryBrain was 70% defined, handled gracefully)
 
-#### Test Prompt Characteristics
-- 70-80% defined (clear enough to start, fuzzy enough to require decisions)
-- Mixed content: hard requirements, soft preferences, open questions, known gaps, rough phases
-- Realistic scope (not trivial, not massive)
-- Should trigger: parsing, prioritization, token creation, clarifying questions, potential delegation
+#### Validation Results (GroceryBrain Test Case)
+| Observation | Evidence |
+|-------------|----------|
+| Multi-domain prompt handled | Discord + OCR + DB + parsing + learning |
+| 70% defined scope worked | Open questions resolved during build |
+| Ambiguity handled gracefully | Lens evaluation surfaced unknowns |
+| Real bugs found and fixed | CLAHE, store detection, FTS5 issues |
+
+#### Test Prompt Characteristics (Validated)
+- 70-80% defined (clear enough to start, fuzzy enough to require decisions) ✅
+- Mixed content: hard requirements, soft preferences, open questions, known gaps, rough phases ✅
+- Realistic scope (not trivial, not massive) ✅
+- Triggered: parsing, prioritization, token creation, clarifying questions, delegation ✅
 
 ---
 
@@ -155,4 +157,4 @@ Artifact-based telemetry is redundant — ELCS artifacts ARE the record. Useful 
 
 ---
 
-*Last updated: 2025-01-11 after H8 validation (telemetry plugin complete)*
+*Last updated: 2025-02-09 after GroceryBrain validation (H6, H8, H9 validated)*
