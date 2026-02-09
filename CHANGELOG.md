@@ -2,9 +2,9 @@
 
 All notable changes to the ELCS Framework.
 
-## [1.0.0] — 2025-01-XX
+## [1.0.0] — 2025-02-09
 
-### 🎉 Initial Release
+### 🎉 Initial Release — VALIDATED
 
 The first complete release of the ELCS Framework!
 
@@ -47,22 +47,31 @@ The first complete release of the ELCS Framework!
 - journal-checkpoint.schema.json
 - codec.schema.json
 
+### Validation
+- ✅ **Validated via GroceryBrain test case** (complex multi-domain project)
+- 9 tokens completed, 160 tests passing
+- Hypotheses H6, H8, H9 validated with 0.90+ confidence
+- See [docs/VALIDATION.md](docs/VALIDATION.md) for full report
+
 ### Development Process
 - Built using the EAR (Epistemic Agent Runtime) methodology
 - Self-documented via epistemic/ folder
-- 3 journal checkpoints recorded
+- 7 journal checkpoints recorded
 
 ---
 
 ## Future Plans
 
 ### v1.1 (Planned)
-- [ ] Telemetry infrastructure
-- [ ] Coalition formation protocol
-- [ ] Distance vector computation
-- [ ] Validation scripts
+- [x] ~~Telemetry infrastructure~~ ✅ Done (E17)
+- [x] ~~Coalition formation protocol~~ ✅ Done (H5 validated)
+- [x] ~~Distance vector computation~~ ✅ Done (H6 validated)
+- [ ] Validation scripts for artifact integrity
+- [ ] Token templates for common work types
+- [ ] Quick-start wizard
 
 ### v2.0 (Planned)
 - [ ] Formal problem space definitions
 - [ ] Reachability analysis
 - [ ] Multi-project portfolio support
+- [ ] Agent skill matching via formal distance vectors

@@ -7,6 +7,24 @@
 
 ---
 
+## ✅ Validation Status
+
+**ELCS has been validated** through the [GroceryBrain test case](docs/VALIDATION.md) — a complex multi-domain application involving Discord bots, OCR, database design, and self-learning store recognition.
+
+| Metric | Result |
+|--------|--------|
+| Development time | ~8 hours |
+| Tokens completed | 9 |
+| Tests passing | 160 |
+| Hypotheses validated | H6, H8, H9 |
+| Domains covered | 6+ (Discord, OCR, DB, parsing, learning, AI) |
+
+**Conclusion**: ELCS enables effective AI-assisted development of complex, multi-domain projects.
+
+👉 [Read the full validation report →](docs/VALIDATION.md)
+
+---
+
 ## What is ELCS?
 
 **ELCS (Epistemic Light-Cone Swarm)** is a framework for building software with AI agents that solves the biggest pain points of AI-assisted development:
@@ -248,6 +266,7 @@ Telemetry is the microscope, not the map. Use it when you need to dig into HOW s
 
 | Document | Description |
 |----------|-------------|
+| [VALIDATION](docs/VALIDATION.md) | Framework validation report (GroceryBrain) |
 | [QUICKSTART](template/elcs/QUICKSTART.md) | 5-minute adoption guide |
 | [PROTOCOL](template/elcs/PROTOCOL.md) | Full agent operating instructions |
 | [TELEMETRY](docs/TELEMETRY.md) | Telemetry plugin setup & usage |
