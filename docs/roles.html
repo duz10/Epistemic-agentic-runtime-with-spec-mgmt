@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Your Role — ELCS Framework</title>
+  <meta name="description" content="How ELCS helps Product Managers, Designers, Engineers, and Data/Ops teams — with role-specific benefits and artifacts.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>For Your Role</h1>
+    <p>ELCS gives every role on the team a shared source of truth. Here's what it means for yours.</p>
+  </div>
+</section>
+
+<!-- PRODUCT MANAGERS -->
+<section class="section" id="product-managers">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:960px; margin:0 auto;">
+      <div style="padding-right:1rem;">
+        <h2>📋 Product Managers</h2>
+        <p>You set direction. ELCS makes sure the team — humans and agents — stays aligned to it, with traceable decisions and measurable progress.</p>
+      </div>
+      <div class="card role-card">
+        <h3>What ELCS gives you</h3>
+        <ul>
+          <li><strong>Goal alignment</strong> — Goals must pass 6 gates; no vibes-based priorities</li>
+          <li><strong>Traceability</strong> — Every decision links back to spec + evidence</li>
+          <li><strong>Fewer surprises</strong> — Drift detection catches scope creep early</li>
+          <li><strong>Clear progress</strong> — WorkTokens and distance vectors quantify status</li>
+          <li><strong>Audit trail</strong> — Journal checkpoints document the "why" behind decisions</li>
+        </ul>
+        <h3 style="margin-top:1rem;">Artifacts you'll touch</h3>
+        <p><code>spec/</code> · <code>tokens/</code> · <code>journal/</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNERS -->
+<section class="section section--alt" id="designers">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:960px; margin:0 auto;">
+      <div style="padding-right:1rem;">
+        <h2>🎨 Designers &amp; Creatives</h2>
+        <p>Creative work needs context. ELCS captures the rationale behind design decisions so context survives handoffs, feedback rounds, and tool changes.</p>
+      </div>
+      <div class="card role-card">
+        <h3>What ELCS gives you</h3>
+        <ul>
+          <li><strong>Decision context</strong> — Lens evaluations preserve the "why" behind creative choices</li>
+          <li><strong>Reduced rework</strong> — Assumptions are explicit, not buried in someone's memory</li>
+          <li><strong>Lens-driven ideation</strong> — Product/UX, Philosophy, and Topology lenses spark new angles</li>
+          <li><strong>Shared vocabulary</strong> — Team and agents speak the same language via glossary</li>
+          <li><strong>Safe experimentation</strong> — Reversibility gate ensures every idea has an undo path</li>
+        </ul>
+        <h3 style="margin-top:1rem;">Artifacts you'll touch</h3>
+        <p><code>lenses/</code> · <code>spec/</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERS -->
+<section class="section" id="engineers">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:960px; margin:0 auto;">
+      <div style="padding-right:1rem;">
+        <h2>👩‍💻 Engineers &amp; Developers</h2>
+        <p>You write the code. ELCS makes sure you're writing the <em>right</em> code — with clear requirements, drift control, and session continuity that doesn't rely on your memory.</p>
+      </div>
+      <div class="card role-card">
+        <h3>What ELCS gives you</h3>
+        <ul>
+          <li><strong>Concrete requirements</strong> — Specs with measurable success criteria, not vague tickets</li>
+          <li><strong>Drift control</strong> — Distance vectors flag when you've strayed from the goal</li>
+          <li><strong>Safe rollback</strong> — Every goal has a rollback plan baked in via Gate 3</li>
+          <li><strong>Session continuity</strong> — Journal checkpoints let you resume in seconds, not minutes</li>
+          <li><strong>Multi-agent coordination</strong> — Token-based handoffs between specialized agents</li>
+        </ul>
+        <h3 style="margin-top:1rem;">Artifacts you'll touch</h3>
+        <p><code>tokens/</code> · <code>spec/</code> · <code>journal/</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA / OPS -->
+<section class="section section--alt" id="data-ops">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:960px; margin:0 auto;">
+      <div style="padding-right:1rem;">
+        <h2>📊 Data &amp; Ops</h2>
+        <p>You need evidence trails, measurable outcomes, and auditability. ELCS was designed to provide all three — from day one.</p>
+      </div>
+      <div class="card role-card">
+        <h3>What ELCS gives you</h3>
+        <ul>
+          <li><strong>Evidence trails</strong> — Every hypothesis has provenance; every claim is traceable</li>
+          <li><strong>Measurable outcomes</strong> — Confidence scores, distance vectors, and gate criteria quantify everything</li>
+          <li><strong>Auditability</strong> — Telemetry logs and journal checkpoints create a full replay trail</li>
+          <li><strong>Schema evolution</strong> — Epistemic state files version cleanly with git</li>
+          <li><strong>Observability</strong> — All state changes are file changes — <code>git log</code> is your telemetry</li>
+        </ul>
+        <h3 style="margin-top:1rem;">Artifacts you'll touch</h3>
+        <p><code>state/</code> · <code>journal/</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY TABLE -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>At a glance</h2>
+      <p>What each role gets from ELCS, and which artifacts they interact with most.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>What ELCS Gives You</th>
+            <th>Key Artifacts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PM / Product</strong></td>
+            <td>Goal alignment, traceability, fewer surprises</td>
+            <td><code>spec/</code>, <code>tokens/</code>, <code>journal/</code></td>
+          </tr>
+          <tr>
+            <td><strong>Designer / Creative</strong></td>
+            <td>Decision context, reduced rework, lens-driven ideation</td>
+            <td><code>lenses/</code>, <code>spec/</code></td>
+          </tr>
+          <tr>
+            <td><strong>Engineer / Dev</strong></td>
+            <td>Concrete requirements, drift control, safe rollback</td>
+            <td><code>tokens/</code>, <code>spec/</code>, <code>journal/</code></td>
+          </tr>
+          <tr>
+            <td><strong>Data / Ops</strong></td>
+            <td>Evidence trails, measurable outcomes, auditability</td>
+            <td><code>state/</code>, <code>journal/</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

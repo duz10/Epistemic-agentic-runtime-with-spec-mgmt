@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proven in Practice — ELCS Framework</title>
+  <meta name="description" content="The GroceryBrain case study: 8 hours, 9 tokens, 160 tests, 6+ domains — ELCS validated in a real-world build.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>Proven in Practice</h1>
+    <p>ELCS was validated through GroceryBrain — a complex, multi-domain build completed in a single session.</p>
+  </div>
+</section>
+
+<!-- KEY METRICS -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>📊 Key Metrics</h2>
+      <p>One development session. Real-world complexity. Measurable results.</p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric-item">
+        <span class="number">~8h</span>
+        <span class="label">Development time</span>
+      </div>
+      <div class="metric-item">
+        <span class="number">9</span>
+        <span class="label">WorkTokens completed</span>
+      </div>
+      <div class="metric-item">
+        <span class="number">160+</span>
+        <span class="label">Automated tests</span>
+      </div>
+      <div class="metric-item">
+        <span class="number">6+</span>
+        <span class="label">Domains covered</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section section--alt" id="grocerybrain">
+  <div class="container">
+    <div class="section__header">
+      <h2>🧠 GroceryBrain Case Study</h2>
+      <p>A Discord-based grocery receipt tracking app — built from a complex, organic prompt using ELCS-guided multi-agent coordination.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto 2rem;">
+      <div class="card">
+        <h3>The Challenge</h3>
+        <p>Build a personal grocery tracking system that accepts receipt photos via Discord DM, extracts data with OCR, handles <em>any</em> store dynamically (self-learning), answers natural language queries, and supports multi-user isolation — all in one session.</p>
+        <p style="margin-top:.75rem;"><strong>Complexity:</strong> 6+ domains (Discord, OCR, DB, parsing, learning, AI). ~70% defined scope, ~30% open questions. Real-world data variance.</p>
+      </div>
+      <div class="card">
+        <h3>What Shipped</h3>
+        <p>A fully working system including:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.5rem;">
+          <li>Discord bot with image processing</li>
+          <li>OCR with CLAHE preprocessing (95%+ accuracy)</li>
+          <li>4 store-specific parsers + self-learning recognition</li>
+          <li>3-layer SQLite architecture with FTS5 search</li>
+          <li>Duplicate detection + provenance tracking</li>
+          <li>160+ automated tests covering all domains</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="max-width:900px; margin:0 auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Status</th>
+            <th>Tests</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Discord Bot</td><td>✅ Working</td><td>—</td></tr>
+          <tr><td>OCR (Tesseract + CLAHE)</td><td>✅ Working</td><td>—</td></tr>
+          <tr><td>Store-specific parsers</td><td>✅ 4 parsers</td><td>58</td></tr>
+          <tr><td>Self-learning store recognition</td><td>✅ Working</td><td>42</td></tr>
+          <tr><td>Database (3-layer architecture)</td><td>✅ Working</td><td>44</td></tr>
+          <tr><td>FTS5 full-text search</td><td>✅ Working</td><td>—</td></tr>
+          <tr><td>Duplicate detection</td><td>✅ Working</td><td>—</td></tr>
+          <tr><td>Provenance tracking</td><td>✅ Working</td><td>—</td></tr>
+          <tr><td colspan="2"><strong>Total</strong></td><td><strong>160</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WAS VALIDATED -->
+<section class="section" id="validated">
+  <div class="container">
+    <div class="section__header">
+      <h2>✅ What Was Validated</h2>
+      <p>GroceryBrain didn't just ship — it validated specific ELCS mechanisms.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <span class="card__icon">🎫</span>
+        <h3>WorkTokens</h3>
+        <p>9+ tokens created and closed with full lifecycle tracking. Clear boundaries, measurable completion, dependency ordering.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">📓</span>
+        <h3>Journal Checkpoints</h3>
+        <p>11+ checkpoints preserved state across sessions and agent switches. Handoffs worked without context loss.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🔍</span>
+        <h3>7-Lens Evaluation</h3>
+        <p>Upfront lens evaluation prevented major architectural mistakes. Philosophy lens identified OCR as the biggest unknown early.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🧪</span>
+        <h3>Hypothesis-Driven Dev</h3>
+        <p>4 hypotheses validated with evidence. H1 (OCR accuracy ≥80%) was confirmed at 95%+ with CLAHE preprocessing.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🤖</span>
+        <h3>Multi-Agent Coordination</h3>
+        <p>planning-agent planned, code-puppy coded. No role confusion. Delegation happened naturally via ELCS state files.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">📡</span>
+        <h3>Telemetry</h3>
+        <p>1000+ events logged via callback-based telemetry. Full observability without requiring agents to self-report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL-WORLD ITERATION -->
+<section class="section section--alt" id="iteration">
+  <div class="container">
+    <div class="section__header">
+      <h2>🔄 Real-World Iteration</h2>
+      <p>ELCS supported iterative refinement when real-world testing revealed surprises.</p>
+    </div>
+
+    <div class="table-wrap" style="max-width:800px; margin:0 auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Issue</th>
+            <th>Discovery</th>
+            <th>Resolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CLAHE preprocessing needed</td>
+            <td>Discord photo test</td>
+            <td>Added preprocessing.py</td>
+          </tr>
+          <tr>
+            <td>MarcosParser false positive</td>
+            <td>Unknown store test</td>
+            <td>Tightened identifiers</td>
+          </tr>
+          <tr>
+            <td>FTS5 date conversion bug</td>
+            <td>Unknown store test</td>
+            <td>Fixed CRUD wrapper</td>
+          </tr>
+          <tr>
+            <td>Generic parser too weak</td>
+            <td>Multiple stores</td>
+            <td>Built self-learning system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-VALIDATION -->
+<section class="section" id="self-validation">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:800px; margin:0 auto;">
+      <div style="padding-right:1rem;">
+        <h2>🪞 Framework Self-Validation</h2>
+        <p>ELCS uses ELCS to build itself. The framework's own documentation, protocol, and tooling are developed using the same methodology it prescribes.</p>
+        <p>This recursive validation ensures the framework practices what it preaches — artifacts over memory, earned goals, and proportional rigor.</p>
+      </div>
+      <div class="card">
+        <h3>Summary</h3>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td><strong>Development time</strong></td><td>~8 hours</td></tr>
+              <tr><td><strong>Tokens completed</strong></td><td>9</td></tr>
+              <tr><td><strong>Tests passing</strong></td><td>160</td></tr>
+              <tr><td><strong>Checkpoints</strong></td><td>11+</td></tr>
+              <tr><td><strong>Evidence entries</strong></td><td>10+</td></tr>
+              <tr><td><strong>Hypotheses validated</strong></td><td>4</td></tr>
+              <tr><td><strong>Bugs found &amp; fixed</strong></td><td>4</td></tr>
+              <tr><td><strong>Stores supported</strong></td><td>∞ (self-learning)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--alt" style="text-align:center;">
+  <div class="container">
+    <h2>See it for yourself</h2>
+    <p style="max-width:520px; margin:0 auto 2rem;">The full validation report, including hypothesis details and telemetry data, is available in the GitHub repo.</p>
+    <div class="hero-actions">
+      <a href="getting-started.html" class="btn btn--primary">Get Started</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="btn btn--outline" style="color:var(--color-text); border-color:var(--color-border);" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Full Report on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

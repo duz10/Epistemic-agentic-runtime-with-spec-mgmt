@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How We Got Here — ELCS Framework</title>
+  <meta name="description" content="The origin story of ELCS — from real pain points to a practical framework for AI-assisted development.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>How We Got Here</h1>
+    <p>A practical origin story — from real pain points to a framework that works.</p>
+  </div>
+</section>
+
+<!-- ORIGIN -->
+<section class="section" id="origin">
+  <div class="container">
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+      <div style="padding-right:1.5rem;">
+        <h2>The Problem</h2>
+        <p>ELCS started as a fix for real pain: <strong>agents forget, goals drift, and progress becomes vibes</strong>.</p>
+        <p>Every developer using AI tools has felt it. You have a great session — real progress, solid code, good decisions. Then the context window ends. Next session: "Sorry, I don't have context from our previous conversation." Back to square one.</p>
+        <p>And it's not just memory. Goals drift mid-session. Work starts before requirements are clear. Completion is measured by feeling, not evidence. The tools are powerful, but the workflow around them is fragile.</p>
+      </div>
+      <div>
+        <h2>The Answer</h2>
+        <p>The answer turned out to be simple: <strong>make goals and state explicit, store them in files, and force alignment before execution</strong>.</p>
+        <p>That insight became ELCS — a lightweight methodology where:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.75rem;">
+          <li>State lives in files, not chat memory</li>
+          <li>Goals are earned through quality gates</li>
+          <li>Multiple perspectives evaluate every decision</li>
+          <li>Progress is quantified, not vibes-based</li>
+          <li>Sessions end, but context survives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COGNITIVE LIGHT CONE -->
+<section class="section section--alt" id="light-cone">
+  <div class="container">
+    <div style="max-width:720px; margin:0 auto;">
+      <h2>🔬 The Cognitive Light Cone</h2>
+      <p>One idea from Michael Levin's research on collective intelligence shaped ELCS fundamentally: the concept of a <strong>cognitive light cone</strong> — the scope of goals an agent can reliably pursue.</p>
+      <p>In practice, this just means: every agent (human or AI) has a limited horizon. They can only hold so many goals, track so many dependencies, and reason about so much complexity at once. That's not a flaw — it's a design constraint.</p>
+      <p>ELCS keeps that scope <strong>visible and bounded</strong>. Agents work within their cone. When goals exceed a single cone, agents form coalitions — coupling their cones to tackle larger objectives together. The framework prevents accidental wandering into "a different project halfway through a sprint."</p>
+
+      <div class="callout" style="margin-top:1.5rem;">
+        <p><strong>Grounded, not cosmic:</strong> We're not claiming anything mystical. A "cognitive light cone" is just a useful way to think about bounded rationality. ELCS operationalizes it with files, gates, and distance vectors — practical tools for a practical problem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVOLUTION -->
+<section class="section" id="evolution">
+  <div class="container">
+    <div class="section__header">
+      <h2>📐 Evolution</h2>
+      <p>ELCS didn't arrive fully-formed. It evolved through iteration — each pain point producing a concrete solution.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+      <div class="card">
+        <h3>Context loss across sessions</h3>
+        <p><strong>Solution:</strong> Persistent artifacts in files. Journal checkpoints for instant context recovery. Archives for full state snapshots.</p>
+      </div>
+      <div class="card">
+        <h3>Goal drift mid-session</h3>
+        <p><strong>Solution:</strong> 6-Gate protocol forces goals to be measurable, testable, reversible, confident, multi-perspective approved, and evidence-grounded before execution.</p>
+      </div>
+      <div class="card">
+        <h3>Vibes-based progress</h3>
+        <p><strong>Solution:</strong> WorkTokens quantify the backlog. Distance vectors quantify remaining work. Stage gates quantify readiness.</p>
+      </div>
+      <div class="card">
+        <h3>Building the wrong thing</h3>
+        <p><strong>Solution:</strong> 7-Lens evaluation catches blind spots from seven different angles — before any code is written.</p>
+      </div>
+      <div class="card">
+        <h3>Multi-agent chaos</h3>
+        <p><strong>Solution:</strong> Scaling stages (A through E) with token-based coordination, validator roles, coalition contracts, and eventually emergent self-selection.</p>
+      </div>
+      <div class="card">
+        <h3>Process overhead that kills adoption</h3>
+        <p><strong>Solution:</strong> Progressive formalization — start with Level 0 (just state + gates + tokens) and add complexity only when you see repeated failures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section section--alt" id="philosophy">
+  <div class="container">
+    <div class="section__header">
+      <h2>💡 Philosophy</h2>
+      <p>The principles behind every design decision in ELCS.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <span class="card__icon">📁</span>
+        <h3>Artifacts over memory</h3>
+        <p>Your AI's memory is volatile. Files on disk are persistent. Make the files the source of truth. Everything else follows from this.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🎯</span>
+        <h3>Earned goals</h3>
+        <p>Goals are outputs of the epistemic process, not inputs. You don't start with goals — you earn them through evidence, lenses, and gates.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">⚖️</span>
+        <h3>Proportional rigor</h3>
+        <p>Process should match risk and complexity. A weekend hack doesn't need coalitions. A production system does. ELCS scales — you decide how much.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🔄</span>
+        <h3>Loops, not plans</h3>
+        <p>The Ralph Loop is the universal primitive. Local, composable, inspectable, and always reversible. No omniscient planner required.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🤝</span>
+        <h3>Autonomy with a steering wheel</h3>
+        <p>Agents do the heavy lifting. Humans keep direction and risk under control. Neither guesses what the other meant — the files are the shared truth.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">📏</span>
+        <h3>Measure, don't guess</h3>
+        <p>Confidence scores, distance vectors, gate criteria, evidence entries. If you can't quantify it, you can't manage it. Vibes are not a metric.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEEPER READING -->
+<section class="section" id="research" style="text-align:center;">
+  <div class="container">
+    <h2>Go deeper</h2>
+    <p style="max-width:560px; margin:0 auto 2rem;">For the curious: the full protocol, glossary, lens evaluation methodology, scaling stage details, and progressive formalization model are all available in the GitHub repo.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="btn btn--primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="margin-right:.25rem;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Explore the Full Repo
+      </a>
+      <a href="concepts.html" class="btn btn--outline" style="color:var(--color-text); border-color:var(--color-border);">Core Concepts</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

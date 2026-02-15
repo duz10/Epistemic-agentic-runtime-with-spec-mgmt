@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflows — ELCS Framework</title>
+  <meta name="description" content="How ELCS maps to Design Thinking, Agile, and Waterfall — plus human-in-the-loop agentic workflows.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>For Your Workflow</h1>
+    <p>ELCS isn't a replacement — it's a coordination layer that maps cleanly to the methodology you already use.</p>
+  </div>
+</section>
+
+<!-- DESIGN THINKING -->
+<section class="section" id="design-thinking">
+  <div class="container">
+    <div class="section__header">
+      <h2>🎨 Design Thinking / NNGroup</h2>
+      <p>Discover → Define → Ideate → Prototype → Test maps directly to ELCS primitives.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Design Thinking Phase</th>
+            <th>ELCS Mapping</th>
+            <th>Practical Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Discover</strong></td>
+            <td>Evidence + assumptions gathering</td>
+            <td><code>elcs/state/evidence.md</code>, <code>assumptions.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>Define</strong></td>
+            <td>Goals through 6 gates</td>
+            <td><code>elcs/spec/objectives.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>Ideate</strong></td>
+            <td>Lens evaluation + tokenization</td>
+            <td><code>elcs/lenses/*</code>, <code>elcs/tokens/open/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Prototype</strong></td>
+            <td>Ralph loops + checkpoints</td>
+            <td><code>elcs/journal/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Test</strong></td>
+            <td>Validation + evidence updates</td>
+            <td><code>elcs/state/evidence.md</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Key insight:</strong> ELCS makes the "fuzzy front end" of Design Thinking concrete by storing assumptions, evidence, and constraints as versioned files — not ephemeral sticky notes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGILE -->
+<section class="section section--alt" id="agile">
+  <div class="container">
+    <div class="section__header">
+      <h2>🏃 Agile / Scrum</h2>
+      <p>If you think in sprints, backlogs, and retros — ELCS plugs right in.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Agile Concept</th>
+            <th>ELCS Mapping</th>
+            <th>Practical Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Backlog</strong></td>
+            <td>WorkTokens</td>
+            <td><code>elcs/tokens/open/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Sprint Planning</strong></td>
+            <td>Token selection + scope</td>
+            <td>Updated token statuses &amp; priorities</td>
+          </tr>
+          <tr>
+            <td><strong>Sprint Work</strong></td>
+            <td>Ralph loops</td>
+            <td>Checkpoints + state updates</td>
+          </tr>
+          <tr>
+            <td><strong>Definition of Done</strong></td>
+            <td>6-Gate criteria + evidence</td>
+            <td>Gate checks + evidence entries</td>
+          </tr>
+          <tr>
+            <td><strong>Retrospective</strong></td>
+            <td>Journal checkpoints</td>
+            <td><code>elcs/journal/*</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Key insight:</strong> WorkTokens are like user stories that carry their own acceptance criteria, rollback plan, and confidence score. DoD becomes a concrete gate check, not a checklist on a wall.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WATERFALL -->
+<section class="section" id="waterfall">
+  <div class="container">
+    <div class="section__header">
+      <h2>🏗️ Waterfall</h2>
+      <p>Sequential phase gates? ELCS has those too — with file-backed evidence at every handoff.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Waterfall Phase</th>
+            <th>ELCS Mapping</th>
+            <th>Practical Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Requirements</strong></td>
+            <td>Spec + gates</td>
+            <td><code>elcs/spec/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Design</strong></td>
+            <td>Lenses + topology</td>
+            <td><code>elcs/lenses/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Build</strong></td>
+            <td>Token execution</td>
+            <td><code>elcs/tokens/*</code></td>
+          </tr>
+          <tr>
+            <td><strong>Verification</strong></td>
+            <td>Evidence + automated tests</td>
+            <td><code>elcs/state/evidence.md</code></td>
+          </tr>
+          <tr>
+            <td><strong>Release</strong></td>
+            <td>Checkpoint + rollback plan</td>
+            <td><code>elcs/journal/*</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Key insight:</strong> Waterfall often fails because phase handoffs lose context. ELCS artifacts <em>are</em> the handoff — immutable, versioned, always available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HUMAN-IN-THE-LOOP -->
+<section class="section section--alt" id="human-in-the-loop">
+  <div class="container">
+    <div class="section__header">
+      <h2>🤝 Human-in-the-Loop Agentic Workflows</h2>
+      <p>ELCS assumes agents do the heavy lifting and humans keep direction and risk under control. Autonomy with a steering wheel.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:800px; margin:0 auto 2rem;">
+      <div class="card">
+        <h3>Typical Flow</h3>
+        <p>
+          1. Agent reads state + spec<br>
+          2. Agent proposes goals (must pass gates)<br>
+          3. Human approves risk/priority<br>
+          4. Agent executes tokens<br>
+          5. Human reviews outputs at checkpoints
+        </p>
+      </div>
+      <div class="card">
+        <h3>Why it works</h3>
+        <p>Agents are fast but can drift. Humans are slow but set direction. ELCS gives both a shared source of truth — the files on disk — so neither has to guess what the other meant.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Agent</th>
+            <th>Human</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Understand current state</td><td>✅</td><td>—</td></tr>
+          <tr><td>Propose next goals</td><td>✅</td><td>—</td></tr>
+          <tr><td>Approve scope / risk</td><td>—</td><td>✅</td></tr>
+          <tr><td>Execute tasks</td><td>✅</td><td>—</td></tr>
+          <tr><td>Review checkpoints</td><td>—</td><td>✅</td></tr>
+          <tr><td>Resolve disagreements</td><td>✅ (proposes)</td><td>✅ (decides)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

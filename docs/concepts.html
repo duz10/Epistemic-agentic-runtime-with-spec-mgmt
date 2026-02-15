@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Concepts — ELCS Framework</title>
+  <meta name="description" content="The Ralph Loop, 6 Gates, 7 Lenses, WorkTokens, Journal Checkpoints, Epistemic State, and Scaling Stages — the building blocks of ELCS.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>Core Concepts</h1>
+    <p>The building blocks of ELCS — how agents think, decide, and coordinate.</p>
+  </div>
+</section>
+
+<!-- RALPH LOOP -->
+<section class="section" id="ralph-loop">
+  <div class="container">
+    <div class="section__header">
+      <h2>🔄 The Ralph Loop</h2>
+      <p>Every action in ELCS follows the same universal primitive: <strong>Observe → Orient → Decide → Act → Observe</strong>. Loops are local, inspectable, composable, and can end early (refusal is valid).</p>
+    </div>
+
+    <div class="loop-diagram">
+      <div class="loop-step"><span>👁️</span> Observe</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step"><span>🧭</span> Orient</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step"><span>⚖️</span> Decide</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step"><span>⚡</span> Act</div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step"><span>👁️</span> Observe</div>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:800px; margin:2rem auto 0;">
+      <div class="card">
+        <h3>How it works</h3>
+        <p><strong>Observe</strong> — Read current state and new information.<br>
+           <strong>Orient</strong> — Interpret via lenses and preferences.<br>
+           <strong>Decide</strong> — Propose action, test, interaction, or refusal.<br>
+           <strong>Act</strong> — Perform a reversible move or gated commitment.<br>
+           <strong>Observe</strong> — Log outcomes and update state.</p>
+      </div>
+      <div class="card">
+        <h3>Key properties</h3>
+        <p><strong>Local</strong> — No omniscient planner required.<br>
+           <strong>Can end early</strong> — Refusal is a valid outcome.<br>
+           <strong>Inspectable</strong> — Every step leaves provenance.<br>
+           <strong>Composable</strong> — Loops can nest (agents calling agents).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 GATES -->
+<section class="section section--alt" id="gates">
+  <div class="container">
+    <div class="section__header">
+      <h2>🚪 The 6 Gates</h2>
+      <p>Goals in ELCS are <em>earned, not assumed</em>. Every candidate goal must pass all six quality gates before it becomes actionable.</p>
+    </div>
+
+    <div class="gate-list">
+      <div class="gate-item">
+        <div class="gate-num">1</div>
+        <div>
+          <h4>Observables</h4>
+          <p>Does this goal have measurable outcomes? If you can't observe success, you can't verify it.</p>
+        </div>
+      </div>
+      <div class="gate-item">
+        <div class="gate-num">2</div>
+        <div>
+          <h4>Testability</h4>
+          <p>Does it have clear pass/fail criteria? Ambiguous goals produce ambiguous results.</p>
+        </div>
+      </div>
+      <div class="gate-item">
+        <div class="gate-num">3</div>
+        <div>
+          <h4>Reversibility</h4>
+          <p>Is there a rollback plan if it fails? Every commitment needs an undo path.</p>
+        </div>
+      </div>
+      <div class="gate-item">
+        <div class="gate-num">4</div>
+        <div>
+          <h4>Confidence</h4>
+          <p>Is confidence above threshold (≥ 0.6)? Low-confidence goals need more evidence first.</p>
+        </div>
+      </div>
+      <div class="gate-item">
+        <div class="gate-num">5</div>
+        <div>
+          <h4>Lens Agreement</h4>
+          <p>Do 3+ lenses approve? Multiple perspectives must agree before committing.</p>
+        </div>
+      </div>
+      <div class="gate-item">
+        <div class="gate-num">6</div>
+        <div>
+          <h4>Evidence Grounding</h4>
+          <p>Is it based on actual evidence? No vibes-based goals — show the data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 LENSES -->
+<section class="section" id="lenses">
+  <div class="container">
+    <div class="section__header">
+      <h2>🔍 The 7 Lenses</h2>
+      <p>Every major decision is evaluated from seven distinct perspectives. Each lens catches blind spots the others miss.</p>
+    </div>
+
+    <div class="lens-grid">
+      <div class="lens-card">
+        <h4>🧠 Philosophy</h4>
+        <p>Epistemic honesty, hidden assumptions, category errors. Catches what we <em>think</em> we know vs. what we actually know.</p>
+      </div>
+      <div class="lens-card">
+        <h4>📊 Data Science</h4>
+        <p>Measurability, testability, confounding risks. Ensures claims can be validated with data.</p>
+      </div>
+      <div class="lens-card">
+        <h4>🛡️ Safety / Risk</h4>
+        <p>Failure modes, reversibility, runaway prevention. Identifies what can go wrong and how to recover.</p>
+      </div>
+      <div class="lens-card">
+        <h4>🔗 Topology</h4>
+        <p>Structure stability, phase transitions, path dependence. Examines the shape and connectivity of the system.</p>
+      </div>
+      <div class="lens-card">
+        <h4>📐 Theoretical Math</h4>
+        <p>Logical consistency, minimal axioms, counterexamples. Stress-tests the logic for contradictions.</p>
+      </div>
+      <div class="lens-card">
+        <h4>⚙️ Systems Engineering</h4>
+        <p>Buildability, interfaces, failure recovery. Ensures the design can actually be constructed and maintained.</p>
+      </div>
+      <div class="lens-card">
+        <h4>🎯 Product / UX</h4>
+        <p>User value, adoption, MVP definition. Keeps the work grounded in real user needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKTOKENS, JOURNAL, EPISTEMIC STATE -->
+<section class="section section--alt" id="primitives">
+  <div class="container">
+    <div class="section__header">
+      <h2>🧱 Core Primitives</h2>
+      <p>The data structures that make ELCS work — simple files that capture everything agents need to coordinate.</p>
+    </div>
+
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <span class="card__icon">🎫</span>
+        <h3>WorkTokens</h3>
+        <p>The fundamental unit of coordination. Each token represents a question, test, evidence gap, subtask, or conflict. Tokens flow through a lifecycle: <code>open → claimed → done</code>.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">📓</span>
+        <h3>Journal Checkpoints</h3>
+        <p>Compressed summaries of progress — like save points in a game. New session? Read the last checkpoint. Full context recovery in seconds, not minutes of re-reading.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🧠</span>
+        <h3>Epistemic State</h3>
+        <p>The central belief ledger: assumptions (with confidence scores), hypotheses (falsifiable), evidence (traceable), constraints (hard &amp; soft), and preferences (weighted).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCALING STAGES -->
+<section class="section" id="scaling">
+  <div class="container">
+    <div class="section__header">
+      <h2>📈 Scaling Stages</h2>
+      <p>ELCS scales operationally through five stages. Start simple. Add structure only when you see problems that require it.</p>
+    </div>
+
+    <div class="stages">
+      <div class="stage-item active">
+        <strong>A</strong>
+        <small>Single Agent + Human</small>
+      </div>
+      <div class="stage-item">
+        <strong>B</strong>
+        <small>Handoffs &amp; Validators</small>
+      </div>
+      <div class="stage-item">
+        <strong>C</strong>
+        <small>Coalitions + Contracts</small>
+      </div>
+      <div class="stage-item">
+        <strong>D</strong>
+        <small>Metric-Driven Emergence</small>
+      </div>
+      <div class="stage-item">
+        <strong>E</strong>
+        <small>Formal Spaces + Topology</small>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:2rem;">
+      <p><strong>Start at Stage A.</strong> One agent, one human, file-based coordination. Master each stage before advancing. Scale when simple fails — not before.</p>
+    </div>
+
+    <div class="table-wrap" style="margin-top:2rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Epistemic State</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>WorkTokens</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>6 Gates</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>7 Lenses</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Journal Checkpoints</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Multiple Agents</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Validators</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Coalitions</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Distance Vectors</td><td>—</td><td>—</td><td>○</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Self-Selection</td><td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Formal Spaces</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+          <tr><td>Reachability Analysis</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center; font-size:.85rem; margin-top:.75rem;">○ = optional at that stage</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

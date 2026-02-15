@@ -1,0 +1,6 @@
+/* ============================================================
+   ELCS Framework — Main Stylesheet (Import Hub)
+   Split into base.css and components.css for maintainability.
+   ============================================================ */
+@import url('base.css');
+@import url('components.css');

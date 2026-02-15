@@ -1,27 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ELCS Documentation</title>
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css"
-    />
-    <link rel="stylesheet" href="assets/styles.css" />
-  </head>
-  <body>
-    <div id="app"></div>
-    <script>
-      window.$docsify = {
-        name: "ELCS Framework",
-        repo: "https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt",
-        loadSidebar: true,
-        loadNavbar: true,
-        subMaxLevel: 2,
-        auto2top: true,
-      };
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELCS Framework — Build Software with AI Agents That Actually Remember</title>
+  <meta name="description" content="ELCS is a lightweight, agent-agnostic framework for building software with AI agents. Persistent artifacts, earned goals, multi-lens evaluation, and drift detection.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <h1>Build software with AI agents that <span class="accent">actually remember</span></h1>
+    <p>ELCS is a lightweight, agent-agnostic framework that replaces fragile chat memory with durable artifacts, earned goals, and a repeatable decision loop.</p>
+    <div class="hero-actions">
+      <a href="getting-started.html" class="btn btn--primary">Get Started</a>
+      <a href="concepts.html" class="btn btn--outline">Learn the Concepts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHAT IS ELCS ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Why ELCS?</h2>
+      <p>AI tools are powerful but forgetful. ELCS fixes context loss, goal drift, and fuzzy completion criteria by making decisions explicit, testable, and auditable.</p>
+    </div>
+    <div class="card-grid card-grid--4">
+      <div class="card">
+        <span class="card__icon">💾</span>
+        <h3>Context Persistence</h3>
+        <p>State lives in files, not memory. Sessions end — your project context survives. Pick up exactly where you left off.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🎯</span>
+        <h3>Earned Goals</h3>
+        <p>Goals pass 6 quality gates before execution: measurable, testable, reversible, confident, multi-lens approved, evidence-grounded.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🔍</span>
+        <h3>Multi-Lens Evaluation</h3>
+        <p>Seven perspectives — from philosophy to product — evaluate every decision. Catch blind spots before they become expensive rework.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🛡️</span>
+        <h3>Drift Detection</h3>
+        <p>Quantified distance vectors and stage gates keep work aligned. If you drift, ELCS notices — and tells you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHO IT'S FOR ==================== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <h2>Who it's for</h2>
+      <p>ELCS works wherever humans and AI agents collaborate on real projects — no matter your role or methodology.</p>
+    </div>
+    <div class="card-grid card-grid--4">
+      <div class="card">
+        <span class="card__icon">👩‍💻</span>
+        <h3>Developers</h3>
+        <p>Concrete requirements, drift control, safe rollback, and session continuity across multi-day builds.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">📋</span>
+        <h3>Product Managers</h3>
+        <p>Goal alignment, traceability, fewer surprises. Know where you are and why decisions were made.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">🎨</span>
+        <h3>Designers</h3>
+        <p>Clear decision context, reduced rework, lens-driven ideation that captures creative rationale.</p>
+      </div>
+      <div class="card">
+        <span class="card__icon">👥</span>
+        <h3>Teams</h3>
+        <p>Multi-agent coordination, evidence trails, measurable outcomes, and auditable decision history.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WORKFLOWS TEASER ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Plugs into your workflow</h2>
+      <p>ELCS isn't a replacement for how you already work — it's a coordination layer that maps cleanly to your existing methodology.</p>
+    </div>
+    <div class="card-grid card-grid--3">
+      <div class="card">
+        <h3>Design Thinking</h3>
+        <p>Discover → Define → Ideate → Prototype → Test maps directly to ELCS evidence, goals, lenses, loops, and validation.</p>
+        <a href="workflows.html#design-thinking" style="font-size:.9rem; font-weight:600; margin-top:.75rem; display:inline-block;">See the mapping →</a>
+      </div>
+      <div class="card">
+        <h3>Agile / Scrum</h3>
+        <p>Backlogs become WorkTokens. Sprints become token execution loops. DoD maps to 6-Gate criteria. Retros map to journal checkpoints.</p>
+        <a href="workflows.html#agile" style="font-size:.9rem; font-weight:600; margin-top:.75rem; display:inline-block;">See the mapping →</a>
+      </div>
+      <div class="card">
+        <h3>Waterfall</h3>
+        <p>Requirements → Design → Build → Verify → Release. Each phase maps to ELCS artifacts with clear handoff points.</p>
+        <a href="workflows.html#waterfall" style="font-size:.9rem; font-weight:600; margin-top:.75rem; display:inline-block;">See the mapping →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="section section--alt" style="text-align:center;">
+  <div class="container">
+    <h2>Ready to build with context that lasts?</h2>
+    <p style="max-width:520px; margin:0 auto 2rem;">Get started in under five minutes. Copy the template, open your AI tool, and let ELCS guide the session.</p>
+    <div class="hero-actions">
+      <a href="getting-started.html" class="btn btn--primary">Get Started</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="btn btn--outline" style="color:var(--color-text); border-color:var(--color-border);" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
 </html>

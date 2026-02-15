@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — ELCS Framework</title>
+  <meta name="description" content="Set up ELCS in under 5 minutes. Four install options, a first-session walkthrough, and links to everything you need.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>Getting Started</h1>
+    <p>Get productive in under 5 minutes. Pick an install path, run your first session, and let ELCS guide the way.</p>
+  </div>
+</section>
+
+<!-- INSTALL OPTIONS -->
+<section class="section" id="install">
+  <div class="container">
+    <div class="section__header">
+      <h2>🚀 Installation</h2>
+      <p>Four ways to get started — pick whichever fits your project.</p>
+    </div>
+
+    <div class="install-options">
+      <div class="install-option">
+        <h3>📦 Generator CLI (Recommended)</h3>
+        <p>Scaffold a fresh ELCS project with one command. Includes all template files, bootstrap configs, and folder structure.</p>
+        <pre>uvx create-elcs myproject
+cd myproject</pre>
+      </div>
+
+      <div class="install-option">
+        <h3>📋 Copy the Template</h3>
+        <p>Clone the repo and copy the <code>template/</code> folder into your project. Simple, manual, works everywhere.</p>
+        <pre>git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
+cp -r Epistemic-agentic-runtime-with-spec-mgmt/template my-project</pre>
+      </div>
+
+      <div class="install-option">
+        <h3>🔧 Manual Setup</h3>
+        <p>Create the folder structure yourself. Only the <code>elcs/</code> directory and <code>PROTOCOL.md</code> are required to start.</p>
+        <pre>mkdir -p elcs/{state,spec,tokens/open,tokens/closed,journal,lenses}
+touch elcs/PROTOCOL.md</pre>
+      </div>
+
+      <div class="install-option">
+        <h3>🔄 Adopt into Existing Project</h3>
+        <p>Already have a codebase? Drop the <code>elcs/</code> folder in and start tracking state alongside your existing code.</p>
+        <pre>cd your-existing-project
+cp -r /path/to/template/elcs ./elcs</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST SESSION -->
+<section class="section section--alt" id="first-session">
+  <div class="container">
+    <div class="section__header">
+      <h2>⚡ Your First Session</h2>
+      <p>Once you've got the template, here's what your first session looks like.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+      <div class="card">
+        <h3>Step 1 — Open &amp; Orient</h3>
+        <p>Open the project folder in your AI tool (Cursor, Claude, Windsurf, etc.). The agent reads the bootstrap file (<code>CLAUDE.md</code>, <code>.cursorrules</code>, etc.) and understands ELCS automatically.</p>
+        <pre>"Please help me initialize this ELCS project.
+Ask me about my goals and create
+the initial state."</pre>
+      </div>
+
+      <div class="card">
+        <h3>Step 2 — Capture Beliefs</h3>
+        <p>The agent helps you articulate what you believe, assume, and know. These become your <strong>Epistemic State</strong> — stored in files, not chat memory.</p>
+        <pre># elcs/state/current.json
+{
+  "assumptions": [...],
+  "hypotheses": [...],
+  "constraints": [...]
+}</pre>
+      </div>
+
+      <div class="card">
+        <h3>Step 3 — Apply Lenses</h3>
+        <p>The agent evaluates your project from 7 perspectives, identifying risks, gaps, and open questions. Each lens produces structured output with actionable items.</p>
+        <pre>"Apply the 7 lenses to our current
+state and identify gaps."</pre>
+      </div>
+
+      <div class="card">
+        <h3>Step 4 — Earn Goals &amp; Build</h3>
+        <p>Goals pass through the 6 gates. Approved goals become WorkTokens. The agent executes Ralph loops, checkpoints regularly, and you review at natural breakpoints.</p>
+        <pre>"Check elcs/tokens/open/ and
+recommend the highest priority task."</pre>
+      </div>
+    </div>
+
+    <div class="callout" style="max-width:900px; margin:2rem auto 0;">
+      <p><strong>The one rule:</strong> Write to files, not just chat. If your session ends, ELCS artifacts survive. That's the entire philosophy in one sentence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- END OF SESSION -->
+<section class="section" id="end-session">
+  <div class="container">
+    <div class="section__header">
+      <h2>💾 End-of-Session Checklist</h2>
+      <p>Before you close your session, make sure these four things are saved.</p>
+    </div>
+
+    <div class="card-grid card-grid--4" style="max-width:960px; margin:0 auto;">
+      <div class="card" style="text-align:center;">
+        <span class="card__icon">🧠</span>
+        <h3>Update State</h3>
+        <p>If beliefs changed, update <code>state/current.json</code></p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="card__icon">✅</span>
+        <h3>Close Tokens</h3>
+        <p>Move completed tokens to <code>tokens/closed/</code></p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="card__icon">📓</span>
+        <h3>Write Checkpoint</h3>
+        <p>Journal checkpoint if significant progress</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <span class="card__icon">🚧</span>
+        <h3>Note Blockers</h3>
+        <p>Record any blockers in the checkpoint</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETURNING -->
+<section class="section section--alt" id="returning">
+  <div class="container">
+    <div class="section__header">
+      <h2>🔄 Returning to a Project</h2>
+      <p>Context recovery is instant — that's the whole point.</p>
+    </div>
+
+    <div class="card-grid card-grid--3" style="max-width:900px; margin:0 auto;">
+      <div class="card">
+        <h3>Catch up</h3>
+        <pre>"Read the latest journal
+checkpoint and tell me
+where we left off."</pre>
+      </div>
+      <div class="card">
+        <h3>Pick next task</h3>
+        <pre>"Check elcs/tokens/open/
+and recommend the highest
+priority task."</pre>
+      </div>
+      <div class="card">
+        <h3>Mark done</h3>
+        <pre>"Update the relevant
+WorkToken to closed and
+write a checkpoint."</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <h2>Go deeper</h2>
+    <p style="max-width:520px; margin:0 auto 2rem;">Ready to understand the full framework? Explore the concepts, see how it maps to your workflow, or jump straight to the GitHub repo.</p>
+    <div class="hero-actions">
+      <a href="concepts.html" class="btn btn--primary">Core Concepts</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="btn btn--outline" style="color:var(--color-text); border-color:var(--color-border);" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">© 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
