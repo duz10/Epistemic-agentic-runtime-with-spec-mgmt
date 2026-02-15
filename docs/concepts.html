@@ -203,6 +203,47 @@
   </div>
 </section>
 
+<!-- TELEMETRY -->
+<section class="section" id="telemetry">
+  <div class="container">
+    <div class="section__header">
+      <h2>📡 Telemetry (Optional)</h2>
+      <p>ELCS tracks everything that matters through its core artifacts — state, tokens, journal, lenses. But if you want deeper observability into <em>how</em> agents work, there's an optional telemetry layer.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+      <div class="card">
+        <h3>What ELCS tracks by default</h3>
+        <p>Without any plugins, ELCS captures:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.5rem;">
+          <li>Every decision and its rationale (journal)</li>
+          <li>All open and closed work items (tokens)</li>
+          <li>Belief changes over time (epistemic state)</li>
+          <li>Multi-perspective evaluations (lenses)</li>
+          <li>Stage progression and gate completions</li>
+        </ul>
+        <p style="margin-top:.75rem; font-weight:600;">This works in every tool — Cursor, Windsurf, Claude Code, Codex, any AI agent.</p>
+      </div>
+      <div class="card">
+        <h3>Telemetry plugin (Code Puppy)</h3>
+        <p>For users running <a href="https://github.com/duz10/code-puppy" target="_blank" rel="noopener">Code Puppy</a>, an optional telemetry plugin adds passive, infrastructure-level observability:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.5rem;">
+          <li>Session lifecycle and timing</li>
+          <li>Tool calls with arguments and duration</li>
+          <li>File operations and shell commands</li>
+          <li>Agent delegation chains</li>
+          <li>Confusion/uncertainty signal detection</li>
+        </ul>
+        <p style="margin-top:.75rem; font-size:.9rem; color:var(--color-text-muted);">Telemetry is the <strong>microscope</strong>, not the map. Use it when you need to debug <em>how</em> something happened — ELCS state already covers <em>what</em> happened.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="max-width:900px; margin:2rem auto 0;">
+      <p><strong>No telemetry? No problem.</strong> The ELCS framework is fully functional without the telemetry plugin. Telemetry adds depth for power users and teams doing post-mortem analysis — it's not required for any core workflow.</p>
+    </div>
+  </div>
+</section>
+
 <!-- SCALING STAGES -->
 <section class="section" id="scaling">
   <div class="container">
