@@ -262,35 +262,51 @@ cd my-project</pre>
     <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
       <div class="card">
         <h3>Step 1 — Open &amp; Orient</h3>
-        <p>Open the project folder in your AI tool (Cursor, Claude, Windsurf, etc.). The agent reads the bootstrap file (<code>CLAUDE.md</code>, <code>.cursorrules</code>, etc.) and understands ELCS automatically.</p>
-        <pre>"Please help me initialize this ELCS project.
-Ask me about my goals and create
-the initial state."</pre>
+        <p>Open your project folder in your AI tool. The agent reads the bootstrap file (<code>CLAUDE.md</code>, <code>.cursorrules</code>, etc.) and understands ELCS automatically.</p>
+        <p style="margin-top:.75rem;"><strong>Already have a plan?</strong> Point the agent to it:</p>
+        <pre>"Look at my detailed plan in
+docs/project-plan.md and help
+me get started with ELCS."</pre>
+        <p style="margin-top:.75rem;"><strong>Don't have a plan yet?</strong> Just start talking about your idea — ELCS builds the plan as you go:</p>
+        <pre>"I want to build an app that
+tracks my groceries from receipt
+photos. I'm not sure where to
+start — help me think through it."</pre>
       </div>
 
       <div class="card">
         <h3>Step 2 — Capture Beliefs</h3>
-        <p>The agent helps you articulate what you believe, assume, and know. These become your <strong>Epistemic State</strong> — stored in files, not chat memory.</p>
+        <p>As you talk, the agent captures what you believe, assume, and know into your <strong>Epistemic State</strong> — stored in files, not chat memory.</p>
+        <p style="margin-top:.75rem;">The agent tracks everything dynamically as you work — assumptions, evidence, constraints, hypotheses. It updates ELCS files as the conversation evolves.</p>
         <pre># elcs/state/current.json
 {
   "assumptions": [...],
   "hypotheses": [...],
   "constraints": [...]
 }</pre>
+        <p style="margin-top:.75rem; font-size:.88rem; color:var(--color-text-muted);">💡 <strong>Tip:</strong> After long sessions, it's good to remind the agent: <em>"Update the ELCS state files with what we've learned so far."</em> This keeps everything fresh and recoverable.</p>
       </div>
 
       <div class="card">
-        <h3>Step 3 — Apply Lenses</h3>
-        <p>The agent evaluates your project from 7 perspectives, identifying risks, gaps, and open questions. Each lens produces structured output with actionable items.</p>
+        <h3>Step 3 — Consult the Lenses</h3>
+        <p>The 7 lenses evaluate your project from different perspectives — philosophy, data science, safety, topology, math, systems engineering, and product/UX.</p>
         <pre>"Apply the 7 lenses to our current
 state and identify gaps."</pre>
+        <p style="margin-top:.75rem;">Lenses aren't just for the beginning. <strong>Use them anytime</strong> — when you're stuck, need fresh ideas, troubleshooting a problem, or want to pressure-test a decision:</p>
+        <pre>"Run the safety and product lenses
+on this architecture decision."
+
+"I'm stuck on the data model —
+what do the lenses suggest?"</pre>
       </div>
 
       <div class="card">
         <h3>Step 4 — Earn Goals &amp; Build</h3>
-        <p>Goals pass through the 6 gates. Approved goals become WorkTokens. The agent executes Ralph loops, checkpoints regularly, and you review at natural breakpoints.</p>
+        <p>Goals pass through 6 quality gates and become WorkTokens. The agent executes work in loops, checkpoints regularly, and you review at natural breakpoints.</p>
         <pre>"Check elcs/tokens/open/ and
 recommend the highest priority task."</pre>
+        <p style="margin-top:.75rem;">Your plans <strong>keep evolving</strong> as you learn. New evidence updates the state, which reshapes priorities. "Done" is relative to your needs — ELCS adapts with you, not against you.</p>
+        <p style="margin-top:.5rem; font-size:.88rem; color:var(--color-text-muted);">A project might start as a quick prototype and grow into a full product. ELCS scales the process to match — always tracking where you are and what matters next.</p>
       </div>
     </div>
 
