@@ -323,7 +323,25 @@ tbody tr:hover { background: var(--color-bg-alt); }
   .card-grid--2 { grid-template-columns: 1fr; }
   .gate-list    { grid-template-columns: 1fr; }
   .metrics      { grid-template-columns: 1fr; }
+  .install-options { grid-template-columns: 1fr; }
 
   .loop-diagram { flex-direction: column; }
   .loop-arrow { transform: rotate(90deg); }
+
+  .card pre {
+    font-size: .7rem;
+    padding: .75rem 1rem;
+  }
+
+  .install-option pre {
+    font-size: .7rem;
+    padding: .75rem 1rem;
+  }
+}
+
+/* ----- Getting Started Responsive Fixes -------------------- */
+@media (max-width: 900px) {
+  .card pre {
+    font-size: .75rem;
+  }
 }
