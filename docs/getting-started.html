@@ -39,36 +39,39 @@
   </div>
 </section>
 
-<!-- CHOOSE YOUR EXPERIENCE -->
+<!-- CHOOSE YOUR PATH -->
 <section class="section" id="experience">
   <div class="container">
     <div class="section__header">
-      <h2>👋 Choose Your Experience Level</h2>
-      <p>Different backgrounds, same framework. Pick the path that matches where you are right now.</p>
+      <h2>👋 Choose Your Path</h2>
+      <p>Different backgrounds, same framework. Pick the path that fits you.</p>
     </div>
 
-    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:960px; margin:0 auto;">
       <div class="card" style="border-left:4px solid var(--color-primary);">
         <span class="card__icon">🌱</span>
         <h3>I'm new to this</h3>
-        <p>You're just getting started with AI-assisted coding — maybe you've used ChatGPT or Copilot, but haven't set up a full dev environment. That's totally fine.</p>
-        <p style="margin-top:.75rem;"><strong>What you need:</strong></p>
+        <p>You've maybe used ChatGPT or Copilot, but haven't done a full dev setup. No worries — we'll walk you through it step by step.</p>
+        <p style="margin-top:.75rem;"><strong>Pre-reqs:</strong></p>
         <ul style="list-style:disc; padding-left:1.25rem; margin-top:.25rem;">
-          <li>A computer with a code editor (VS Code is free and great)</li>
-          <li>Git installed (<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">download here</a>)</li>
-          <li>An AI coding tool — pick one from the next section</li>
+          <li>A computer (Windows, Mac, or Linux)</li>
+          <li>Git installed (<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">download here</a> — free)</li>
+          <li>A code editor (<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> is free and great)</li>
+          <li>An AI coding tool — see "Choose Your Dev Mode" below</li>
         </ul>
-        <p style="margin-top:.75rem;"><a href="#install-beginner" style="font-weight:600;">Jump to beginner setup →</a></p>
+        <p style="margin-top:1rem;"><a href="#start-new" style="font-weight:600;">Start a new project →</a></p>
       </div>
       <div class="card" style="border-left:4px solid var(--color-accent);">
         <span class="card__icon">⚡</span>
         <h3>I've done this before</h3>
-        <p>You're comfortable with git, the command line, and have used AI coding tools. You just want the fastest path to getting ELCS into your workflow.</p>
-        <p style="margin-top:.75rem;"><strong>Quick version:</strong></p>
-        <pre style="margin-top:.5rem;">git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
+        <p>You know git, the terminal, and AI coding tools. You just want the fastest path.</p>
+        <p style="margin-top:.75rem;"><strong>Quick start:</strong></p>
+        <pre style="margin-top:.5rem; font-size:.8rem;">git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
 cp -r Epistemic-agentic-runtime-with-spec-mgmt/template my-project
-cd my-project && cursor .</pre>
-        <p style="margin-top:.75rem;"><a href="#install" style="font-weight:600;">Jump to all install options →</a></p>
+cd my-project</pre>
+        <p style="margin-top:.5rem; font-size:.9rem;">Then open in your AI tool of choice and start building. ELCS detects itself and guides the agent.</p>
+        <p style="margin-top:1rem;"><a href="#start-new" style="font-weight:600;">New project details →</a></p>
+        <p><a href="#adopt-existing" style="font-weight:600;">Add ELCS to existing project →</a></p>
       </div>
     </div>
   </div>
@@ -79,7 +82,7 @@ cd my-project && cursor .</pre>
   <div class="container">
     <div class="section__header">
       <h2>🛠️ Choose Your Dev Mode</h2>
-      <p>ELCS works with any AI tool that can read and write files. Here are the three main approaches — pick one, or mix and match.</p>
+      <p>ELCS works with any AI tool that can read and write files. Pick one, or mix and match.</p>
     </div>
 
     <div class="card-grid card-grid--3">
@@ -99,7 +102,7 @@ cd my-project && cursor .</pre>
         <span class="card__icon">⌨️</span>
         <h3>CLI / Terminal</h3>
         <p><strong>Claude Code CLI, Codex, any terminal AI</strong></p>
-        <p>Best for: developers comfortable in the terminal, automation-focused workflows, CI/CD integration.</p>
+        <p>Best for: developers comfortable in the terminal, automation-focused workflows.</p>
         <ul style="list-style:disc; padding-left:1.25rem; margin-top:.5rem;">
           <li>Agent reads <code>CLAUDE.md</code> or <code>AGENTS.md</code> on start</li>
           <li>Full control over agent context</li>
@@ -111,7 +114,7 @@ cd my-project && cursor .</pre>
         <span class="card__icon">🐶</span>
         <h3>Code Puppy (Advanced)</h3>
         <p><strong>Open-source agentic framework with ELCS-aware plugins</strong></p>
-        <p>Best for: power users, teams wanting full observability, multi-agent coordination.</p>
+        <p>Best for: power users, full observability, multi-agent coordination.</p>
         <ul style="list-style:disc; padding-left:1.25rem; margin-top:.5rem;">
           <li>ELCS-aware out of the box via <code>AGENTS.md</code></li>
           <li>Optional telemetry plugin for passive observability</li>
@@ -128,85 +131,123 @@ cd my-project && cursor .</pre>
   </div>
 </section>
 
-<!-- INSTALLATION -->
-<section class="section" id="install">
+<!-- START A NEW PROJECT -->
+<section class="section" id="start-new">
   <div class="container">
     <div class="section__header">
-      <h2>🚀 Installation</h2>
-      <p>Four ways to get started — from copy-paste simple to CLI-powered.</p>
+      <h2>🚀 Start a New Project</h2>
+      <p>Three steps. Works for beginners and pros alike.</p>
     </div>
 
-    <!-- BEGINNER PATH -->
-    <div id="install-beginner" style="max-width:900px; margin:0 auto 3rem;">
-      <h3 style="margin-bottom:1rem;">🌱 Beginner-friendly path</h3>
-      <div class="card" style="border-left:4px solid var(--color-primary);">
-        <h3>Step 1: Get the ELCS template</h3>
-        <p>Open a terminal (on Windows: search for "PowerShell"; on Mac: search for "Terminal") and run:</p>
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-primary);">
+        <h3>Step 1: Download ELCS</h3>
+        <p>Open a terminal (Windows: search "PowerShell" · Mac: search "Terminal") and run:</p>
         <pre>git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git</pre>
-        <p style="margin-top:.75rem;">This downloads the ELCS framework to your computer. You only need to do this once.</p>
+        <p style="margin-top:.5rem; font-size:.9rem; color:var(--color-text-muted);">This downloads the ELCS framework to your computer. You only do this once.</p>
+      </div>
 
-        <h3 style="margin-top:1.5rem;">Step 2: Create your project</h3>
-        <p>Copy the template folder and rename it to your project name:</p>
-        <pre># Mac/Linux:
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-primary);">
+        <h3>Step 2: Create your project from the template</h3>
+        <pre># Mac / Linux:
 cp -r Epistemic-agentic-runtime-with-spec-mgmt/template my-project
 
 # Windows PowerShell:
 Copy-Item -Recurse Epistemic-agentic-runtime-with-spec-mgmt\template my-project</pre>
-        <p style="margin-top:.75rem;">Now you have a <code>my-project</code> folder with all the ELCS files ready to go.</p>
+        <p style="margin-top:.5rem; font-size:.9rem; color:var(--color-text-muted);">Replace <code>my-project</code> with whatever you want to call it. You now have a folder with all the ELCS files ready to go.</p>
+      </div>
 
-        <h3 style="margin-top:1.5rem;">Step 3: Open in your AI tool</h3>
-        <p>Open the folder in whichever tool you chose in "Choose Your Dev Mode":</p>
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-primary);">
+        <h3>Step 3: Open it in your AI tool and start talking</h3>
+        <p>Navigate into your project and open it with your chosen dev mode:</p>
         <pre># Cursor:
-cd my-project && cursor .
+cd my-project &amp;&amp; cursor .
 
 # VS Code:
-cd my-project && code .
+cd my-project &amp;&amp; code .
 
 # Claude Code CLI:
-cd my-project && claude
+cd my-project &amp;&amp; claude
 
 # Code Puppy:
-cd my-project && uvx code-puppy</pre>
-        <p style="margin-top:.75rem;">The AI will automatically detect ELCS and start following the protocol. You're ready to build!</p>
+cd my-project &amp;&amp; uvx code-puppy</pre>
+        <p style="margin-top:.75rem;">Now just <strong>describe your project naturally</strong>. Tell the agent:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.25rem;">
+          <li>What you want to build</li>
+          <li>What problem you're solving</li>
+          <li>Any technical preferences or constraints</li>
+          <li>Or just think out loud — ELCS captures it all</li>
+        </ul>
+        <p style="margin-top:.75rem;">The agent automatically detects ELCS, reads the protocol, and walks you through the process — capturing your goals, assumptions, and evidence as files along the way.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>That's it.</strong> You don't need to understand every ELCS concept to start. Just describe what you want, and the framework guides both you and the agent through structured, persistent collaboration.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- EXPERIENCED PATH -->
-    <div style="max-width:900px; margin:0 auto;">
-      <h3 style="margin-bottom:1rem;">⚡ All install options</h3>
-      <div class="install-options">
-        <div class="install-option">
-          <h3>📦 Generator CLI</h3>
-          <p>One command. Includes all template files, bootstrap configs, and folder structure.</p>
-          <pre>uvx create-elcs myproject
-cd myproject</pre>
-        </div>
+<!-- ADOPT AN EXISTING PROJECT -->
+<section class="section section--alt" id="adopt-existing">
+  <div class="container">
+    <div class="section__header">
+      <h2>🔄 Add ELCS to an Existing Project</h2>
+      <p>Already have a codebase? You can bring ELCS into it without restructuring anything.</p>
+    </div>
 
-        <div class="install-option">
-          <h3>📋 Copy the Template</h3>
-          <p>Clone the repo and copy the <code>template/</code> folder. Simple, manual, works everywhere.</p>
-          <pre>git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
-cp -r Epistemic-agentic-runtime-with-spec-mgmt/template my-project</pre>
-        </div>
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-accent);">
+        <h3>Pre-requisites</h3>
+        <ul style="list-style:disc; padding-left:1.25rem;">
+          <li>You've already cloned the ELCS framework repo (see <a href="#start-new">Step 1 above</a>)</li>
+          <li>You have an existing project folder you want to make ELCS-compliant</li>
+        </ul>
+      </div>
 
-        <div class="install-option">
-          <h3>🔧 Manual Setup</h3>
-          <p>Create the folder structure yourself. Minimal — just <code>elcs/</code> and <code>PROTOCOL.md</code>.</p>
-          <pre>mkdir -p elcs/{state,spec,tokens/open,tokens/closed,journal,lenses}
-touch elcs/PROTOCOL.md</pre>
-        </div>
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-accent);">
+        <h3>Option A: Use the install script (automated)</h3>
+        <p>The install script copies bootstrap files into your project without touching your existing code:</p>
+        <pre># Mac / Linux:
+./Epistemic-agentic-runtime-with-spec-mgmt/install.sh ~/path/to/my-project
 
-        <div class="install-option">
-          <h3>🔄 Adopt Existing Project</h3>
-          <p>Already have a codebase? Use the install script — it won't touch your existing code.</p>
-          <pre># Mac/Linux:
-./install.sh ~/path/to/my-project
+# Windows PowerShell:
+.\Epistemic-agentic-runtime-with-spec-mgmt\install.ps1 -TargetDir C:\path\to\my-project</pre>
+        <p style="margin-top:.5rem; font-size:.9rem; color:var(--color-text-muted);">This adds <code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>.cursorrules</code>, and reference files. It does <strong>not</strong> create the <code>elcs/</code> folder yet — your agent does that next.</p>
+      </div>
 
-# Windows:
-.\install.ps1 -TargetDir C:\path\to\my-project</pre>
-        </div>
+      <div class="card" style="margin-bottom:1.5rem; border-left:4px solid var(--color-accent);">
+        <h3>Option B: Let your agent do it (conversational)</h3>
+        <p>Open your existing project in your AI tool and simply tell it:</p>
+        <pre>"I want to adopt the ELCS framework for this project.
+Reference the ELCS protocol in
+[path to your cloned ELCS repo]
+and make this project fully compliant."</pre>
+        <p style="margin-top:.75rem;">The agent will:</p>
+        <ul style="list-style:disc; padding-left:1.25rem; margin-top:.25rem;">
+          <li>Read your existing codebase</li>
+          <li>Create the <code>elcs/</code> folder with inferred state</li>
+          <li>Populate assumptions, constraints, and evidence from what already exists</li>
+          <li>Set up bootstrap files for your dev mode</li>
+        </ul>
+        <p style="margin-top:.75rem; font-size:.9rem; color:var(--color-text-muted);">You review and confirm, then continue working with full ELCS support going forward.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>No restructuring required.</strong> ELCS lives in its own <code>elcs/</code> folder and doesn't touch your existing code, tests, or docs. It's additive — not invasive.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="section" id="coming-soon">
+  <div class="container" style="text-align:center;">
+    <h2>📦 Generator CLI <span style="font-size:.85rem; font-weight:400; color:var(--color-text-muted);">(Coming Soon)</span></h2>
+    <p style="max-width:560px; margin:0 auto 1rem;">We're building a one-command scaffolding tool so you can create ELCS projects instantly:</p>
+    <pre style="max-width:400px; margin:0 auto; text-align:left;">uvx create-elcs my-project
+cd my-project</pre>
+    <p style="max-width:560px; margin:1rem auto 0; font-size:.9rem; color:var(--color-text-muted);">This will be available on PyPI soon. For now, use the template copy method above — it takes 30 seconds.</p>
   </div>
 </section>
 

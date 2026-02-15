@@ -325,6 +325,10 @@ tbody tr:hover { background: var(--color-bg-alt); }
   .metrics      { grid-template-columns: 1fr; }
   .install-options { grid-template-columns: 1fr; }
 
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
   .loop-diagram { flex-direction: column; }
   .loop-arrow { transform: rotate(90deg); }
 
