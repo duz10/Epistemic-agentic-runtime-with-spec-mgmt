@@ -1,0 +1,4 @@
+- [GitHub](https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt)
+- [Quickstart](quickstart.md)
+- [Protocol](protocol.md)
+- [Validation](VALIDATION.md)

@@ -275,6 +275,7 @@ Telemetry is the microscope, not the map. Use it when you need to dig into HOW s
 | [6-Gate Protocol](protocol/gates.md) | Goal validation process |
 | [Scaling Stages](docs/scaling-stages.md) | From solo to multi-agent |
 | [Why ELCS?](docs/why-elcs.md) | The problem ELCS solves |
+| [Understanding ELCS](docs/understanding-elcs.md) | Practical origins, workflows, and roles |
 
 ---
 
