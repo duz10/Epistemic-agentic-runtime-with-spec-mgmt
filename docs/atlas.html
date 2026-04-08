@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Process Atlas — ELCS Framework</title>
+  <meta name="description" content="Platform-agnostic reference for AI-assisted development. Operations, processes, constraints, architecture patterns, security, and project lifecycle.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Atlas container gets its own dark theme scope */
+    #atlas-root {
+      background: #08080b;
+      border-radius: 12px;
+      padding: 0 0 20px;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    /* Override any inherited styles inside the atlas */
+    #atlas-root * {
+      color: inherit;
+    }
+    #atlas-root h1, #atlas-root h2, #atlas-root h3, #atlas-root h4 {
+      color: inherit;
+    }
+    #atlas-root p {
+      color: inherit;
+      margin-bottom: 0;
+    }
+    #atlas-root a {
+      color: #a78bfa;
+    }
+    #atlas-root button {
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-brand">ELCS <span>Framework</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="concepts.html">Concepts</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="roles.html">Roles</a>
+      <a href="getting-started.html">Get Started</a>
+      <a href="validation.html">Validation</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" class="nav-github" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sm">
+  <div class="container">
+    <h1>Data Process Atlas</h1>
+    <p>Platform-agnostic reference for AI-assisted development. The questions don't change when tools change — only the answers do.</p>
+  </div>
+</section>
+
+<!-- ATLAS APP -->
+<section class="section" style="padding-top:2rem;">
+  <div class="container">
+    <div id="atlas-root">
+      <noscript>
+        <p style="padding:2rem; color:#e4e4ec; text-align:center;">JavaScript is required to view the interactive Atlas. <a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/template/elcs/references/DATA_PROCESS_ATLAS.md">View the Markdown version instead.</a></p>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ELCS <span>Framework</span></div>
+        <p style="font-size:.9rem;">A lightweight, agent-agnostic methodology for building software with AI agents that preserves context, earns goals, and scales rigor with complexity.</p>
+      </div>
+      <div>
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="concepts.html">Core Concepts</a></li>
+          <li><a href="workflows.html">Workflows</a></li>
+          <li><a href="roles.html">Roles</a></li>
+          <li><a href="getting-started.html">Getting Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="validation.html">Validation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/LICENSE" target="_blank" rel="noopener">License (MIT)</a></li>
+          <li><a href="https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">&copy; 2025 ELCS Framework. Open-source under the MIT License.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- React + Babel Standalone (CDN) -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- Atlas JSX (compiled in-browser by Babel) -->
+<script type="text/babel">
+const { useState } = React;
+
+const P = {
+  bg:"#08080b", surface:"#111116", active:"#24242f", border:"#2a2a38",
+  borderLight:"#38384a", text:"#e4e4ec", textMuted:"#8a8aa4", textDim:"#55556e",
+  accent:"#a78bfa", green:"#22c55e", blue:"#3b82f6", amber:"#f59e0b",
+  red:"#ef4444", purple:"#8b5cf6", cyan:"#06b6d4", pink:"#ec4899",
+  orange:"#f97316", teal:"#14b8a6", slate:"#64748b", indigo:"#6366f1",
+  rose:"#f43f5e", emerald:"#10b981", sky:"#0ea5e9", lime:"#84cc16",
+  fuchsia:"#d946ef", yellow:"#eab308",
+};
+const F="'DM Sans',sans-serif", M="'DM Mono',monospace", S="'Fraunces',serif";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AGENT INSTRUCTIONS
+   How to use this document depending on context
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const AGENT_INSTRUCTIONS = {
+  title: "How to Use This Document",
+  description: "This atlas is a reference and thinking scaffold. Don't read it linearly — jump to the section relevant to your current context. Here's how to navigate based on what you're doing.",
+  routes: [
+    { situation: "Starting a new project", go: "Begin with Analysis Guide → then Lifecycle Phase 1 (Discovery). Use the Constraints section to identify what limits exist. Use Decision Protocol for technology and data layer choices.", color: P.green },
+    { situation: "Evaluating a platform or tool", go: "Use Platform Assessment to systematically evaluate capabilities across all 9 dimensions. Cross-reference with Constraints to identify where platform limits create real project constraints.", color: P.blue },
+    { situation: "At a decision point", go: "Use the Decision Protocol's 6 steps. Reference the specific Decision Junctures embedded in whichever Lifecycle phase you're in. Document using the Decision Record Template.", color: P.amber },
+    { situation: "Building or reviewing code", go: "Reference Operations for data handling patterns. Reference Architecture Patterns for structural decisions. Reference Security MUST items for every endpoint and data flow.", color: P.purple },
+    { situation: "Preparing for production", go: "Audit against Security → Production Readiness checklist. Walk through Lifecycle Phase 5 (Deployment). Verify every MUST item is addressed. Run through the deployment testing items.", color: P.red },
+    { situation: "Working on an existing system", go: "Identify current Lifecycle phase. Use Architecture → Migration/Evolution patterns for safe changes. Verify Security posture hasn't drifted. Check Operations phase testing guidance for regression.", color: P.teal },
+    { situation: "Debugging or investigating an issue", go: "Use Connections map to trace which processes and constraints are involved. A problem in one area often has root cause in a connected area (e.g., sync failure may be an integration surface constraint).", color: P.orange },
+    { situation: "Unsure what you don't know", go: "Use the Confidence Check prompts in each Lifecycle phase to surface assumptions, missing information, and areas of uncertainty. Surfacing what you don't know is often more valuable than confirming what you do.", color: P.rose }
+  ]
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 1: OPERATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const OPERATIONS = [
+  { id:"create",l:"Create",i:"◉",c:P.green,s:"Bring new data into existence",
+    d:"Form submission, sensor reading, API response, or user action generating a new record.",
+    q:["What triggers creation?","What info required at creation vs. later?","Who can create?","Validation before creation?","Downstream triggers?","Default state?","ID generation strategy? (Auto-increment, UUID, human-readable, composite)","Duplicate handling? (Reject, merge, version)","Bulk creation needed? (Import, migration, batch — different error handling, transactionality, and progress tracking)"],
+    p:["Hidden dependencies — related records may need to exist first","Batch vs. single have different constraints (partial failure: reject whole batch or skip bad rows?)","Creation time often only chance to enforce certain rules","Without idempotency, retries create duplicates","Bulk creation can overwhelm downstream triggers — 10,000 new records each firing a notification"],
+    uf:"What does the user see while creation is processing? If async, how are they notified of success/failure? If validation fails, which fields are wrong and what's the expected format?",
+    see:["Validation process","Schema constraint","Notification process (for downstream alerts)","Regulatory constraint (consent before collecting data)"]},
+  { id:"read",l:"Read & Query",i:"◎",c:P.blue,s:"Access, search, and retrieve data",
+    d:"Ranges from simple record lookup to complex search with relevance ranking. By-ID lookup, filtered listing, full-text search, aggregation, and export are fundamentally different operations with different performance and architectural requirements.",
+    q:["Who needs what data? (Core permissioning question)","Simple lookup or complex search? (By ID vs. full-text vs. faceted filtering)","How is data filtered? (By role, ownership, status, time, geography, keyword)","Joining across sources needed?","Expected result set size? (Single record, paginated list, bulk export)","Pagination strategy? (Offset, cursor, keyset — each has different performance and consistency)","How fresh must data be? (Real-time, cached, daily snapshot)","Search relevance needed? (Exact match vs. fuzzy vs. ranked)","Aggregation queries? (Counts, sums, averages — expensive on large datasets)","Fields never returned? (Internal IDs, secrets, sensitive PII)","Reads logged for audit?","Bulk export needed? (Format, size limits, async generation)"],
+    p:["Reading at scale is where most performance problems live","Permission checks on reads surprisingly complex","Cross-system reads need integration infrastructure","Over-fetching wastes bandwidth and leaks information","N+1 query problems: list then detail for each item individually","Search often requires separate infrastructure (search index)","Pagination inconsistency: data changes between pages can cause missing/duplicate items","Aggregation on large datasets may need pre-computed summaries"],
+    uf:"How does the user know results are loading? What do they see for empty results vs. no permission? Can they refine search easily? Are error states clear (timeout, too many results)?",
+    see:["Access constraint (permission filtering)","Capacity constraint (query limits, pagination)","Caching patterns (read-heavy = caching opportunity)","Temporal constraint (historical queries)"]},
+  { id:"update",l:"Update",i:"◐",c:P.amber,s:"Modify existing data",
+    d:"Changing fields, transitioning status. Identity persists, content changes. Where most business logic lives.",
+    q:["What fields changeable, under what conditions?","Who can update which fields?","Previous values preserved? (Audit trail, version history, changelog)","Concurrent conflicts? (Two users editing same record)","State transitions triggered?","Irreversible updates?","Atomic or partial? (Update one field or replace entire record)","Conflict resolution strategy? (Last-write-wins, merge, lock, optimistic concurrency)","Bulk update needed? (Mass status change, data cleanup — same partial-failure questions as bulk create)"],
+    p:["No history = lost context about what changed and why","Concurrent updates need resolution strategy","Some updates are really versioning (create new version + archive old)","Field-level permission overlooked until crisis","Cascading updates across related records","Bulk updates can violate invariants if not checked per-record"],
+    uf:"If two users edit simultaneously, who 'wins' and how does the other know? For state transitions, is it clear what actions are available from the current state? Can the user undo?",
+    see:["Validation process","Sync process (propagation to other systems)","Monitoring process (audit trail)","State Management patterns","Notification process (status change alerts)"]},
+  { id:"delete",l:"Delete",i:"◌",c:P.red,s:"Remove data from the system",
+    d:"Destroying or marking invisible. Most use soft delete because deletion is most dangerous operation.",
+    q:["Soft or hard?","Related data handling? (Cascade, orphan, block, nullify)","Who can delete?","Recovery window? (Trash, recycle bin, undo period)","Legal retention/deletion requirements?","Cleanup triggered? (Caches, indexes, files, related systems)","GDPR/right-to-be-forgotten handling?","Accidental deletion recovery?","Bulk delete safeguards? (Confirmation, preview, undo window)"],
+    p:["Cascading across connected data","Legal conflicts: GDPR vs. financial retention","Soft-deleted still affects performance and storage","Hard-deleted may persist in backups/logs/caches","Bulk delete without confirmation is a disaster waiting to happen"],
+    uf:"Is the consequence of deletion clear before confirming? Can the user undo? If deletion affects related data, is that shown? For bulk delete, can they preview what will be removed?",
+    see:["Consistency constraint (related data validity)","Regulatory constraint (retention rules)","Temporal constraint (retention/expiration lifecycle)"]}
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 1: PROCESSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const PROCESSES = [
+  { id:"transform",l:"Transformation",i:"⟁",c:P.purple,s:"Data changes shape or format",
+    d:"Input in one form → another. Most ubiquitous process type.",
+    q:["Input/output shapes?","Lossless or lossy?","Where does it happen? (Source, transit, destination)","Error handling for unexpected input?","Real-time or batch?","Edge cases? (Null values, encoding issues, unexpected formats)"],
+    st:["Format conversion — same info, different structure (CSV→JSON, XML→DB)","Normalization — standardizing variations (address cleanup, date formats)","Derivation — computing new values (total = price × quantity)","Aggregation — collapsing into summaries (sum, average, count)","Enrichment — adding from external sources (geocoding, company lookup)","Filtering/Projection — selecting subset of fields or records"],
+    see:["Schema constraint (determines valid output shapes)","Integration patterns (transformation at system boundaries)"]},
+  { id:"validate",l:"Validation",i:"⟐",c:P.cyan,s:"Checking against constraints",
+    d:"Constraint enforcement — defining boundaries of what's allowed.",
+    q:["Hard constraints (must be true) vs. soft (warnings)?","When validated? (Input, before processing, before storage, continuously)","Failure feedback to user/system?","Role-dependent rules?","Rules change over time? How are existing records handled?","Server-side validation? (MUST — client-side is UX convenience only, never a security boundary)"],
+    st:["Type checking — right kind of data?","Range/boundary — within acceptable limits?","Referential integrity — referenced record exists?","Business rules — domain requirements met?","Cross-field consistency — multiple fields agree?","Uniqueness — no duplicates where required","Input sanitization — no injection, no malicious content","Format validation — email, phone, URL format"],
+    uf:"When validation fails, does the user know exactly which field(s) failed and why? Are error messages helpful or cryptic? Can the user fix errors without re-entering everything? Is validation instant (on blur/keystroke) or only on submit?",
+    see:["Security > Data Protection (input sanitization)","Security > API Security (request validation)","Schema constraint (defines what validation enforces)","Regulatory constraint (business rules from compliance)"]},
+  { id:"route",l:"Routing",i:"⟟",c:P.pink,s:"Directing flow based on conditions",
+    d:"Decision points determining what happens next.",
+    q:["What conditions determine routing?","Static or dynamic rules?","No-match handling?","Conflicting rules?","Sequential or parallel?","Rule maintenance and testing?"],
+    st:["Conditional branching — if/else paths","Fan-out — one input, multiple parallel paths","Fan-in — multiple inputs converge","Load balancing — distribute across destinations","Priority queuing — route by urgency","Content-based routing — route by data content"],
+    see:["Orchestration process (routing within workflows)","Notification process (routing determines who gets notified)"]},
+  { id:"orchestrate",l:"Orchestration",i:"⟠",c:P.orange,s:"Coordinating multi-step processes",
+    d:"Managing sequences with dependencies, error handling, state tracking. Includes automated pipelines and human-in-the-loop workflows.",
+    q:["Step sequence? Which in order vs. parallel?","Failure handling per step? (Retry, rollback, skip, alert, compensate)","Duration? (Seconds to days — affects architecture)","Human intervention needed? (Approvals, reviews, escalations)","If human: timeout? Delegation? Reminders? Escalation chain?","State tracking? (Where in workflow, what's completed, who's responsible)","Cancelable or modifiable mid-flight?","Start trigger? (Event, schedule, manual)"],
+    st:["Sequential pipeline — A→B→C","Parallel processing — simultaneous, merged","Saga/compensation — if step 3 fails, undo 1 and 2","State machine — defined states and transitions","Event-driven chain — loosely coupled","Scheduled batch — timer-based","Approval workflow — automated + human decisions + escalation","Review queue — items waiting for evaluation with SLA"],
+    uf:"Can the user see where their request is in the process? If waiting for approval, who is it with? If stuck, can they escalate or cancel? Is there a timeline or expected duration shown?",
+    see:["Routing process (decision points within orchestration)","Notification process (human steps need notifications)","Temporal constraint (SLA windows, timeouts)","Capacity constraint (rate limits on processing speed)"]},
+  { id:"notify",l:"Notification",i:"⟐̤",c:P.fuchsia,s:"Telling humans or systems that something happened",
+    d:"First-class process type. Involves determining what happened, who cares, how to reach them, what to say, and respecting preferences.",
+    q:["What events trigger notifications?","Who receives each type?","What channel(s)?","User preference controls?","Content? (Template, personalization, localization)","Delivery reliability? (Best-effort vs. guaranteed)","Timing? (Immediate, digest, scheduled)","Anti-spam/compliance? (Rate limits, unsubscribe, CAN-SPAM/GDPR)","Delivery tracking?","Escalation? (If unacknowledged)"],
+    st:["Transactional — event-triggered, immediate (order confirmation, password reset)","Digest/batch — collected periodically (daily summary)","Broadcast — to many recipients (announcement)","Alert/escalation — time-sensitive with acknowledgment","Preference-driven — user controls what/when/how","System-to-system — webhook or event to another service"],
+    uf:"Can users control notification frequency and channels? Is it clear why they received a notification? Can they easily unsubscribe or adjust? Are notifications actionable (links to relevant item)?",
+    see:["Regulatory constraint (CAN-SPAM, GDPR consent for marketing)","Orchestration process (human-in-loop steps need notifications)","Monitoring process (alerts are a form of notification)","Temporal constraint (digest timing, escalation windows)"]},
+  { id:"sync",l:"Synchronization",i:"⟳",c:P.teal,s:"Keeping data consistent across systems",
+    d:"One of hardest distributed systems problems.",
+    q:["Source of truth per data piece?","Direction?","Speed requirement?","Conflict resolution?","Unavailability handling?","Verification?"],
+    st:["One-way push","One-way pull","Bidirectional (hardest)","Event streaming","Periodic reconciliation","Cache invalidation (deceptively difficult)"],
+    see:["Consistency constraint (cross-system invariants)","Integration surface constraint (determines sync capability)","Caching patterns (cache invalidation is sync)","Monitoring process (verify sync health)"]},
+  { id:"monitor",l:"Monitoring",i:"⟡",c:P.slate,s:"Observing state and responding",
+    d:"System self-awareness — detecting problems, tracking performance, triggering responses.",
+    q:["What to detect?","Who notified, how?","Speed?","History retention?","SLA requirements?","Signal vs. noise?"],
+    st:["Health checks","Threshold alerts","Audit logging","Analytics/metrics","Anomaly detection","SLA tracking"],
+    see:["Notification process (alerts delivered through notification)","Temporal constraint (SLA windows, retention periods)","Regulatory constraint (audit requirements)","Security > Error Handling & Logging"]}
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 1: CONSTRAINTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const CONSTRAINTS = [
+  { id:"access",l:"Access & Permission",i:"⬡",c:P.purple,s:"Who can do what to which data",
+    d:"Filter on possibility space.",
+    q:["Roles and capabilities?","Granularity level?","Inheritance model?","Delegatable?","Audited?","Default permissive or restrictive?"],
+    sp:["System-level → all-or-nothing","Feature-level → specific capabilities","Object-level → data types","Record-level → specific records","Field-level → specific fields"],
+    see:["Security > Auth & Authorization","Multi-tenancy patterns","Regulatory constraint (compliance dictates access rules)"]},
+  { id:"schema",l:"Schema & Data Model",i:"⬢",c:P.cyan,s:"Structure data must conform to",
+    d:"Hard constraint on what's storable/processable. Early decisions cascade through everything. DATA MODEL RADIATION: Your schema choice directly affects query patterns (Read), validation rules, sync complexity, caching strategy, multi-tenancy approach, migration difficulty, and portability. When revisiting the data model, re-evaluate all of these downstream impacts.",
+    q:["Entities managed?","Properties per entity? Required vs. optional?","Relationships between entities?","Fixed or flexible?","Evolution strategy?","Matches how users think about the domain?"],
+    sp:["Rigid — strictly enforced (relational SQL)","Extensible — core fixed, custom allowed (CRM platforms)","Flexible — per-record structure (document databases)","Schemaless — no enforcement (key-value, file storage)"],
+    see:["Validation process (schema defines what validation enforces)","Migration/Evolution patterns (schema changes are the hardest)","Data Access patterns (schema shapes query approach)","Portability constraint (schema portability = data portability)"]},
+  { id:"sequence",l:"Sequencing",i:"⬣",c:P.pink,s:"What must happen before what",
+    d:"Temporal/logical ordering defining allowable paths.",
+    q:["Prerequisites?","Strict or policy?","Parallel possible?","Bottlenecks?","Deadlines?","Failure handling?"],
+    sp:["Strict — exact sequence enforced","Dependency graph — multiple valid orderings","Soft — recommended, overridable","Unordered — any order"]},
+  { id:"consistency",l:"Consistency",i:"⬠",c:P.green,s:"What must remain true always",
+    d:"System invariants — the 'laws of physics' of your system.",
+    q:["What invariants must hold?","Violation response?","Immediate or eventual?","Cross-system enforcement?","Inconsistency consequences?","Assumed but unenforced invariants?"],
+    sp:["Strong — immediate agreement","Eventual — converges with delay","Causal — related ops ordered","No guarantees — manual reconciliation"],
+    see:["Sync process (consistency across systems)","Caching patterns (stale cache = inconsistency)","Multi-tenancy patterns (cross-tenant data isolation)"]},
+  { id:"capacity",l:"Capacity",i:"⬤",c:P.orange,s:"How much and how fast",
+    d:"Often invisible until hit. Changes what's practically possible.",
+    q:["Storage limits?","Rate limits?","Latency requirements?","Concurrency?","Behavior at limits?","Cost at scale?"],
+    sp:["Fixed — hard limits","Elastic — grows with cost","Degrading — slows, doesn't fail","Transparent — no practical limit"],
+    see:["Caching patterns (caching reduces capacity pressure)","Error Handling patterns (circuit breaker, degradation at limits)"]},
+  { id:"integration",l:"Integration Surface",i:"◇",c:P.indigo,s:"How systems connect",
+    d:"Often determines achievability more than internal capability.",
+    q:["APIs exposed?","Event triggers?","Data formats?","Auth requirements?","Real-time or batch?","Reliability?","Existing connectors?"],
+    sp:["Rich API — full access","Limited API — partial","Webhooks only","File import/export","Manual"],
+    see:["Integration patterns (architectural approach to connection)","Sync process (integration surface determines sync capability)","Secrets management (credentials for integration)"]},
+  { id:"temporal",l:"Temporal",i:"◆",c:P.yellow,s:"Time-related rules and boundaries",
+    d:"Time is a constraint dimension beyond sequencing. Data has lifecycles, operations have windows, users exist in time zones, scheduled processes must handle clock edge cases.",
+    q:["Retention: how long must data be kept?","Expiration: auto-remove or archive when?","TTL patterns: sessions, tokens, caches?","Archival strategy?","Timezone handling?","Scheduling edge cases? (DST, leap seconds, clock drift)","SLA windows?","Audit trail retention?","Historical/point-in-time queries needed?","Cross-system timestamp synchronization?"],
+    sp:["Ephemeral — exists briefly (cache, session)","Active — in use, full access, mutable","Archived — preserved, cheaper storage, limited access","Retained — kept for compliance, sealed","Expired/Purged — past retention, must delete"],
+    see:["Regulatory constraint (legally mandated retention/deletion)","Delete operation (retention prevents or requires deletion)","Monitoring process (SLA tracking is time-aware)"]},
+  { id:"regulatory",l:"Regulatory & Compliance",i:"◈",c:P.rose,s:"Legal and policy requirements",
+    d:"Externally imposed requirements with legal consequences. Identify which frameworks apply EARLY — they cascade into data model, access, audit, retention, and operations.",
+    q:["Personal data collected?","User jurisdictions?","Industry regulations?","Data residency?","Consent requirements?","Right to access?","Right to deletion?","Right to portability?","Breach notification requirements?","Accessibility?","Audit requirements?","DPIA needed?"],
+    sp:["Unregulated — rare for user-facing apps","Privacy-regulated — GDPR, CCPA (most web apps)","Industry-regulated — HIPAA, PCI-DSS, SOX","Heavily regulated — overlapping frameworks","Government/classified — security clearance required"],
+    see:["Access constraint (compliance dictates permissions)","Temporal constraint (retention periods from regulation)","Monitoring process (audit requirements)","Notification process (breach notification, consent for comms)","Security > all sections"]},
+  { id:"environment",l:"Environment & Infrastructure",i:"◆",c:P.emerald,s:"Where and how your code runs",
+    d:"Deployment environment constrains architecture, code structure, state management, operations. Invisible locally, load-bearing in production.",
+    q:["Compute model?","Stateful or stateless?","Code structure imposed?","Max execution duration?","Scaling model?","Networking constraints?","Traffic routing?","SSL termination?","File system access?","Co-located services?","Secrets delivery?","Logging infrastructure?","Deployment mechanism?","Cost model?","Vendor lock-in?","Compliance/residency?"],
+    sp:["Serverless/FaaS — event-triggered, stateless, duration-limited","Containers (managed) — orchestrator handles scaling","Containers (self-managed) — full control, ops burden","VPS/VM — traditional, manual everything","PaaS — git-push deploy, limited config","Static/Edge — CDN-served, separate API backend"],
+    see:["Architecture patterns (all — environment constrains which patterns are viable)","Portability constraint (environment shapes lock-in)","Security > Environment Management","Cost dimensions (environment determines cost structure)"]},
+  { id:"portability",l:"Portability & Lock-in",i:"◈",c:P.sky,s:"What's portable and what's trapped",
+    d:"Every platform decision creates coupling. Understanding what's portable lets you make trade-offs consciously.",
+    q:["Standard vs. platform-specific code %?","Rewrite scope if changing provider?","Data models portable?","API patterns portable?","Auth portable?","Logic in code or platform config?","Data exportable?","Tests runnable locally?","Switching cost?","Abstraction layers available?"],
+    sp:["Fully portable — standard everything","Mostly portable — thin adapter layer","Partially locked — expensive migration","Heavily locked — migration = rebuild","Fully locked — migration = start over"],
+    see:["Schema constraint (data portability)","Environment constraint (platform shapes lock-in)","Decision Protocol step 5 (reversible vs. irreversible)"]}
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 2: ARCHITECTURE PATTERNS
+   Added: Migration/Evolution patterns
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const ARCH_PATTERNS = [
+  { cat:"Data Flow", patterns:[
+    {n:"Request-Response (Sync)",w:"User action → immediate result",h:"Client sends request, waits for response.",t:"Simple. Blocks user. Fails if slow.",sec:"Validate server-side. HTTPS. Rate limit."},
+    {n:"Event-Driven (Async)",w:"Background processing, notify later",h:"Action publishes event. Workers consume independently.",t:"Handles long processes. More complex. Must handle retries.",sec:"Auth publishers. Validate payloads. Idempotent processing."},
+    {n:"Pipeline (ETL/ELT)",w:"Source → transform → destination",h:"Extract → Transform → Load.",t:"Great for batch. Latency between change and update.",sec:"Secure credentials. Encrypt in transit. Log operations."},
+    {n:"API Gateway / Hub",w:"Multiple systems, avoid point-to-point",h:"Central broker routes, transforms, handles protocols.",t:"Single management. Single failure point.",sec:"Critical security boundary. Auth all. Rate limit. Log."}]},
+  { cat:"State Management", patterns:[
+    {n:"Status Field",w:"Small number of defined phases",h:"Single field = state. Validation enforces transitions.",t:"Simple. No history unless logged.",sec:"Validate transitions server-side."},
+    {n:"State Machine",w:"Complex lifecycle with rules",h:"Explicit states, transitions, guards, permissions.",t:"Clear rules. More upfront design.",sec:"State machine IS a security mechanism."},
+    {n:"Event Sourcing",w:"Full history critical",h:"Store every event. State = replay. Immutable.",t:"Complete audit trail. Complex.",sec:"Immutable, tamper-evident. Append-only."}]},
+  { cat:"Integration", patterns:[
+    {n:"Direct API Call",w:"Real-time data from another system",h:"HTTP request, wait for response.",t:"Simple. Tight coupling.",sec:"Keys as env vars. Least-privilege. Validate responses."},
+    {n:"Webhook",w:"System B notifies System A",h:"A registers URL. B POSTs on events.",t:"Real-time. Must verify sender.",sec:"CRITICAL: Verify signatures. HTTPS. Idempotent."},
+    {n:"Message Queue",w:"Reliable async communication",h:"Producer → queue → consumer.",t:"Decoupled. More infrastructure.",sec:"Encrypt transit+rest. Auth both sides. Dead letter queue."},
+    {n:"Shared Database",w:"Multiple services, same data",h:"Multiple apps read/write same DB.",t:"Simple. Tight coupling.",sec:"Each service own credentials, minimum permissions."},
+    {n:"File Exchange",w:"No real-time or very large volumes",h:"Export → transfer → import.",t:"Works with anything. Batch only.",sec:"Encrypt. SFTP. Validate before import."}]},
+  { cat:"Error Handling", patterns:[
+    {n:"Retry with Backoff",w:"Transient failures",h:"Increasing intervals. Max attempts.",t:"Must be idempotent.",sec:"Log retries. Alert on repeated failures."},
+    {n:"Circuit Breaker",w:"Downstream consistently failing",h:"Track failures. Open circuit = fail fast.",t:"Prevents cascade. Needs fallback.",sec:"State not user-controllable."},
+    {n:"Dead Letter Queue",w:"Failed messages shouldn't be lost",h:"Failed → separate queue for investigation.",t:"No data loss. Requires monitoring.",sec:"May contain sensitive data."},
+    {n:"Graceful Degradation",w:"Part fails, rest continues",h:"Independent features. Reduced > none.",t:"Better UX. More complex.",sec:"CRITICAL: Degraded mode must not bypass security."}]},
+  { cat:"Caching", patterns:[
+    {n:"Cache-Aside (Lazy Loading)",w:"Read-heavy, infrequent changes",h:"Check cache → miss → read source → store in cache with TTL.",t:"Simple. Can be stale until TTL. Miss = slower.",sec:"Never cache sensitive data without encryption. Permission changes must invalidate cache."},
+    {n:"Write-Through",w:"Cache must stay consistent",h:"Every write to both cache and source.",t:"Always consistent. Slower writes.",sec:"Both cache and source must enforce same access controls."},
+    {n:"Write-Behind",w:"Write-heavy, brief inconsistency OK",h:"Write cache first, async flush to source.",t:"Fast writes. Data loss risk if cache fails before flush.",sec:"Evaluate carefully for sensitive data."},
+    {n:"Cache Invalidation",w:"Stale data must be refreshed",h:"On source change, remove/update cached copies. TTL, event-based, or manual.",t:"Getting this wrong = users see stale data.",sec:"Permission changes must invalidate — user loses access but cache serves old data = security hole."}]},
+  { cat:"Data Access", patterns:[
+    {n:"Direct Queries",w:"Full control, performance-critical",h:"Application writes SQL/query language directly.",t:"Maximum control. Tightly coupled to database.",sec:"ALWAYS parameterized queries. Never concatenate user input."},
+    {n:"ORM",w:"Work with data as code objects",h:"Library maps objects to tables. Generates queries.",t:"Faster dev. Can generate inefficient queries.",sec:"Verify parameterized queries. Don't expose ORM objects to API."},
+    {n:"Repository Pattern",w:"Decouple logic from storage",h:"Abstract interface for data ops. Business logic only knows interface.",t:"Clean separation. Easy to test. More code.",sec:"Good place to enforce access control — check permissions at boundary."},
+    {n:"CQRS",w:"Read/write patterns very different",h:"Separate models for reading and writing.",t:"Optimize each independently. Much more complex.",sec:"Both paths need independent authorization checks."}]},
+  { cat:"Auth Flows", patterns:[
+    {n:"Session-Based",w:"Traditional web, server-rendered",h:"Login → server session → cookie → lookup per request.",t:"Simple. Requires session storage. Hard to scale across servers.",sec:"HttpOnly, Secure, SameSite cookies. Regenerate after login. CSRF protection."},
+    {n:"Token-Based (JWT)",w:"SPAs, mobile, API-first, stateless",h:"Login → signed token → client stores → sends in header → server validates.",t:"Stateless (scales). Can't revoke until expiry.",sec:"Short expiry. Secure storage. Validate signature AND claims. Refresh tokens."},
+    {n:"OAuth2 / OIDC",w:"Delegate auth to provider, third-party access",h:"Redirect to IdP → authenticate → redirect back with code → exchange for tokens.",t:"No password handling. Depends on provider. Complex flow.",sec:"Auth code + PKCE. Validate state. Verify issuer/audience. No implicit flow."},
+    {n:"API Key",w:"Service-to-service, developer APIs",h:"Pre-shared secret in request header.",t:"Simple. No user context. Full access if leaked.",sec:"HTTPS only. Store hashed. Scope permissions. Rotate. Log usage."},
+    {n:"Machine Auth",w:"Backend service-to-service",h:"Mutual TLS, client credentials, or rotating secrets.",t:"No human. Must automate credentials.",sec:"Mutual TLS strongest. Auto-rotate. Monitor unauthorized calls."}]},
+  { cat:"Multi-tenancy", patterns:[
+    {n:"Shared DB, Shared Schema",w:"Cost-efficient, many tenants, simple isolation",h:"All tenants in same tables, tenant_id column. Every query filters.",t:"Cheapest. Risk if filter forgotten. Hard to customize per-tenant.",sec:"CRITICAL: Every query MUST filter by tenant. Missing WHERE = data breach. Use row-level security."},
+    {n:"Shared DB, Separate Schemas",w:"Moderate isolation, some customization",h:"Same server, each tenant own schema. App switches based on auth.",t:"Better isolation. Per-schema migrations. Moderate cost.",sec:"Schema-level permissions. Verify correct schema per connection."},
+    {n:"Separate Databases",w:"Strongest isolation, regulated industries",h:"Each tenant own database. App routes by tenant.",t:"Strongest isolation. Most expensive. Ops scales with tenants.",sec:"Strongest boundary. Own credentials per DB. Routing failure = wrong tenant's data."}]},
+  // ─── NEW: Migration/Evolution Patterns ───
+  { cat:"Migration & Evolution", patterns:[
+    {n:"Expand/Contract (Schema)",w:"Need to change database schema without downtime",h:"Expand: add new column/table alongside old. Migrate data. Contract: remove old column/table after all code uses new. Two deploys minimum.",t:"Zero-downtime schema changes. More deploys. Temporary duplication.",sec:"Both old and new paths must enforce same validation and access controls during transition."},
+    {n:"Blue-Green Deployment",w:"Deploy new version with instant rollback capability",h:"Two identical environments. Deploy to inactive ('green'). Switch traffic. Old ('blue') stays ready for instant rollback.",t:"Instant rollback. Double infrastructure cost during transition. Database compatibility required between versions.",sec:"Both environments must have correct security config. Don't leave old environment running with stale secrets."},
+    {n:"Feature Flags",w:"Deploy code without activating features. Gradual rollout.",h:"Code for new feature deployed but behind a flag. Flag controls who sees it (percentage, role, specific users). Turn off instantly if problems.",t:"Deploy and activate are separate decisions. More conditional logic in code. Flag cleanup debt.",sec:"Feature flags must not be user-controllable unless intentional. Don't use flags to bypass security for 'internal testing.'"},
+    {n:"Dual-Write / Shadow Mode",w:"Migrating from old system to new, need to verify new system before switching",h:"Write to both old and new system. Read from old. Compare results. When confident, switch reads to new.",t:"Validates new system with real data. Double write load. Comparison logic needed. Longer migration.",sec:"Both systems need consistent auth and data protection. Sensitive data now in two places during migration."},
+    {n:"Strangler Fig",w:"Gradually replacing a legacy system piece by piece",h:"New system handles new functionality. Gradually redirect existing functionality from old to new. Old system shrinks over time.",t:"Low risk (incremental). Can take a long time. Need routing layer. Both systems must coexist.",sec:"Auth must work consistently across old and new. Don't let the boundary between systems become a security gap."}]}
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 3: SECURITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const SECURITY = [
+  { id:"auth",t:"Authentication & Authorization",i:"🔐",checks:[
+    {it:"Auth method implemented",d:"OAuth 2.0, sessions, JWT, API keys. Use a provider when possible. See Architecture > Auth Flows.",p:"must"},
+    {it:"Passwords hashed (bcrypt/scrypt/Argon2)",d:"NEVER plaintext. NEVER MD5/SHA-1.",p:"must"},
+    {it:"Secure session management",d:"HttpOnly cookies. Secure flag. SameSite. Timeout. Regenerate after login. Invalidation on logout.",p:"must"},
+    {it:"API auth on all endpoints",d:"Every endpoint returning/modifying data must verify identity.",p:"must"},
+    {it:"Authorization on every request",d:"Auth = WHO. Authorization = WHAT. Check both every time. Broken authorization = #1 API vulnerability.",p:"must"},
+    {it:"Rate limiting on auth endpoints",d:"Login, registration, reset — rate limited vs brute force.",p:"must"},
+    {it:"MFA available",d:"Especially admin and sensitive operations.",p:"should"},
+    {it:"Token refresh strategy",d:"Short-lived access + longer refresh. Rotate on use.",p:"should"}]},
+  { id:"data",t:"Data Protection",i:"🛡️",checks:[
+    {it:"HTTPS everywhere",d:"All TLS. No HTTP. HSTS header.",p:"must"},
+    {it:"Sensitive data encrypted at rest",d:"DB + files. Passwords, tokens, PII, financial, health.",p:"must"},
+    {it:"Input validation and sanitization",d:"ALL input server-side. Parameterized queries. Sanitize HTML. See also: Validation process, API Security.",p:"must"},
+    {it:"Output encoding",d:"Encode before rendering in HTML, URLs, JS. Prevents XSS.",p:"must"},
+    {it:"No sensitive data in URLs",d:"Logged by servers, proxies, browser history.",p:"must"},
+    {it:"No sensitive data in client storage",d:"No tokens/PII in localStorage. HttpOnly cookies.",p:"must"},
+    {it:"Backups encrypted",d:"Common attack vector. Test restores.",p:"must"},
+    {it:"Data minimization",d:"Only collect what you need. Less data = less breach risk.",p:"should"}]},
+  { id:"cors",t:"CORS",i:"🌍",checks:[
+    {it:"Understand what CORS is",d:"Browser blocks cross-origin API calls unless server explicitly allows it. Protects users from malicious sites using their credentials against your API.",p:"must"},
+    {it:"Allowed origins explicitly listed",d:"Your exact frontend domain(s). NEVER wildcard (*) with credentials.",p:"must"},
+    {it:"Methods and headers restricted",d:"Only allow HTTP methods and headers your API actually uses.",p:"must"},
+    {it:"Credentials mode understood",d:"If using cookies: Access-Control-Allow-Credentials = true AND origin must be explicit (not wildcard).",p:"must"},
+    {it:"Preflight caching",d:"Set Access-Control-Max-Age to reduce OPTIONS request overhead.",p:"should"}]},
+  { id:"uploads",t:"File Upload Security",i:"📎",checks:[
+    {it:"File type validated server-side",d:"Check actual content (magic bytes), not just extension. malware.exe renamed to photo.jpg still dangerous.",p:"must"},
+    {it:"File size limits enforced",d:"At web server, application, and storage level. Prevents DoS via huge uploads.",p:"must"},
+    {it:"Files stored outside web root",d:"Not directly accessible via URL. Serve through application with access checks.",p:"must"},
+    {it:"Filenames sanitized",d:"Never use user-provided filename. Generate safe name. Prevent path traversal.",p:"must"},
+    {it:"Content-Type headers correct when serving",d:"Correct Content-Type and Content-Disposition prevents browser from executing uploads.",p:"must"},
+    {it:"Malware scanning",d:"Scan uploaded files before processing. Many cloud storage services offer this.",p:"should"},
+    {it:"Image re-encoding",d:"Re-encode uploaded images to strip embedded malicious content.",p:"should"}]},
+  { id:"api",t:"API Security",i:"🔌",checks:[
+    {it:"Request size limits",d:"Max body size per endpoint. Prevents memory exhaustion. Different limits for file upload vs JSON.",p:"must"},
+    {it:"Response filtering",d:"Never return internal fields. Strip internal IDs, DB columns, debug info from responses.",p:"must"},
+    {it:"Request validation",d:"Validate shape and content of every request. Reject unknown fields. Enforce types. See also: Validation process.",p:"must"},
+    {it:"Error responses don't leak info",d:"No stack traces, DB errors, file paths. Generic error + request ID for support.",p:"must"},
+    {it:"Rate limiting per consumer",d:"Per-user or per-key limits. 429 with Retry-After header.",p:"should"},
+    {it:"API versioning strategy",d:"How deprecated? Can't remove insecure old version if consumers depend on it. See: Migration patterns.",p:"should"},
+    {it:"Pagination enforced",d:"Never unbounded results. Default and max page sizes. See: Read operation.",p:"should"}]},
+  { id:"secrets",t:"Secrets Management",i:"🔑",checks:[
+    {it:"No secrets in code or git",d:"NEVER commit keys/passwords. Check git history for past leaks.",p:"must"},
+    {it:"Env vars for config",d:"All secrets from env vars or secrets manager. Different per environment.",p:"must"},
+    {it:".env excluded from git",d:".gitignore. Provide .env.example with placeholders.",p:"must"},
+    {it:"Client code is PUBLIC",d:"Secret API calls through server. No keys in frontend.",p:"must"},
+    {it:"Secrets delivery pattern understood",d:"How does running code get secrets? Env var at start, mounted file, API call to manager — each has different rotation properties.",p:"must"},
+    {it:"Rotation plan",d:"Keys rotatable without downtime.",p:"should"},
+    {it:"Least-privilege keys",d:"Each service own key, minimum permissions.",p:"should"},
+    {it:"Production secrets manager",d:"Dedicated manager for sensitive deployments.",p:"should"}]},
+  { id:"env",t:"Environment Management",i:"🌐",checks:[
+    {it:"Separate environments",d:"Local, staging, production minimum. Each own DB/keys/config.",p:"must"},
+    {it:"No production data in dev",d:"Seed/anonymized data only.",p:"must"},
+    {it:"Environment-specific config",d:"DB URLs, endpoints, flags, log levels differ per env.",p:"must"},
+    {it:"Deployment documented and repeatable",d:"Automated > manual. Documented every step.",p:"should"},
+    {it:"Rollback capability",d:"Quick revert. Test before needed. See: Migration patterns.",p:"should"},
+    {it:"DB migration strategy",d:"Version-controlled, tested, reversible. See: Migration patterns.",p:"should"}]},
+  { id:"errors",t:"Error Handling & Logging",i:"📋",checks:[
+    {it:"Structured error handling",d:"Try/catch externals. Meaningful messages. No stack traces to users.",p:"must"},
+    {it:"No sensitive data in errors or logs",d:"Never log passwords, tokens, CC numbers. Mask/redact. Errors don't reveal internals.",p:"must"},
+    {it:"Centralized logging",d:"All logs to one place. Structured JSON.",p:"should"},
+    {it:"Error alerting",d:"Critical errors notify team immediately.",p:"should"},
+    {it:"Request ID tracing",d:"Unique ID per request through all steps.",p:"should"},
+    {it:"Health check endpoint",d:"Monitoring can verify app running.",p:"should"}]},
+  { id:"deps",t:"Dependency Security",i:"📦",checks:[
+    {it:"Lock files in version control",d:"Reproducible builds.",p:"must"},
+    {it:"Regular dependency audit",d:"Address critical/high vulnerabilities.",p:"should"},
+    {it:"Minimize dependencies",d:"Every dep = potential vulnerability.",p:"should"},
+    {it:"Automated vulnerability scanning",d:"Dependabot, Snyk. Auto PRs.",p:"should"}]},
+  { id:"prod",t:"Production Readiness",i:"🚀",checks:[
+    {it:"HTTPS enforced",d:"SSL cert. Redirect. HSTS.",p:"must"},
+    {it:"DNS configured",d:"Domain pointing. Propagation confirmed.",p:"must"},
+    {it:"DB backed up and tested",d:"Automated. Restore verified.",p:"must"},
+    {it:"All env vars set",d:"All secrets present. No dev values.",p:"must"},
+    {it:"Error monitoring active",d:"Tracking + alerts.",p:"must"},
+    {it:"CORS correct",d:"Only your domains. See CORS section.",p:"must"},
+    {it:"Legal compliance",d:"Privacy, ToS, cookies, GDPR/CCPA. See Regulatory constraint.",p:"must"},
+    {it:"Rate limiting",d:"Different for auth/unauth.",p:"should"},
+    {it:"CSP headers",d:"Prevents XSS and injection.",p:"should"},
+    {it:"Uptime monitoring",d:"External check. Alert when down.",p:"should"},
+    {it:"Incident response plan",d:"Who, communication, runbooks.",p:"should"},
+    {it:"Performance baseline",d:"Know normal. Alert on deviation.",p:"should"}]},
+  // ─── Cost Dimensions note ───
+  { id:"cost",t:"Cost Awareness",i:"💰",checks:[
+    {it:"Compute costs identified",d:"Per-request, per-hour, per-container, per-function invocation — depends on environment. Understand your cost unit.",p:"should"},
+    {it:"Storage costs identified",d:"Database storage, file storage, backup storage, log storage — each may have different pricing. Data grows over time.",p:"should"},
+    {it:"Bandwidth/transfer costs",d:"Data transfer between services, to users, between regions. Can be surprisingly expensive at scale.",p:"should"},
+    {it:"Third-party API costs",d:"Per-call pricing for external services (payment processors, email senders, AI APIs, search). Volume can surprise you.",p:"should"},
+    {it:"Operational cost (human time)",d:"Maintenance, monitoring, incident response, upgrades. The cheapest tool to build may be the most expensive to run.",p:"should"},
+    {it:"Cost trajectory understood",d:"Does cost scale linearly with users? With data? With features? Know what drives your largest cost before it surprises you.",p:"should"}]}
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 4: LIFECYCLE + DECISIONS
+   Added: Confidence Check per phase
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const LIFECYCLE = [
+  { id:"discovery",t:"Discovery & Planning",i:"🔍",f:"Get the domain model right.",
+    q:["Core entities and relationships?","Primary workflows?","User roles and needs?","Hard constraints? (Technical, regulatory, business)","Systems to integrate?","Existing data?","Regulatory frameworks?"],
+    del:["Entity relationship map","Roles and capabilities","Workflow descriptions","Integration inventory","Constraint inventory","Regulatory assessment","Initial decision records"],
+    mis:["Coding before understanding domain","Assuming requirements","Edge cases before happy path","Integrating before core works","Over-engineering","Ignoring regulatory requirements until late"],
+    test:["No code yet — document expected behaviors (become test cases later)","Define acceptance criteria: how will you know each workflow is 'done'?"],
+    confidence:["What am I assuming about the domain that I haven't verified?","Are there stakeholders I haven't consulted who will have requirements?","Am I confident about which regulations apply, or should I verify?","What about this domain am I least familiar with?","What would change my technology or data layer recommendation?"],
+    decisions:[
+      { junction:"Technology Selection", question:"What language/framework for the core?",
+        evaluate:["Team skills","Library ecosystem","Deployment target compatibility","Community quality","Maintenance trajectory","Operational burden"],
+        warning:"Choose based on: can you ship and maintain this?" },
+      { junction:"Data Layer Selection", question:"Where and how will data be stored?",
+        evaluate:["Data shape","Query patterns","Scale expectations","Environment compatibility","Portability","Operational burden"],
+        warning:"Hardest thing to change later. Get right early. See Schema constraint — data model radiation." }
+    ]},
+  { id:"prototype",t:"Prototyping & Core Build",i:"🏗️",f:"Data flowing through happy path.",
+    q:["Data model supports workflows?","CRUD working?","Workflows complete E2E?","Basic validation?","Can demo core value?","Simplest working auth?"],
+    del:["Working data model","CRUD for core entities","One complete E2E workflow","Basic validation","Basic auth","Seed data","Data model documentation","API documentation"],
+    mis:["Perfecting UI before data works","All features before any E2E","Skipping auth","Unrealistic test data volume","No version control"],
+    test:["Test core data ops (CRUD correct?)","Test primary workflow E2E","Test with realistic volume","Verify auth works — authenticated in, unauthenticated out"],
+    confidence:["Does my data model actually support the workflows, or am I force-fitting?","Am I building what was requested or what I think was requested?","What's the riskiest assumption in my prototype?","If I showed this to a user right now, what would confuse them?"],
+    decisions:[
+      { junction:"Auth Strategy", question:"How will users prove identity?",
+        evaluate:["Deployment target IdP?","Role complexity","Internal vs. external users","Compliance (SSO, MFA)","Build vs. provider","Token strategy"],
+        warning:"Auth is load-bearing. Always harder to add later." },
+      { junction:"API Design", question:"How will consumers talk to backend?",
+        evaluate:["Environment constraints on patterns?","REST/GraphQL/RPC — by access patterns","Versioning","Auth method","Rate limiting","Documentation"],
+        warning:"API is a contract. Changing it means coordinating all consumers." },
+      { junction:"Prototype-to-Production", question:"What survives into production?",
+        evaluate:["What shortcuts are now tech debt?","Assumptions about scale still hold?","Data model need revision?","Auth sufficient for production?","What worked and should be kept?"],
+        warning:"Prototype's purpose is to learn, not to ship. Be willing to rebuild." }
+    ]},
+  { id:"integration",t:"Integration & Expansion",i:"🔗",f:"Systems talking reliably.",
+    q:["Data between systems?","Source of truth per piece?","Failure handling?","Timing dependencies?","Monitoring?","Rate limits?"],
+    del:["Working integrations","Error handling all points","Retry logic","Monitoring/alerting","Integration docs","Secondary workflows","Notification system"],
+    mis:["Assuming APIs always up","No error handling","Not handling rate limits","Tight coupling","No event logging","Insecure credentials"],
+    test:["Test with external service unavailable","Test rate limit handling","Test malformed external responses","Test retry logic","Test notification delivery","Verify idempotency"],
+    confidence:["Have I actually tested what happens when each integration fails?","Am I handling all the error responses the external API can return?","Is my sync strategy actually keeping data consistent, or am I assuming it is?","What happens if the external service changes their API?"],
+    decisions:[
+      { junction:"Integration Architecture", question:"How will systems connect?",
+        evaluate:["Real-time vs. batch?","Reliability — can you lose messages?","Volume?","Available surfaces","Transformation complexity","Monitoring"],
+        warning:"Every integration is a failure point. Design for failure." },
+      { junction:"Sync Strategy", question:"Data consistency across systems?",
+        evaluate:["Authoritative source per piece?","Conflict resolution?","Latency tolerance?","Recovery?","Idempotency?"],
+        warning:"Bidirectional sync is order-of-magnitude harder. Avoid unless needed." }
+    ]},
+  { id:"harden",t:"Security Hardening",i:"🔒",f:"Close gaps. Test failure modes.",
+    q:["User access unauthorized data?","Unauthorized actions?","Malicious input?","Secrets managed?","Under load?","Dependency failures?"],
+    del:["All MUST security items","Permission testing every endpoint/role","Input validation all inputs","Secrets audit","Load testing","Error handling tested","Security headers","File upload security","API security review"],
+    mis:["Only happy path","Auth provider ≠ all security","Client code is public","Git history secrets","Admin-only testing","Ignoring dep vulnerabilities"],
+    test:["Every endpoint unauthenticated (should fail)","Every endpoint as wrong role (should fail/filter)","SQL injection, XSS, oversized inputs","Concurrent ops (race conditions)","Load test critical paths","Dependencies killed (DB, API, queue down)","Verify audit logs capture events"],
+    confidence:["Have I tested as every role, not just admin?","Have I actually tried to break my own auth — not just tested that it works?","Am I confident no secrets are in git history?","What's my weakest security point right now?"],
+    decisions:[
+      { junction:"Security vs. Velocity", question:"What's non-negotiable for launch?",
+        evaluate:["Data sensitivity?","User profile (internal/public)?","Breach blast radius?","Regulatory requirements?","All MUST items non-negotiable","SHOULD by risk × impact"],
+        warning:"'Security later' is the most expensive sentence in software." }
+    ]},
+  { id:"deploy",t:"Production Deployment",i:"🚀",f:"Deploy safely. Monitor. Ready to roll back.",
+    q:["Production Readiness complete?","Rollback tested?","Monitoring active before launch?","48-hour response plan?","Communication plan?","Gradual rollout?"],
+    del:["Production configured","SSL verified","Monitoring active","Backup tested","Rollback tested","Response plan","Launch comms","Operational runbook"],
+    mis:["Friday afternoon deploy","No monitoring","No rollback plan","Missing env vars","Untested migrations","All-at-once launch"],
+    test:["Production matches staging","Rollback actually executed","Monitoring catches test error","Backup restore works","Smoke test after deploy","SSL valid and redirects work"],
+    confidence:["Is production truly configured identically to staging?","If something breaks in the first hour, do I know who to contact and what to do?","Have I actually tested rollback or just planned it?","What's my biggest worry about this deployment?"],
+    decisions:[
+      { junction:"Deployment Architecture", question:"How does code get to production?",
+        evaluate:["What target accepts?","Automation level?","Fix speed?","Rollback?","Staging?","Zero-downtime?"],
+        warning:"Deploy pipeline is daily infrastructure. Invest in reliability." },
+      { junction:"Environment Parity", question:"How closely does local match production?",
+        evaluate:["Same DB engine?","Same auth?","Same constraints?","Can reproduce prod issues locally?","Staging faithful?"],
+        warning:"Every difference = potential surprise." }
+    ]},
+  { id:"operate",t:"Operations & Evolution",i:"🔄",f:"Monitor, maintain, iterate.",
+    q:["Recurring maintenance?","Bug prioritization?","Safe feature addition?","Dependencies current?","Performance trending?","Documentation sufficient?"],
+    del:["Operational runbook","Incident response docs","Dep update schedule","Performance dashboards","Decision records current","Documentation maintained","Backup verification","Dependency audit results"],
+    mis:["Set and forget","Years without dep updates","No docs — bus factor 1","Testing in production","Ignoring degradation"],
+    test:["Continuous: error rates, response times, resource anomalies","Regular: dep audit, critical vuln fixes","Regular: backup restore verification","Per-change: staging before prod","Per-change: monitoring catches regressions"],
+    confidence:["If I left this project tomorrow, could someone else maintain it from the documentation?","When was the last dependency audit?","Am I ignoring any slow-growing problems?","What's the biggest risk to this system right now that I'm not actively addressing?"],
+    decisions:[
+      { junction:"Evolution Strategy", question:"How to add features without breaking things?",
+        evaluate:["Feature flags?","DB migration strategy?","API versioning?","Testing for regressions?","Monitoring for regressions?"],
+        warning:"Safest change is smallest change. Ship small, verify, repeat. See Migration patterns." }
+    ]}
+];
+
+const DECISION_PROTOCOL = {
+  title:"Decision Protocol",
+  description:"When choosing between approaches, use this framework. Specific junctures are embedded in each Lifecycle phase, but this is the general protocol.",
+  steps:[
+    {step:"1. Name the decision explicitly",detail:"Write it as a question. Vague decisions produce vague outcomes.",color:P.accent},
+    {step:"2. Identify the constraints",detail:"What's already decided? Environment, skills, budget, timeline, compliance, integrations. Reference Constraints layer — especially Environment, Portability, Regulatory.",color:P.emerald},
+    {step:"3. Enumerate options",detail:"Realistic choices that satisfy constraints. Research current capabilities. Don't evaluate yet — list.",color:P.blue},
+    {step:"4. Evaluate on dimensions",detail:"Per option: Immediate need? Future constraints imposed? Portability? Security? Operational burden (can you RUN it, not just build it)? Learning curve? Cost trajectory across all cost dimensions (compute, storage, bandwidth, APIs, human time)?",color:P.amber},
+    {step:"5. Reversible vs. irreversible",detail:"CSS framework = easy to change. Database engine = extremely hard. Spend proportional time. Agonize over irreversible, move fast on reversible.",color:P.red},
+    {step:"6. Decide and document",detail:"Choose. Record: what, why, alternatives, reasoning, consequences, revisit triggers. Use Decision Record Template.",color:P.purple}
+  ],
+  antipatterns:[
+    "Choosing technology before understanding the problem",
+    "Optimizing for the wrong dimension",
+    "Assuming current constraints are permanent (over-engineering)",
+    "Assuming current constraints will change (under-engineering)",
+    "Copying another company's architecture without understanding their context",
+    "Making irreversible decisions quickly, reversible ones slowly (should be opposite)",
+    "Not documenting — future you won't know why",
+    "Choosing most technically interesting over most appropriate"
+  ],
+  recordTemplate:{
+    title:"Decision Record Template",
+    description:"Document significant decisions. Store alongside project.",
+    fields:[
+      {name:"Decision",desc:"What was decided, clearly stated"},
+      {name:"Date",desc:"When decided"},
+      {name:"Context",desc:"Situation and constraints that prompted this"},
+      {name:"Options Considered",desc:"Alternatives evaluated"},
+      {name:"Choice & Reasoning",desc:"Selected option and why"},
+      {name:"Consequences",desc:"What this enables, constrains, and trades off"},
+      {name:"Revisit Triggers",desc:"When to reconsider this decision"}
+    ]
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOOL SECTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const ANALYSIS = [
+  { ph:"Understand Domain",i:"🔍",d:"Before any system, understand what you're working with.",
+    items:[{q:"Core entities?",h:"What 'things' does this deal with?"},{q:"How do entities relate?",h:"Map the relationships."},{q:"Entity lifecycles?",h:"States each goes through."},{q:"Who are the actors?",h:"Roles and needs."},{q:"Core workflows?",h:"End-to-end processes."},{q:"Regulations?",h:"Privacy, industry, accessibility — early."}]},
+  { ph:"Map Data Flow",i:"🗺️",d:"Trace how data enters, moves, exits.",
+    items:[{q:"Origins?",h:"User input, API, sensor, import?"},{q:"Transformations?",h:"How does data change shape?"},{q:"Destinations?",h:"Displays, reports, other systems?"},{q:"Handoffs?",h:"What changes at system boundaries?"},{q:"Source of truth?",h:"Which wins when they disagree?"},{q:"Notifications?",h:"Who must know when things happen?"}]},
+  { ph:"Identify Constraints",i:"🔒",d:"What limits what's possible.",
+    items:[{q:"Hard constraints?",h:"Regulatory, physical, data model."},{q:"Platform constraints?",h:"Rate limits, gaps, pricing."},{q:"Environment?",h:"Compute, networking, scaling."},{q:"Temporal?",h:"Retention, expiration, timezones."},{q:"Permissions & compliance?",h:"Who sees what, legally."},{q:"Human?",h:"Skills, maintenance, learning curve."}]},
+  { ph:"Design Solution",i:"🏗️",d:"Match process types to constraints.",
+    items:[{q:"Process types needed?",h:"Map each step to atlas."},{q:"Platform matches?",h:"Built-in or build/integrate?"},{q:"Gaps?",h:"Integration/custom points."},{q:"Caching?",h:"What benefits? Invalidation?"},{q:"Failure modes?",h:"What when each step fails?"},{q:"Testing?",h:"What tests per phase?"}]},
+  { ph:"Evaluate Trade-offs",i:"⚖️",d:"Make trade-offs explicit.",
+    items:[{q:"Build vs. buy vs. connect?",h:"Cost/flexibility/maintenance."},{q:"Flexibility vs. reliability?",h:"More flexible = harder reliable."},{q:"Portability vs. convenience?",h:"Features vs. lock-in."},{q:"Simplicity vs. capability?",h:"Worth the complexity?"},{q:"What don't you know?",h:"Gaps needing research before deciding."}]}
+];
+
+const PLATFORMS = [
+  {n:"Data Model",q:"Entity flexibility?",items:["Custom types?","Custom fields?","Field types?","Relationships?","Limits?","Evolution?"]},
+  {n:"Operations",q:"CRUD granularity?",items:["API vs UI?","Bulk ops?","Partial updates?","Delete types?","Query/search?","Pagination?"]},
+  {n:"Automation",q:"What's automatable?",items:["Triggers?","Actions?","Multi-step?","Conditions?","Loops?","Failure handling?"]},
+  {n:"Permissions",q:"Access granularity?",items:["Level?","Custom roles?","Record visibility?","Field-level?","Inheritance?","External access?"]},
+  {n:"Integration",q:"Connection capability?",items:["API type?","Webhooks?","Connectors?","Formats?","Rate limits?","SDK?"]},
+  {n:"Environment",q:"Infrastructure?",items:["Compute model?","Scaling?","Networking?","File system?","Secrets?","Cost model?"]},
+  {n:"Portability",q:"Lock-in profile?",items:["Code portable?","Data exportable?","Standard protocols?","Abstraction?","Switching cost?","Multi-cloud?"]},
+  {n:"Developer Experience",q:"Productivity?",items:["Docs quality?","Community?","Tooling?","Local dev?","Debugging?","Learning resources?"]},
+  {n:"Operational Model",q:"Day-to-day burden?",items:["What breaks?","Support?","Incident path?","Maintenance?","Upgrades?","Vendor viability?"]}
+];
+
+const RELATIONSHIPS = [
+  {f:"Create",t:"Validate",l:"Must pass constraints",c:P.green},
+  {f:"Create",t:"Transform",l:"Input reshaped before storage",c:P.green},
+  {f:"Create",t:"Route",l:"Triggers workflows",c:P.green},
+  {f:"Create",t:"Notify",l:"May trigger notifications",c:P.green},
+  {f:"Read",t:"Transform",l:"Reformatted for display",c:P.blue},
+  {f:"Read",t:"Access",l:"Permissions filter visibility",c:P.blue},
+  {f:"Read",t:"Caching",l:"Read-heavy = caching opportunity",c:P.blue},
+  {f:"Update",t:"Validate",l:"Changes satisfy constraints",c:P.amber},
+  {f:"Update",t:"Sync",l:"Propagates to other systems",c:P.amber},
+  {f:"Update",t:"Monitor",l:"Generates audit trail",c:P.amber},
+  {f:"Update",t:"Notify",l:"Status changes trigger alerts",c:P.amber},
+  {f:"Delete",t:"Consistency",l:"Related data must stay valid",c:P.red},
+  {f:"Delete",t:"Regulatory",l:"Retention may prevent/require deletion",c:P.red},
+  {f:"Delete",t:"Temporal",l:"Expiration governs lifecycle",c:P.red},
+  {f:"Orchestrate",t:"Route",l:"Routing at decision points",c:P.orange},
+  {f:"Orchestrate",t:"Notify",l:"Human steps need notifications",c:P.orange},
+  {f:"Sync",t:"Consistency",l:"Cross-system invariants",c:P.teal},
+  {f:"Schema",t:"Validate",l:"Schema defines validation",c:P.cyan},
+  {f:"Schema",t:"Migration",l:"Schema changes require migration patterns",c:P.cyan},
+  {f:"Schema",t:"Everything",l:"Data model radiates into all other decisions",c:P.cyan},
+  {f:"Capacity",t:"Caching",l:"Caching reduces capacity pressure",c:P.orange},
+  {f:"Integration",t:"Sync",l:"Surface determines sync capability",c:P.indigo},
+  {f:"Environment",t:"All Patterns",l:"Deployment constrains viable patterns",c:P.emerald},
+  {f:"Portability",t:"All Decisions",l:"Lock-in shapes every choice",c:P.sky},
+  {f:"Temporal",t:"Monitor",l:"SLA windows, retention periods",c:P.yellow},
+  {f:"Regulatory",t:"Access",l:"Compliance dictates permissions",c:P.rose},
+  {f:"Regulatory",t:"Monitor",l:"Audit requirements shape logging",c:P.rose},
+  {f:"Auth",t:"All Ops",l:"Every op verifies identity+permission",c:P.rose},
+  {f:"Secrets",t:"Integration",l:"Credentials enable cross-system access",c:P.rose},
+  {f:"Logging",t:"Monitor",l:"Feeds monitoring and alerting",c:P.slate},
+  {f:"Cost",t:"All Decisions",l:"Cost trajectory shapes every architectural choice",c:P.lime},
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UI COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function Exp({title,sub,icon,color,children}){
+  const[o,setO]=useState(false);
+  return(<div style={{background:P.surface,border:`1px solid ${o?(color||P.accent)+"40":P.border}`,borderRadius:10,overflow:"hidden"}}>
+    <button onClick={()=>setO(!o)} style={{width:"100%",padding:"12px 14px",background:"transparent",border:"none",cursor:"pointer",display:"flex",alignItems:"center",gap:10,textAlign:"left"}}>
+      {icon&&<span style={{fontSize:18,color:color||P.accent,width:28,textAlign:"center",flexShrink:0}}>{typeof icon==="string"?icon:icon}</span>}
+      <div style={{flex:1,minWidth:0}}><div style={{fontSize:13.5,fontWeight:600,color:P.text,fontFamily:F}}>{title}</div>{sub&&<div style={{fontSize:11.5,color:P.textMuted,fontFamily:F,marginTop:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{sub}</div>}</div>
+      <span style={{color:P.textDim,fontSize:14,transform:o?"rotate(180deg)":"rotate(0)",transition:"transform 0.2s",flexShrink:0}}>▾</span>
+    </button>
+    {o&&<div style={{padding:"0 14px 14px",borderTop:`1px solid ${P.border}`,paddingTop:12}}>{children}</div>}
+  </div>);
+}
+function Lbl({children,color}){return <div style={{fontSize:9.5,fontWeight:700,color:color||P.accent,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6,marginTop:10,fontFamily:M}}>{children}</div>;}
+function QI({q,h}){return(<div style={{padding:"6px 8px",background:P.bg,borderRadius:5,borderLeft:`2px solid ${P.accent}25`}}><div style={{fontSize:12.5,fontWeight:600,color:P.text,fontFamily:F}}>{q}</div>{h&&<div style={{fontSize:11.5,color:P.textMuted,fontFamily:F,marginTop:2,lineHeight:1.5}}>{h}</div>}</div>);}
+function Tag({children,color}){const c=color||P.accent;return <span style={{display:"inline-block",fontSize:9.5,fontWeight:700,color:c,background:c+"18",padding:"2px 7px",borderRadius:3,fontFamily:M,textTransform:"uppercase"}}>{children}</span>;}
+function Bul({children,color}){return <div style={{fontSize:12,color:P.textMuted,fontFamily:F,padding:"4px 8px",background:color||P.bg,borderRadius:4,lineHeight:1.5}}>{children}</div>;}
+function SecH({title,sub,children}){return(<div><h2 style={{fontSize:18,fontWeight:500,color:P.text,fontFamily:S,margin:"0 0 3px"}}>{title}</h2><p style={{fontSize:12.5,color:P.textMuted,fontFamily:F,lineHeight:1.55,margin:"0 0 14px"}}>{sub}</p>{children}</div>);}
+function CI({it,d,p}){const c=p==="must"?P.red:p==="should"?P.amber:P.textDim;return(<div style={{padding:"8px 10px",background:P.bg,borderRadius:5,border:`1px solid ${P.border}`}}><div style={{display:"flex",alignItems:"flex-start",gap:6}}><Tag color={c}>{p==="must"?"MUST":"SHOULD"}</Tag><div style={{flex:1}}><div style={{fontSize:12.5,fontWeight:600,color:P.text,fontFamily:F}}>{it}</div><div style={{fontSize:11.5,color:P.textMuted,fontFamily:F,marginTop:3,lineHeight:1.55}}>{d}</div></div></div></div>);}
+function DecisionCard({dec}){
+  const[o,setO]=useState(false);
+  return(<div style={{background:P.amber+"08",border:`1px solid ${P.amber}25`,borderRadius:8,overflow:"hidden"}}>
+    <button onClick={()=>setO(!o)} style={{width:"100%",padding:"10px 12px",background:"transparent",border:"none",cursor:"pointer",display:"flex",alignItems:"center",gap:8,textAlign:"left"}}>
+      <span style={{fontSize:14,color:P.amber}}>⬥</span><div style={{flex:1}}><div style={{fontSize:12.5,fontWeight:700,color:P.amber,fontFamily:F}}>Decision: {dec.junction}</div><div style={{fontSize:11.5,color:P.textMuted,fontFamily:F,marginTop:1}}>{dec.question}</div></div>
+      <span style={{color:P.textDim,fontSize:12,transform:o?"rotate(180deg)":"rotate(0)",transition:"transform 0.2s"}}>▾</span>
+    </button>
+    {o&&<div style={{padding:"0 12px 12px",display:"flex",flexDirection:"column",gap:4}}>
+      <Lbl color={P.amber}>Evaluate</Lbl>
+      {dec.evaluate.map((e,i)=><Bul key={i} color={P.amber+"08"}>• {e}</Bul>)}
+      <div style={{marginTop:4,padding:"8px 10px",background:P.red+"0a",borderRadius:5,borderLeft:`2px solid ${P.red}30`}}>
+        <span style={{fontSize:9.5,fontWeight:700,color:P.red,fontFamily:M}}>WARNING </span>
+        <span style={{fontSize:11.5,color:P.textMuted,fontFamily:F}}>{dec.warning}</span>
+      </div>
+    </div>}
+  </div>);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION VIEWS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function AgentView(){
+  const ai=AGENT_INSTRUCTIONS;
+  return <SecH title={ai.title} sub={ai.description}>
+    <div style={{display:"flex",flexDirection:"column",gap:6}}>
+      {ai.routes.map((r,i)=><div key={i} style={{padding:"12px 14px",background:P.surface,borderRadius:8,borderLeft:`3px solid ${r.color}`}}>
+        <div style={{fontSize:13,fontWeight:700,color:r.color,fontFamily:F,marginBottom:4}}>{r.situation}</div>
+        <div style={{fontSize:12.5,color:P.textMuted,fontFamily:F,lineHeight:1.6}}>{r.go}</div>
+      </div>)}
+    </div>
+  </SecH>;
+}
+
+function OpsView(){return <SecH title="Primitive Operations" sub="Every interaction reduces to these. Includes search/query concerns, bulk operations, user-facing implications, and cross-references."><div style={{display:"flex",flexDirection:"column",gap:6}}>{OPERATIONS.map(o=><Exp key={o.id} title={o.l} sub={o.s} icon={o.i} color={o.c}>
+  <p style={{fontSize:12.5,color:P.textMuted,lineHeight:1.6,fontFamily:F,margin:"0 0 10px"}}>{o.d}</p>
+  <Lbl color={o.c}>Key Questions</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:4}}>{o.q.map((q,i)=><QI key={i} q={q}/>)}</div>
+  <Lbl color={P.red}>Pitfalls</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:3}}>{o.p.map((p,i)=><Bul key={i} color={P.red+"08"}>{p}</Bul>)}</div>
+  {o.uf&&<><Lbl color={P.sky}>User-Facing Implications</Lbl><Bul color={P.sky+"08"}>{o.uf}</Bul></>}
+  {o.see&&<><Lbl color={P.textDim}>See Also</Lbl><div style={{display:"flex",flexWrap:"wrap",gap:4}}>{o.see.map((s,i)=><Tag key={i} color={P.textDim}>{s}</Tag>)}</div></>}
+</Exp>)}</div></SecH>;}
+
+function ProcView(){return <SecH title="Process Types" sub="Includes Notification, human-in-the-loop orchestration, user-facing implications, and cross-references."><div style={{display:"flex",flexDirection:"column",gap:6}}>{PROCESSES.map(p=><Exp key={p.id} title={p.l} sub={p.s} icon={p.i} color={p.c}>
+  <p style={{fontSize:12.5,color:P.textMuted,lineHeight:1.6,fontFamily:F,margin:"0 0 10px"}}>{p.d}</p>
+  {p.st&&<><Lbl color={p.c}>Subtypes</Lbl><div style={{display:"flex",flexDirection:"column",gap:3}}>{p.st.map((s,i)=><Bul key={i}>{s}</Bul>)}</div></>}
+  <Lbl color={p.c}>Key Questions</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:4}}>{p.q.map((q,i)=><QI key={i} q={q}/>)}</div>
+  {p.uf&&<><Lbl color={P.sky}>User-Facing Implications</Lbl><Bul color={P.sky+"08"}>{p.uf}</Bul></>}
+  {p.see&&<><Lbl color={P.textDim}>See Also</Lbl><div style={{display:"flex",flexWrap:"wrap",gap:4}}>{p.see.map((s,i)=><Tag key={i} color={P.textDim}>{s}</Tag>)}</div></>}
+</Exp>)}</div></SecH>;}
+
+function ConView(){return <SecH title="Constraint Types" sub="10 constraint types with spectrums and cross-references. Schema includes data model radiation note."><div style={{display:"flex",flexDirection:"column",gap:6}}>{CONSTRAINTS.map(c=><Exp key={c.id} title={c.l} sub={c.s} icon={c.i} color={c.c}>
+  <p style={{fontSize:12.5,color:P.textMuted,lineHeight:1.6,fontFamily:F,margin:"0 0 10px"}}>{c.d}</p>
+  {c.sp&&<><Lbl color={c.c}>Spectrum</Lbl><div style={{display:"flex",flexDirection:"column",gap:3}}>{c.sp.map((s,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 8px",background:P.bg,borderRadius:4}}><div style={{width:5,height:5,borderRadius:"50%",background:c.c,opacity:0.3+i*0.15}}/><span style={{fontSize:12,color:P.textMuted,fontFamily:F}}>{s}</span></div>)}</div></>}
+  <Lbl color={c.c}>Key Questions</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:4}}>{c.q.map((q,i)=><QI key={i} q={q}/>)}</div>
+  {c.see&&<><Lbl color={P.textDim}>See Also</Lbl><div style={{display:"flex",flexWrap:"wrap",gap:4}}>{c.see.map((s,i)=><Tag key={i} color={P.textDim}>{s}</Tag>)}</div></>}
+</Exp>)}</div></SecH>;}
+
+function ArchView(){return <SecH title="Architecture Patterns" sub="Now includes Migration/Evolution patterns for safely changing existing systems."><div style={{display:"flex",flexDirection:"column",gap:6}}>{ARCH_PATTERNS.map((cat,ci)=><Exp key={ci} title={cat.cat+" Patterns"} sub={`${cat.patterns.length} patterns`} icon="◈" color={P.indigo}><div style={{display:"flex",flexDirection:"column",gap:8}}>{cat.patterns.map((p,i)=><div key={i} style={{background:P.bg,borderRadius:6,padding:12,border:`1px solid ${P.border}`}}><div style={{fontSize:13.5,fontWeight:700,color:P.text,fontFamily:F,marginBottom:8}}>{p.n}</div><div style={{display:"flex",flexDirection:"column",gap:5}}><div><span style={{fontSize:9.5,fontWeight:700,color:P.accent,fontFamily:M}}>WHEN </span><span style={{fontSize:12,color:P.textMuted,fontFamily:F}}>{p.w}</span></div><div><span style={{fontSize:9.5,fontWeight:700,color:P.accent,fontFamily:M}}>HOW </span><span style={{fontSize:12,color:P.textMuted,fontFamily:F}}>{p.h}</span></div><div><span style={{fontSize:9.5,fontWeight:700,color:P.amber,fontFamily:M}}>TRADE-OFFS </span><span style={{fontSize:12,color:P.textMuted,fontFamily:F}}>{p.t}</span></div><div><span style={{fontSize:9.5,fontWeight:700,color:P.red,fontFamily:M}}>SECURITY </span><span style={{fontSize:12,color:P.textMuted,fontFamily:F}}>{p.sec}</span></div></div></div>)}</div></Exp>)}</div></SecH>;}
+
+function SecView(){return <SecH title="Security & Production Readiness" sub="Includes CORS, File Uploads, API Security, Cost Awareness. All cross-referenced."><div style={{display:"flex",flexDirection:"column",gap:6}}>{SECURITY.map(s=><Exp key={s.id} title={s.t} sub={`${s.checks.filter(c=>c.p==="must").length} must · ${s.checks.filter(c=>c.p==="should").length} should`} icon={s.i} color={s.checks.some(c=>c.p==="must")?P.red:P.amber}><div style={{display:"flex",flexDirection:"column",gap:5}}>{s.checks.map((c,i)=><CI key={i} it={c.it} d={c.d} p={c.p}/>)}</div></Exp>)}</div></SecH>;}
+
+function LifeView(){return <SecH title="Project Lifecycle" sub="Each phase: questions, deliverables, testing, confidence checks, decision junctures."><div style={{display:"flex",flexDirection:"column",gap:6}}>{LIFECYCLE.map((ph,idx)=><Exp key={ph.id} title={`${idx+1}. ${ph.t}`} sub={ph.f} icon={ph.i} color={P.accent}>
+  <Lbl>Key Questions</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:4,marginBottom:4}}>{ph.q.map((q,i)=><QI key={i} q={q}/>)}</div>
+  <Lbl color={P.green}>Deliverables</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:3,marginBottom:4}}>{ph.del.map((d,i)=><Bul key={i} color={P.green+"08"}>{d}</Bul>)}</div>
+  <Lbl color={P.blue}>Testing</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:3,marginBottom:4}}>{ph.test.map((t,i)=><Bul key={i} color={P.blue+"08"}>{t}</Bul>)}</div>
+  <Lbl color={P.rose}>Confidence Check</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:3,marginBottom:4}}>{ph.confidence.map((c,i)=><Bul key={i} color={P.rose+"08"}>{c}</Bul>)}</div>
+  <Lbl color={P.red}>Common Mistakes</Lbl>
+  <div style={{display:"flex",flexDirection:"column",gap:3,marginBottom:4}}>{ph.mis.map((m,i)=><Bul key={i} color={P.red+"08"}>{m}</Bul>)}</div>
+  {ph.decisions?.length>0&&<><Lbl color={P.amber}>Decision Junctures</Lbl><div style={{display:"flex",flexDirection:"column",gap:6}}>{ph.decisions.map((dec,i)=><DecisionCard key={i} dec={dec}/>)}</div></>}
+</Exp>)}</div></SecH>;}
+
+function DecProtocolView(){
+  const dp=DECISION_PROTOCOL;
+  return <SecH title={dp.title} sub={dp.description}>
+    <div style={{display:"flex",flexDirection:"column",gap:6,marginBottom:16}}>
+      {dp.steps.map((s,i)=><div key={i} style={{padding:"12px 14px",background:P.surface,borderRadius:8,borderLeft:`3px solid ${s.color}`}}>
+        <div style={{fontSize:13,fontWeight:700,color:s.color,fontFamily:F,marginBottom:4}}>{s.step}</div>
+        <div style={{fontSize:12.5,color:P.textMuted,fontFamily:F,lineHeight:1.6}}>{s.detail}</div>
+      </div>)}
+    </div>
+    <Lbl color={P.red}>Anti-patterns</Lbl>
+    <div style={{display:"flex",flexDirection:"column",gap:3,marginBottom:16}}>
+      {dp.antipatterns.map((a,i)=><Bul key={i} color={P.red+"08"}>⚠ {a}</Bul>)}
+    </div>
+    <Lbl color={P.purple}>Decision Record Template</Lbl>
+    <div style={{background:P.surface,borderRadius:8,padding:14,border:`1px solid ${P.purple}30`}}>
+      <p style={{fontSize:12,color:P.textMuted,fontFamily:F,lineHeight:1.5,margin:"0 0 10px"}}>{dp.recordTemplate.description}</p>
+      <div style={{display:"flex",flexDirection:"column",gap:4}}>
+        {dp.recordTemplate.fields.map((f,i)=><div key={i} style={{padding:"6px 8px",background:P.bg,borderRadius:4}}>
+          <span style={{fontSize:12,fontWeight:700,color:P.purple,fontFamily:F}}>{f.name}: </span>
+          <span style={{fontSize:11.5,color:P.textMuted,fontFamily:F}}>{f.desc}</span>
+        </div>)}
+      </div>
+    </div>
+  </SecH>;
+}
+
+function RelView(){return <SecH title="How Everything Connects" sub="Complete relationship map including schema radiation, caching, cost, and migration connections."><div style={{display:"flex",flexDirection:"column",gap:3}}>{RELATIONSHIPS.map((r,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:P.surface,borderRadius:5,border:`1px solid ${P.border}`,fontSize:12,fontFamily:F,flexWrap:"wrap"}}><span style={{color:r.c,fontWeight:700,minWidth:70,textAlign:"right"}}>{r.f}</span><span style={{color:P.textDim}}>→</span><span style={{color:P.accent,fontWeight:600,minWidth:75}}>{r.t}</span><span style={{color:P.textMuted,fontSize:11.5,flex:1}}>{r.l}</span></div>)}</div></SecH>;}
+
+function AnaView(){return <SecH title="Analysis Guide" sub="Five-phase walkthrough for any project."><div style={{display:"flex",flexDirection:"column",gap:6}}>{ANALYSIS.map((a,i)=><Exp key={i} title={a.ph} sub={a.d} icon={a.i} color={P.accent}><div style={{display:"flex",flexDirection:"column",gap:4}}>{a.items.map((it,j)=><QI key={j} q={it.q} h={it.h}/>)}</div></Exp>)}</div></SecH>;}
+
+function PlatView(){return <SecH title="Platform Assessment" sub="9 dimensions including Developer Experience and Operational Model."><div style={{display:"flex",flexDirection:"column",gap:6}}>{PLATFORMS.map((p,i)=><Exp key={i} title={p.n} sub={p.q} icon={<span style={{fontFamily:M,fontSize:12,fontWeight:700}}>{String(i+1).padStart(2,"0")}</span>} color={i>=7?P.lime:i>=5?P.emerald:P.accent}><div style={{display:"flex",flexDirection:"column",gap:3}}>{p.items.map((a,j)=><Bul key={j}>• {a}</Bul>)}</div></Exp>)}</div></SecH>;}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const NAV=[
+  {id:"guide",label:"Guide"},
+  {id:"operations",label:"Operations",layer:1},
+  {id:"processes",label:"Processes",layer:1},
+  {id:"constraints",label:"Constraints",layer:1},
+  {id:"architecture",label:"Architecture",layer:2},
+  {id:"security",label:"Security",layer:3},
+  {id:"lifecycle",label:"Lifecycle",layer:4},
+  {id:"decisions",label:"Decisions",layer:4},
+  {id:"relationships",label:"Connections"},
+  {id:"analysis",label:"Analysis"},
+  {id:"platform",label:"Platforms"},
+];
+const LC={1:P.blue,2:P.indigo,3:P.red,4:P.teal};
+const LL={1:"Conceptual",2:"Patterns",3:"Security",4:"Lifecycle"};
+
+function App(){
+  const[tab,setTab]=useState("guide");
+  const cur=NAV.find(n=>n.id===tab);
+  const views={guide:<AgentView/>,operations:<OpsView/>,processes:<ProcView/>,constraints:<ConView/>,architecture:<ArchView/>,security:<SecView/>,lifecycle:<LifeView/>,decisions:<DecProtocolView/>,relationships:<RelView/>,analysis:<AnaView/>,platform:<PlatView/>};
+
+  return(
+    <div style={{background:P.bg,minHeight:"100vh",fontFamily:F,color:P.text}}>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&display=swap" rel="stylesheet"/>
+      <div style={{padding:"28px 16px 0",maxWidth:720,margin:"0 auto"}}>
+        <div style={{fontSize:9.5,fontWeight:600,color:P.accent,textTransform:"uppercase",letterSpacing:"0.15em",fontFamily:M,marginBottom:5}}>Data Process Atlas v3</div>
+        <h1 style={{fontSize:24,fontWeight:300,color:P.text,fontFamily:S,margin:"0 0 5px",lineHeight:1.2}}>How Data Lives, Moves & Transforms</h1>
+        <p style={{fontSize:12.5,color:P.textMuted,lineHeight:1.6,margin:"0 0 20px"}}>Platform-agnostic reference for AI-assisted development. Four layers, decision protocol, confidence checks, cross-references, and user-facing implications. The questions don't change when tools change — only the answers do.</p>
+      </div>
+      <div style={{maxWidth:720,margin:"0 auto",padding:"0 16px"}}>
+        <div style={{display:"flex",gap:3,flexWrap:"wrap",marginBottom:16,paddingBottom:12,borderBottom:`1px solid ${P.border}`}}>
+          {NAV.map(n=>{const a=tab===n.id;return <button key={n.id} onClick={()=>setTab(n.id)} style={{padding:"6px 10px",background:a?P.active:"transparent",border:`1px solid ${a?P.borderLight:"transparent"}`,borderRadius:5,color:a?P.text:P.textMuted,cursor:"pointer",fontSize:11.5,fontFamily:F,fontWeight:a?600:400,display:"flex",alignItems:"center",gap:5,transition:"all 0.15s"}}>{n.layer&&<span style={{width:5,height:5,borderRadius:"50%",background:LC[n.layer],opacity:a?1:0.5}}/>}{n.label}</button>;})}
+        </div>
+        {cur?.layer&&<div style={{marginBottom:12}}><span style={{fontSize:9.5,fontWeight:700,fontFamily:M,color:LC[cur.layer],textTransform:"uppercase",letterSpacing:"0.08em"}}>Layer {cur.layer}: {LL[cur.layer]}</span></div>}
+      </div>
+      <div style={{maxWidth:720,margin:"0 auto",padding:"0 16px 50px"}}>
+        {views[tab]}
+        <div style={{marginTop:36,padding:"14px 0",borderTop:`1px solid ${P.border}`}}>
+          <div style={{fontSize:10.5,color:P.textDim,fontFamily:M,lineHeight:1.55}}>Platform-agnostic reference. Designed as thinking scaffold and AI agent reference document for any codebase at any stage.</div>
+        </div>
+      </div>
+    </div>);
+}
+
+ReactDOM.createRoot(document.getElementById('atlas-root')).render(React.createElement(App));
+</script>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

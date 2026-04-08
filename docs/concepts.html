@@ -183,7 +183,7 @@
       <p>The data structures that make ELCS work — simple files that capture everything agents need to coordinate.</p>
     </div>
 
-    <div class="card-grid card-grid--4">
+    <div class="card-grid card-grid--3">
       <div class="card">
         <span class="card__icon">🎫</span>
         <h3>WorkTokens</h3>
@@ -199,11 +199,63 @@
         <h3>Epistemic State</h3>
         <p>The central belief ledger: assumptions (with confidence scores), hypotheses (falsifiable), evidence (traceable), constraints (hard &amp; soft), and preferences (weighted).</p>
       </div>
-      <div class="card">
-        <span class="card__icon">📚</span>
-        <h3>Reference Atlas</h3>
-        <p>Domain knowledge documents (like the Data Process Atlas) live in <code>elcs/references/</code>. The protocol's routing table tells agents which sections to consult at each stage — consultative guidance without context overload.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ATLAS: DOMAIN KNOWLEDGE -->
+<section class="section" id="atlas">
+  <div class="container">
+    <div class="section__header">
+      <h2>📚 Atlas: Domain Knowledge</h2>
+      <p>Platform-agnostic reference knowledge that works alongside any agent, any framework, any codebase.</p>
+    </div>
+
+    <div class="card-grid card-grid--2" style="max-width:900px; margin:0 auto;">
+      <div class="card" style="border-left:4px solid var(--color-primary);">
+        <h3>What It Is</h3>
+        <p>The <strong>Data Process Atlas</strong> is a thinking scaffold — not instructions, not a tutorial. It maps the fundamental questions that arise in any project involving data: how data is created, read, updated, deleted, transformed, validated, routed, and secured.</p>
+        <p style="font-size:.9rem; color:var(--color-text-muted);">The questions don’t change when tools change — only the answers do. That’s what makes it platform-agnostic.</p>
       </div>
+      <div class="card" style="border-left:4px solid var(--color-accent);">
+        <h3>How It Works with Agents</h3>
+        <p>When an agent encounters the Atlas in <code>elcs/references/</code>, ELCS’s <strong>routing table</strong> tells it which sections to consult based on the current stage — not the whole 56KB document. The Atlas informs <em>what to think about</em>; ELCS governs <em>how to work</em>.</p>
+        <p style="font-size:.9rem; color:var(--color-text-muted);">No Atlas? No problem — ELCS works fully without it. The Atlas is an enhancement, not a requirement.</p>
+      </div>
+    </div>
+
+    <div style="max-width:900px; margin:2rem auto 0;">
+      <h3 style="text-align:center; margin-bottom:1.5rem;">Four Layers of Domain Knowledge</h3>
+      <div class="card-grid card-grid--4">
+        <div class="card" style="text-align:center; border-top:3px solid #3b82f6;">
+          <span class="card__icon">🔵</span>
+          <h3 style="font-size:1rem;">Layer 1</h3>
+          <p style="font-size:.85rem; font-weight:600; color:var(--color-text);">Conceptual</p>
+          <p style="font-size:.85rem;">Operations (CRUD+), Processes (transform, validate, route, orchestrate), Constraints (access, schema, capacity, regulatory)</p>
+        </div>
+        <div class="card" style="text-align:center; border-top:3px solid #6366f1;">
+          <span class="card__icon">🟣</span>
+          <h3 style="font-size:1rem;">Layer 2</h3>
+          <p style="font-size:.85rem; font-weight:600; color:var(--color-text);">Patterns</p>
+          <p style="font-size:.85rem;">Data flow, state management, integration, error handling, caching, auth, multi-tenancy, migration</p>
+        </div>
+        <div class="card" style="text-align:center; border-top:3px solid #ef4444;">
+          <span class="card__icon">🔴</span>
+          <h3 style="font-size:1rem;">Layer 3</h3>
+          <p style="font-size:.85rem; font-weight:600; color:var(--color-text);">Security</p>
+          <p style="font-size:.85rem;">Auth, data protection, CORS, file uploads, API security, secrets, environment, production readiness</p>
+        </div>
+        <div class="card" style="text-align:center; border-top:3px solid #14b8a6;">
+          <span class="card__icon">🟢</span>
+          <h3 style="font-size:1rem;">Layer 4</h3>
+          <p style="font-size:.85rem; font-weight:600; color:var(--color-text);">Lifecycle</p>
+          <p style="font-size:.85rem;">Discovery, prototyping, integration, hardening, deployment, operations — with decision junctures at each phase</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="atlas.html" class="btn btn--primary">Explore the Full Atlas →</a>
     </div>
   </div>
 </section>
