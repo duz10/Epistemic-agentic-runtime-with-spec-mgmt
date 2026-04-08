@@ -252,4 +252,17 @@ Gradual change in preferences without explicit justification. Detected via diff 
 
 ---
 
-*Last updated: Stage 1 completion*
+---
+
+## Reference Documents
+
+### Data Process Atlas
+A platform-agnostic domain knowledge reference covering the fundamental questions of data operations (CRUD+), processes, constraints, architecture patterns, security, and project lifecycle. Lives in `elcs/references/DATA_PROCESS_ATLAS.md`. The Atlas is **consultative** (what to think about) while ELCS is **procedural** (how to work). See the Reference Atlas routing table in PROTOCOL.md for stage-gated navigation.
+
+### Reference Atlas
+The section in PROTOCOL.md that provides a **routing table** mapping ELCS stages to specific Data Process Atlas sections. Prevents agents from reading the entire 56KB document by directing them to only the relevant sections for their current stage.
+
+### references/ Directory
+The `elcs/references/` directory stores domain knowledge documents that enhance agent decision-making. Currently contains the Data Process Atlas. Designed to be extensible for future reference documents. The install script copies reference documents from the ELCS template automatically.
+
+*Last updated: v1.1.0 — Atlas integration*

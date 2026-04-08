@@ -1,0 +1,26 @@
+{
+  "token_id": "WT-DOCS-003",
+  "type": "subtask",
+  "summary": "Fix LOW: getting-started.html install description, add references/Atlas awareness to HTML docs",
+  "created_by": { "agent": "planning-agent-ac3841" },
+  "claimed_by": { "agent": "code-puppy-1664bd" },
+  "spec_ref": "Documentation audit remediation — Phase 3 (LOW priority)",
+  "priority": 0.7,
+  "status": "done",
+  "created_at": "2025-07-09T00:00:00Z",
+  "claimed_at": "2025-07-09T00:00:00Z",
+  "completed_at": "2025-07-09T00:00:00Z",
+  "resolution": {
+    "changes": [
+      "L1: Updated getting-started.html install script description to reflect elcs/ directory creation and Data Process Atlas",
+      "L2: Added elcs/references/ domain knowledge bullet to Option B agent list in getting-started.html",
+      "L3: Added Reference Atlas card to Core Primitives grid in concepts.html (grid changed from 3-col to 4-col)"
+    ],
+    "files_modified": [
+      "docs/getting-started.html",
+      "docs/concepts.html"
+    ]
+  },
+  "dependencies": ["WT-DOCS-001"],
+  "blocks": []
+}

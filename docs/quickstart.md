@@ -20,6 +20,7 @@ Great! Here's what you need to know:
 | `elcs/state/` | What we believe (assumptions, evidence, constraints) |
 | `elcs/spec/` | What we're building (goals, success criteria) |
 | `elcs/tokens/open/` | What needs to be done next |
+| `elcs/references/` | Domain knowledge (Data Process Atlas, if available) |
 
 ---
 
@@ -136,6 +137,7 @@ A: You can, but you'll miss risks. At minimum, apply Safety and Product lenses.
 ## 📖 Want More?
 
 - Full protocol: `elcs/PROTOCOL.md`
+- Domain knowledge: `elcs/references/DATA_PROCESS_ATLAS.md` (if available)
 - Complete glossary: Check project `docs/glossary.md`
 - Schema definitions: Check project `protocol/schemas/`
 

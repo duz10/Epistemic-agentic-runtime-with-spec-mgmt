@@ -126,13 +126,14 @@ git clone https://github.com/duz10/Epistemic-agentic-runtime-with-spec-mgmt.git
 
 **What the script does:**
 - Copies bootstrap files (CLAUDE.md, AGENTS.md, .cursorrules, etc.)
-- Adds protocol reference files to `.elcs-ref/`
-- Does NOT create `elcs/` folder yet (the agent does that)
+- Creates `elcs/` directory with protocol files (PROTOCOL.md, QUICKSTART.md)
+- Copies reference documents (Data Process Atlas) to `elcs/references/`
+- Creates initial state files for agent population
 
 **What happens next:**
 1. Open your project in your AI agent
 2. The agent reads the bootstrap file
-3. It scans your codebase and creates `elcs/` with inferred state
+3. It scans your codebase and populates the ELCS state files
 4. You review and confirm, then continue working!
 
 **No restructuring required** — ELCS lives in its own folder and doesn't touch your existing code.
@@ -270,6 +271,7 @@ Telemetry is the microscope, not the map. Use it when you need to dig into HOW s
 | [VALIDATION](docs/VALIDATION.md) | Framework validation report (GroceryBrain) |
 | [QUICKSTART](template/elcs/QUICKSTART.md) | 5-minute adoption guide |
 | [PROTOCOL](template/elcs/PROTOCOL.md) | Full agent operating instructions |
+| [Data Process Atlas](template/elcs/references/DATA_PROCESS_ATLAS.md) | Domain knowledge for data operations & architecture |
 | [TELEMETRY](docs/TELEMETRY.md) | Telemetry plugin setup & usage |
 | [Glossary](docs/glossary.md) | 41 ELCS terms defined |
 | [Lens Guide](protocol/lenses/README.md) | How to apply the 7 lenses |

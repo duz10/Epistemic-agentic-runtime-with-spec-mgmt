@@ -251,14 +251,17 @@ When adopting ELCS into an existing project:
 - Identify: language, framework, project type
 - Note: existing structure, conventions, goals
 
-### 1.5 Check for Protocol Reference
+### 1.5 Check for Existing ELCS Setup
 
-If `.elcs-ref/` folder exists (created by install script):
-- Read `.elcs-ref/PROTOCOL.md` for full protocol
-- Read `.elcs-ref/QUICKSTART.md` for quick reference
-- Use these to guide your setup
+If `elcs/` folder already exists (created by install script):
+- Read `elcs/PROTOCOL.md` for full protocol
+- Read `elcs/QUICKSTART.md` for quick reference
+- Check `elcs/state/current.json` — if `"status": "awaiting_agent_scan"`, proceed to Step 3 (populate state from project scan)
+- Check `elcs/references/` for Data Process Atlas and other domain knowledge
+- **Skip Step 2** — structure already exists
 
-If `.elcs-ref/` doesn't exist:
+If `elcs/` doesn't exist:
+- Proceed to Step 2 below to create the structure
 - Fetch protocol from GitHub or ask user for guidance
 
 ### 2. Create ELCS Structure
