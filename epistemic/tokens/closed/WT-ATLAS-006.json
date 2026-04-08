@@ -1,0 +1,18 @@
+{
+  "token_id": "WT-ATLAS-006",
+  "type": "subtask",
+  "summary": "Fix review findings: add references/ to PROTOCOL.md directory trees, add -Recurse to install.ps1",
+  "created_by": {
+    "agent": "planning-agent-ac3841"
+  },
+  "spec_ref": "Code review remediation for Atlas integration",
+  "priority": 0.9,
+  "status": "closed",
+  "claimed_by": "code-puppy-ad0f42",
+  "claimed_at": "2025-07-09T00:00:00Z",
+  "completed_at": "2025-07-09T00:00:00Z",
+  "created_at": "2025-07-09T00:00:00Z",
+  "resolution": "All 3 review findings fixed: (M1) Added references/ to template/elcs/PROTOCOL.md directory tree, (M2) Added references/ to docs/protocol.md directory tree, (L1) Added -Recurse to Copy-Item in install.ps1 for cp -r parity",
+  "dependencies": ["WT-ATLAS-002", "WT-ATLAS-005"],
+  "blocks": []
+}

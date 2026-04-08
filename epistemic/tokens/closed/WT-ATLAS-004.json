@@ -1,0 +1,28 @@
+{
+  "token_id": "WT-ATLAS-004",
+  "type": "subtask",
+  "summary": "Add Atlas cross-references to protocol/lenses/README.md for 4 relevant lenses",
+  "created_by": {
+    "agent": "planning-agent-ac3841"
+  },
+  "spec_ref": "Integration Point 3: Lens cross-references to Atlas sections",
+  "required_outputs": [
+    {
+      "kind": "artifact",
+      "description": "Updated lenses README with Atlas cross-refs for Systems Engineering, Safety/Risk, Topology, Product/UX"
+    }
+  ],
+  "priority": 0.85,
+  "status": "done",
+  "claimed_by": "code-puppy",
+  "claimed_at": "2025-07-09T20:00:00Z",
+  "completed_at": "2025-07-09T20:00:00Z",
+  "created_at": "2025-07-09T00:00:00Z",
+  "resolution": "Added Atlas Reference subsections to 4 lenses in protocol/lenses/README.md: Lens 3 (Safety/Risk) with Security, Operations Pitfalls, Error Handling, Constraints refs; Lens 4 (Topology) with Connections Map, State Management, Multi-tenancy, Data Flow refs; Lens 6 (Systems Engineering) with Architecture, Integration, Platform Assessment, Environment refs; Lens 7 (Product/UX) with User-Facing Implications, Lifecycle Confidence Checks, Decision Protocol refs. Lenses 1, 2, 5 intentionally untouched.",
+  "dependencies": [
+    "WT-ATLAS-001"
+  ],
+  "blocks": [
+    "WT-ATLAS-005"
+  ]
+}

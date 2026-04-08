@@ -38,6 +38,7 @@ myproject/
     ├── QUICKSTART.md   # 5-minute guide
     ├── state/          # Epistemic state
     ├── spec/           # Project spec
+    ├── references/     # Domain knowledge (Data Process Atlas)
     ├── tokens/         # Work coordination
     ├── journal/        # Checkpoints
     └── ...

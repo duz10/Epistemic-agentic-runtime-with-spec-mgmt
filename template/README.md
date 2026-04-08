@@ -28,6 +28,7 @@ elcs/                    ← All ELCS artifacts live here
 ├── QUICKSTART.md        ← 5-minute guide
 ├── state/               ← What we believe (epistemic state)
 ├── spec/                ← What we're building (goals)
+├── references/          ← Domain knowledge (Data Process Atlas)
 ├── lenses/              ← Perspective evaluations
 ├── tokens/              ← Work items (open/claimed/closed)
 ├── journal/             ← Progress checkpoints

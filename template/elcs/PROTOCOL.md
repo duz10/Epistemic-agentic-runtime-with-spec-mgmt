@@ -107,6 +107,8 @@ elcs/
 │
 ├── archives/            ← Full state bundles (on demand)
 │
+├── references/          ← Domain knowledge (Data Process Atlas, etc.)
+│
 ├── telemetry/           ← Micro-state logs (optional, see Telemetry section)
 │
 └── .gates/              ← Stage completion records
@@ -240,6 +242,53 @@ After each milestone:
 ```
 
 Write journal checkpoint after each major phase.
+
+---
+
+## 📚 Reference Atlas
+
+**The Data Process Atlas is a platform-agnostic thinking scaffold that enhances ELCS decision-making.**
+
+If `elcs/references/DATA_PROCESS_ATLAS.md` exists in this project, it provides comprehensive domain knowledge for data operations, processes, constraints, architecture patterns, security, and project lifecycle phases.
+
+> **The Atlas is consultative, not prescriptive.** PROTOCOL.md governs *how* you work. The Atlas informs *what to consider* while working. Read it selectively — consult the relevant sections at the relevant stage, not the entire document every session.
+
+### When to Consult the Atlas
+
+Use this routing table to determine which Atlas sections are relevant at each ELCS stage:
+
+| ELCS Stage | Atlas Sections to Consult | Purpose |
+|-----------|--------------------------|---------|
+| **Stage 1**: Epistemic State | Operations, Processes, Constraints, Analysis Guide | Surface comprehensive assumptions and constraints using the Atlas's question sets and constraint taxonomy |
+| **Stage 2**: Lens Evaluation | Architecture Patterns, Connections Map | Feed Systems Engineering, Topology, and Safety lens evaluations with pattern knowledge |
+| **Stage 3**: Gap Analysis | Security MUST items, Platform Assessment | Identify non-negotiable security gaps and platform capability gaps |
+| **Stage 4**: Goal Emergence | Decision Protocol, Lifecycle Phase 1 | Structure technology and data layer decisions using the Atlas's 6-step decision framework |
+| **Stage 5**: Spec & MVP | Lifecycle Phases 2-3, Architecture Patterns | Define concrete deliverables, testing requirements, and architectural approach per phase |
+| **Stage 6**: Readiness Check | Security & Production Readiness, Lifecycle Phase 5 | Pre-launch audit using the Atlas's MUST/SHOULD checklists |
+| **Stage 7+**: Build & Iterate | Relevant Operations/Processes per task, Connections Map | Ongoing reference during implementation; trace issues across connected concerns |
+
+### How to Use the Atlas
+
+1. **Check stage** — Identify your current ELCS stage
+2. **Consult routing table** — Read only the listed Atlas sections
+3. **Apply to current work** — Use the Atlas's questions, pitfalls, and patterns to inform your Ralph Loop
+4. **Document findings** — Surface new assumptions, constraints, or risks into ELCS state artifacts
+5. **Cross-reference** — The Atlas's "See Also" links and Connections Map reveal related concerns you might miss
+
+### Atlas Integration with Lenses
+
+When applying lenses, the Atlas provides domain-specific depth:
+
+| Lens | Atlas Enhancement |
+|------|------------------|
+| **Systems Engineering** 🔧 | Architecture Patterns, Integration Patterns, Data Flow Patterns, Migration/Evolution |
+| **Safety/Risk** ⚠️ | Security MUST items, Error Handling Patterns, Operations Pitfalls, Production Readiness |
+| **Topology** 🔗 | Connections Map for dependency tracing, State Management Patterns, Multi-tenancy |
+| **Product/UX** 🎨 | User-Facing Implications (throughout Operations and Processes sections) |
+
+### If No Atlas Exists
+
+If `elcs/references/DATA_PROCESS_ATLAS.md` is not present, skip this section entirely. The Atlas is an enhancement, not a requirement. ELCS functions fully without it.
 
 ---
 

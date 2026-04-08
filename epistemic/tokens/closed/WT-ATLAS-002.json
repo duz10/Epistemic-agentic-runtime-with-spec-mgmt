@@ -1,0 +1,28 @@
+{
+  "token_id": "WT-ATLAS-002",
+  "type": "subtask",
+  "summary": "Add Reference Atlas section to template/elcs/PROTOCOL.md with stage-to-atlas routing table",
+  "created_by": {
+    "agent": "planning-agent-ac3841"
+  },
+  "spec_ref": "Integration Point 1: PROTOCOL.md routing table for stage-appropriate Atlas consultation",
+  "required_outputs": [
+    {
+      "kind": "artifact",
+      "description": "New '\u00f0\u0178\u201c\u0161 Reference Atlas' section in PROTOCOL.md after Stages, before WorkToken Protocol"
+    }
+  ],
+  "priority": 0.9,
+  "status": "closed",
+  "claimed_by": "code-puppy",
+  "claimed_at": "2026-04-07T19:33:19Z",
+  "completed_at": "2026-04-07T19:33:19Z",
+  "created_at": "2025-07-09T00:00:00Z",
+  "resolution": "Inserted Reference Atlas section into template/elcs/PROTOCOL.md between Stage 7+ and WorkToken Protocol. Includes: stage-to-atlas routing table (7 stages), 5-step usage guide, lens integration matrix (4 lenses), graceful degradation subsection. Proper --- dividers on both sides.",
+  "dependencies": [
+    "WT-ATLAS-001"
+  ],
+  "blocks": [
+    "WT-ATLAS-005"
+  ]
+}

@@ -119,6 +119,7 @@ mkdir -p "$TARGET_DIR/elcs/lenses"
 mkdir -p "$TARGET_DIR/elcs/journal"
 mkdir -p "$TARGET_DIR/elcs/.gates"
 mkdir -p "$TARGET_DIR/elcs/archives"
+mkdir -p "$TARGET_DIR/elcs/references"
 
 echo "  ✓ elcs/ folder structure created"
 
@@ -133,6 +134,12 @@ echo "  ✓ PROTOCOL.md"
 
 cp "$TEMPLATE_DIR/elcs/QUICKSTART.md" "$TARGET_DIR/elcs/"
 echo "  ✓ QUICKSTART.md"
+
+# Copy reference documents if they exist in template
+if [ -d "$TEMPLATE_DIR/elcs/references" ]; then
+    cp -r "$TEMPLATE_DIR/elcs/references/"* "$TARGET_DIR/elcs/references/" 2>/dev/null || true
+    echo "  ✓ Reference documents (Data Process Atlas)"
+fi
 
 # ============================================================
 # STEP 4: Create initial state files (for agent to populate)
@@ -261,6 +268,7 @@ echo "  📁 elcs/state/            - Epistemic state (beliefs, evidence)"
 echo "  📁 elcs/spec/             - Project specification"
 echo "  📁 elcs/tokens/           - Work coordination"
 echo "  📁 elcs/journal/          - Progress checkpoints"
+echo "  📁 elcs/references/       - Domain knowledge references"
 echo "  📄 CLAUDE.md / AGENTS.md  - Agent bootstrap files"
 echo ""
 echo -e "${CYAN}Next steps:${NC}"

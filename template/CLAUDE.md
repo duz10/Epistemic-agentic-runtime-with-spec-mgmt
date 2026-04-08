@@ -33,6 +33,7 @@ Look for and read:
 - `package.json` / `pyproject.toml` / `Cargo.toml` — Project metadata
 - `src/` or main code directories — What's already built
 - Any existing documentation
+- `elcs/references/DATA_PROCESS_ATLAS.md` (if exists) — Use the Analysis Guide and Constraints sections as a scanning scaffold to surface comprehensive assumptions
 
 ### Populate State Files
 
@@ -118,6 +119,7 @@ You are in an **Epistemic Light-Cone Swarm (ELCS)** project.
 3. Check `elcs/tokens/open/` — pending work
 4. Check `elcs/.gates/` — completed stages
 5. Read latest `elcs/journal/checkpoint-*.md` — recent context
+6. **Check** `elcs/references/` — if a Data Process Atlas exists, note it for stage-appropriate consultation (see PROTOCOL.md § Reference Atlas for the routing table)
 
 **If user jumps straight to "build X":**
 > "This is an ELCS project. Let me check the project state first."
@@ -270,6 +272,8 @@ elcs/
 │   └── evidence.md       # Empty initially
 ├── spec/
 │   └── spec.json         # Ask user for goals, or infer from README
+├── references/            # Reference documents (Atlas, etc.)
+│   └── DATA_PROCESS_ATLAS.md  # If available from template
 ├── tokens/
 │   ├── open/             # Empty initially
 │   └── closed/           # Empty

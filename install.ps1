@@ -113,6 +113,7 @@ $ElcsDirs = @(
     "elcs\tokens\open",
     "elcs\tokens\closed",
     "elcs\lenses",
+    "elcs\references",
     "elcs\journal",
     "elcs\.gates",
     "elcs\archives"
@@ -136,6 +137,14 @@ Write-Host "  + PROTOCOL.md"
 
 Copy-Item (Join-Path $TemplateDir "elcs\QUICKSTART.md") (Join-Path $TargetDir "elcs") -Force
 Write-Host "  + QUICKSTART.md"
+
+# Copy reference documents if they exist in template
+$RefsSource = Join-Path $TemplateDir "elcs\references"
+$RefsDest = Join-Path $TargetDir "elcs\references"
+if (Test-Path $RefsSource) {
+    Copy-Item "$RefsSource\*" $RefsDest -Force -Recurse -ErrorAction SilentlyContinue
+    Write-Host "  + Reference documents (Data Process Atlas)"
+}
 
 # ============================================================
 # STEP 4: Create initial state files (for agent to populate)
@@ -261,6 +270,7 @@ Write-Host "  elcs/state/            - Epistemic state (beliefs, evidence)"
 Write-Host "  elcs/spec/             - Project specification"
 Write-Host "  elcs/tokens/           - Work coordination"
 Write-Host "  elcs/journal/          - Progress checkpoints"
+Write-Host "  elcs/references/       - Domain knowledge references"
 Write-Host "  CLAUDE.md / AGENTS.md  - Agent bootstrap files"
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan

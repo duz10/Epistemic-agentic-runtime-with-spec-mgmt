@@ -202,6 +202,13 @@ Every lens produces this structure:
 **Approval**: Conditional — requires idempotency implementation
 ```
 
+### Atlas Reference
+When the Data Process Atlas (`elcs/references/DATA_PROCESS_ATLAS.md`) is available, enhance this lens evaluation with:
+- **Security & Production Readiness** — MUST/SHOULD checklists for authentication, data protection, CORS, file uploads, API security, secrets management, environment management, error handling, and dependency security
+- **Operations Pitfalls** — Known failure modes for Create, Read, Update, Delete operations (e.g., missing idempotency, cascading deletes, concurrent update conflicts)
+- **Error Handling Patterns** — Retry with backoff, circuit breaker, dead letter queue, graceful degradation
+- **Constraints** — Capacity limits, consistency invariants, and regulatory requirements that create failure boundaries
+
 ---
 
 ## Lens 4: Topology 🔗
@@ -250,6 +257,13 @@ If User DB fails, both Auth and Payment fail simultaneously.
 
 **Recommendation**: Add caching and circuit breakers.
 ```
+
+### Atlas Reference
+When the Data Process Atlas (`elcs/references/DATA_PROCESS_ATLAS.md`) is available, enhance this lens evaluation with:
+- **Connections Map** — Comprehensive mapping of how Operations, Processes, and Constraints interrelate (e.g., "a sync failure may be an integration surface constraint")
+- **State Management Patterns** — Status field, state machine, event sourcing — structural choices that affect dependency graphs
+- **Multi-tenancy Patterns** — Isolation approaches (shared schema, separate schema, separate DB) that create different topological structures
+- **Data Flow Patterns** — Request-response, event-driven, pipeline, API gateway — each creates different dependency topology
 
 ---
 
@@ -345,6 +359,13 @@ What if a meeting spans midnight? → Need date handling
 **Approval**: ✅ Approved
 ```
 
+### Atlas Reference
+When the Data Process Atlas (`elcs/references/DATA_PROCESS_ATLAS.md`) is available, enhance this lens evaluation with:
+- **Architecture Patterns** — Data flow, state management, integration, caching, data access, authentication flow, and migration/evolution patterns with trade-offs and security implications
+- **Integration Patterns** — Direct API, webhook, message queue, shared database, file exchange — each with buildability and operational considerations
+- **Platform Assessment** — 9-dimension evaluation framework (Data Model, Operations, Automation, Permissions, Integration, Environment, Portability, Developer Experience, Operational Model)
+- **Environment & Infrastructure Constraint** — Compute model, scaling, networking, deployment, cost model considerations
+
 ---
 
 ## Lens 7: Product/UX 🎨
@@ -392,6 +413,12 @@ What if a meeting spans midnight? → Need date handling
 
 **Approval**: ✅ Approved for MVP scope
 ```
+
+### Atlas Reference
+When the Data Process Atlas (`elcs/references/DATA_PROCESS_ATLAS.md`) is available, enhance this lens evaluation with:
+- **User-Facing Implications** — Found throughout the Operations section (Create, Read, Update, Delete) and Processes section (Validation, Orchestration, Notification). Each includes specific UX considerations like "What does the user see while creation is processing?" and "Can users control notification frequency?"
+- **Lifecycle Phase Confidence Checks** — Questions like "If I showed this to a user right now, what would confuse them?" that directly feed UX evaluation
+- **Decision Protocol** — Framework for evaluating build vs. buy vs. connect from a user value perspective
 
 ---
 

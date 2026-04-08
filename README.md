@@ -223,6 +223,7 @@ my-project/
 │   ├── QUICKSTART.md   # 5-minute guide
 │   ├── state/          # Epistemic state (beliefs, evidence)
 │   ├── spec/           # Project specification  
+│   ├── references/     # Domain knowledge (Data Process Atlas)
 │   ├── tokens/         # Work coordination
 │   ├── lenses/         # Lens evaluations
 │   ├── journal/        # Progress checkpoints
